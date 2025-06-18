@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration | Windsor Essex Swim Team</title>
+    <meta name="description" content="Register for Windsor Essex Swim Team programs. Join our competitive swimming programs for all ages and skill levels.">
+    <meta name="theme-color" content="#fd0000">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/main.css" rel="stylesheet">
+    
+    <!-- Custom styles for modal fixes -->
+    <style>
+        /* Navbar */
+        .navbar {
+            background: rgba(0, 0, 0, 0.45) !important; /* Semi-transparent background always */
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            transition: all 0.4s ease !important;
+            border-bottom: 1px solid rgba(253, 0, 0, 0.3) !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2) !important;
+            padding: 1rem 0 !important;
+            position: fixed !important;
+            top: 0 !important;
+            width: 100% !important;
+            z-index: 1000 !important;
+        }
+        
+        /* Reduce spacing between navigation items */
+        .navbar-nav .nav-item {
+            padding-left: 0.25rem;
+            padding-right: 0.25rem;
+        }
+        
+        .navbar-nav .nav-link {
+            padding-left: 0.5rem !important;
+            padding-right: 0.5rem !important;
+        }
+        
+        /* Move navbar to the right */
+        .navbar-nav {
+            margin-left: auto;
+            padding-left: 2rem;
+        }
+        
+        /* Adjust container width for better spacing */
+        .navbar > .container {
+            max-width: 95%;
+        }
+        
+        @supports not (backdrop-filter: blur(20px)) {
+            /* Fallback for browsers that don't support backdrop-filter */
+            .navbar {
+                background: rgba(0, 0, 0, 0.75) !important;
+            }
+        }
+        
+        @media (max-width: 1150px) {
+            .navbar-brand {
+                font-size: 1.6rem;
+                margin-right: 2rem !important;
+            }
+            
+            /* Adjust nav spacing for medium screens */
+            .navbar-nav .nav-item {
+                padding-left: 0.2rem;
+                padding-right: 0.2rem;
+            }
+            
+            .navbar-nav .nav-link {
+                padding-left: 0.4rem !important;
+                padding-right: 0.4rem !important;
+                font-size: 0.9rem;
+            }
+            
+            /* Adjust right margin for medium screens */
+            .navbar-nav {
+                padding-left: 1.5rem;
+            }
+            
+            .navbar > .container {
+                max-width: 98%;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .navbar-brand {
+                margin-right: 1rem !important;
+            }
+            
+            /* Keep navbar items aligned properly on mobile */
+            .navbar-nav {
+                padding-left: 0;
+                text-align: right;
+            }
+            
+            .navbar > .container {
+                max-width: 100%;
+                padding-right: 1rem;
+            }
+        }
+        
+        /* Dropdown styles */
+        .dropdown-menu {
+            background-color: rgba(0, 0, 0, 0.9) !important;
+            border: 1px solid rgba(253, 0, 0, 0.2) !important;
+            padding: 0.5rem 0 !important;
+            border-radius: 10px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+            margin-top: 0.5rem !important;
+        }
+
+        .dropdown-item {
+            color: rgba(255, 255, 255, 0.8) !important;
+            padding: 0.6rem 1.5rem !important;
+            font-weight: 600 !important;
+            transition: all 0.2s ease !important;
+        }
+
+        .dropdown-item:hover, .dropdown-item:focus {
+            background-color: rgba(253, 0, 0, 0.1) !important;
+            color: var(--primary) !important;
+            transform: translateX(5px);
+        }
+
+        .dropdown-divider {
+            border-top: 1px solid rgba(253, 0, 0, 0.1) !important;
+            margin: 0.3rem 0 !important;
+        }
+
+        /* Fix modal positioning and z-index issues */
+        .modal {
+            z-index: 10050 !important;
+        }
+        
+        .modal-backdrop {
+            z-index: 10040 !important;
+            opacity: 0.8 !important;
+        }
+        
+        .modal-dialog {
+            margin: 1.75rem auto;
+            max-width: 95%;
+            width: 1000px;
+            display: flex;
+            align-items: center;
+            min-height: calc(100% - 3.5rem);
+            pointer-events: all !important;
+        }
+        
+        @media (min-width: 992px) {
+            .modal-dialog {
+                max-width: 90%;
+                width: 1100px;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .modal-dialog {
+                max-width: 85%;
+                width: 1200px;
+            }
+        }
+        
+        /* Hide original Bootstrap close button */
+        .modal .btn-close {
+            display: none !important;
+        }
+        
+        /* Style for modal shadow */
+        .modal-content {
+            width: 100%;
+            box-shadow: 0 0 30px rgba(253, 0, 0, 0.3);
+            border: 1px solid rgba(253, 0, 0, 0.2);
+        }
+        
+        /* Add custom close class for easier selection */
+        .custom-modal-close {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 1.25rem;
+            transition: all 0.2s ease;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+        }
+        
+        .custom-modal-close:hover {
+            background-color: rgba(253, 0, 0, 0.7);
+            transform: scale(1.1);
+        }
+
+        /* Registration form specific styles */
+        .form-section {
+            background-color: #111111;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(253, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section h3 {
+            color: #fd0000;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(253, 0, 0, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .form-label {
+            color: #e0e0e0;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .form-control, .form-select {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 8px;
+            padding: 12px 15px;
+        }
+
+        .form-control:focus, .form-select:focus {
+            background-color: #222;
+            border-color: #fd0000;
+            box-shadow: 0 0 0 0.2rem rgba(253, 0, 0, 0.25);
+            color: #fff;
+        }
+
+        .form-text {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .required-field::after {
+            content: "*";
+            color: #fd0000;
+            margin-left: 4px;
+        }
+
+        .form-check-input {
+            width: 20px;
+            height: 20px;
+            margin-top: 0.2em;
+        }
+
+        .form-check-input:checked {
+            background-color: #fd0000;
+            border-color: #fd0000;
+        }
+
+        .form-check-label {
+            margin-left: 10px;
+            color: #e0e0e0;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #fd0000 0%, #b30000 100%);
+            border: none;
+            font-weight: 700;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(253, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border-radius: 30px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(253, 0, 0, 0.4);
+            background: linear-gradient(135deg, #ff1a1a 0%, #cc0000 100%);
+        }
+
+        .info-card {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(253, 0, 0, 0.2);
+            height: 100%;
+        }
+
+        .info-card h4 {
+            color: #fd0000;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .info-card p {
+            color: #e0e0e0;
+            margin-bottom: 15px;
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(253, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 2px solid rgba(253, 0, 0, 0.3);
+            color: #fd0000;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Transition -->
+    <div class="page-transition active">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html" style="margin-right: 3rem;">
+                <img src="Images/LOGO.webp" alt="WEST Logo" height="40" class="me-2">
+                <span class="fw-bold">WEST</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Resources.html">NEWS</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Meets.html" id="competitionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            COMPETITIONS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="competitionsDropdown">
+                            <li><a class="dropdown-item" href="Meets.html">All Meets</a></li>
+                            <li><a class="dropdown-item" href="Meets.html#heat-sheets">Heat Sheets</a></li>
+                            <li><a class="dropdown-item" href="Meets.html#psych-sheets">Psych Sheets</a></li>
+                            <li><a class="dropdown-item" href="Meets.html#registration">Meet Registration</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Programs.html" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            PROGRAMS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="programsDropdown">
+                            <li><a class="dropdown-item" href="Programs.html#barracudas">Barracudas</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#otters">Otters</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#stroke">Learn to Swim</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#performance">Competitive</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#additional">Masters</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#private-lessons">Private Lessons</a></li>
+                            <li><a class="dropdown-item" href="Programs.html">All Programs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Records.html" id="achievementsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            ACHIEVEMENTS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="achievementsDropdown">
+                            <li><a class="dropdown-item" href="Club-records.html">Club Records</a></li>
+                            <li><a class="dropdown-item" href="Provincial-records.html">Provincial Qualifiers</a></li>
+                            <li><a class="dropdown-item" href="hall-of-fame.html">Hall of Fame</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Resources.html" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            RESOURCES
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
+                            <li><a class="dropdown-item" href="Resources.html#latest-news">Latest News</a></li>
+                            <li><a class="dropdown-item" href="Resources.html#documents">Documents</a></li>
+                            <li><a class="dropdown-item" href="official.html">Officials</a></li>
+                            <li><a class="dropdown-item" href="Resources.html">All Resources</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="team.html" id="teamDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            TEAM & CLUB
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="teamDropdown">
+                            <li><a class="dropdown-item" href="About.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="Coaches.html">Coaches</a></li>
+                            <li><a class="dropdown-item" href="team.html">Team Structure</a></li>
+                            <li><a class="dropdown-item" href="Facility.html">Facilities</a></li>
+                            <li><a class="dropdown-item" href="Registration.html">Registration</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact.html">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Form Section -->
+    <section class="section" style="margin-top: 120px;" data-title="Registration Form">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8">
+                    <form id="registration-form" class="needs-validation" novalidate>
+                        <!-- Swimmer Information -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-user me-2"></i>Swimmer Information</h3>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="firstName" class="form-label required-field">First Name</label>
+                                    <input type="text" class="form-control" id="firstName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lastName" class="form-label required-field">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="birthdate" class="form-label required-field">Date of Birth</label>
+                                    <input type="date" class="form-control" id="birthdate" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="gender" class="form-label required-field">Gender</label>
+                                    <select class="form-select" id="gender" required>
+                                        <option value="" selected disabled>Select gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                        <option value="prefer-not">Prefer not to say</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label required-field">Email Address</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label required-field">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="address" class="form-label required-field">Address</label>
+                                    <input type="text" class="form-control" id="address" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="city" class="form-label required-field">City</label>
+                                    <input type="text" class="form-control" id="city" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="province" class="form-label required-field">Province</label>
+                                    <select class="form-select" id="province" required>
+                                        <option value="" selected disabled>Select province</option>
+                                        <option value="AB">Alberta</option>
+                                        <option value="BC">British Columbia</option>
+                                        <option value="MB">Manitoba</option>
+                                        <option value="NB">New Brunswick</option>
+                                        <option value="NL">Newfoundland and Labrador</option>
+                                        <option value="NS">Nova Scotia</option>
+                                        <option value="ON">Ontario</option>
+                                        <option value="PE">Prince Edward Island</option>
+                                        <option value="QC">Quebec</option>
+                                        <option value="SK">Saskatchewan</option>
+                                        <option value="NT">Northwest Territories</option>
+                                        <option value="NU">Nunavut</option>
+                                        <option value="YT">Yukon</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="postal" class="form-label required-field">Postal Code</label>
+                                    <input type="text" class="form-control" id="postal" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Program Selection -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-swimming-pool me-2"></i>Program Selection</h3>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="program" class="form-label required-field">Select Program</label>
+                                    <select class="form-select" id="program" required>
+                                        <option value="" selected disabled>Choose a program</option>
+                                        <optgroup label="Performance Programs">
+                                            <option value="junior-comp">Junior Competitive</option>
+                                            <option value="senior-comp">Senior Competitive</option>
+                                            <option value="elite">Elite Performance</option>
+                                        </optgroup>
+                                        <optgroup label="Stroke Development">
+                                            <option value="learn-to-swim">Learn to Swim</option>
+                                            <option value="stroke-dev">Stroke Development</option>
+                                            <option value="pre-comp">Pre-Competitive</option>
+                                        </optgroup>
+                                        <optgroup label="Additional Programs">
+                                            <option value="masters">Masters Swimming</option>
+                                            <option value="private">Private Lessons</option>
+                                            <option value="summer-camp">Summer Swim Camp</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="experience" class="form-label required-field">Swimming Experience</label>
+                                    <select class="form-select" id="experience" required>
+                                        <option value="" selected disabled>Select experience level</option>
+                                        <option value="beginner">Beginner - Learning basics</option>
+                                        <option value="intermediate">Intermediate - Comfortable swimmer</option>
+                                        <option value="advanced">Advanced - Strong technique</option>
+                                        <option value="competitive">Competitive - Previous team experience</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="medical" class="form-label">Medical Conditions or Allergies</label>
+                                    <textarea class="form-control" id="medical" rows="3" placeholder="Please list any medical conditions, allergies, or special requirements"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Emergency Contact -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-phone-alt me-2"></i>Emergency Contact</h3>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="emergencyName" class="form-label required-field">Contact Name</label>
+                                    <input type="text" class="form-control" id="emergencyName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="emergencyRelation" class="form-label required-field">Relationship</label>
+                                    <input type="text" class="form-control" id="emergencyRelation" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="emergencyPhone" class="form-label required-field">Phone Number</label>
+                                    <input type="tel" class="form-control" id="emergencyPhone" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="emergencyAltPhone" class="form-label">Alternate Phone</label>
+                                    <input type="tel" class="form-control" id="emergencyAltPhone">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Agreements and Waivers -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-file-contract me-2"></i>Agreements & Waivers</h3>
+                            <div class="mb-4">
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="waiver" required>
+                                    <label class="form-check-label" for="waiver">
+                                        I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#waiverModal">liability waiver</a> and release of claims
+                                    </label>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="photoConsent" required>
+                                    <label class="form-check-label" for="photoConsent">
+                                        I consent to the use of photos/videos for team promotional materials
+                                    </label>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="codeConduct" required>
+                                    <label class="form-check-label" for="codeConduct">
+                                        I agree to follow the WEST <a href="#" data-bs-toggle="modal" data-bs-target="#conductModal">code of conduct</a>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="emailConsent">
+                                    <label class="form-check-label" for="emailConsent">
+                                        I would like to receive updates about WEST events and programs
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <p class="text-light mb-4">By submitting this form, you agree to all terms and conditions.</p>
+                                <button type="submit" class="btn btn-primary submit-btn">Submit Registration</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Info Sidebar -->
+                <div class="col-lg-4">
+                    <div class="sticky-top" style="top: 100px;">
+                        <div class="info-card mb-4">
+                            <div class="info-icon">
+                                <i class="fas fa-info"></i>
+                            </div>
+                            <h4>Registration Process</h4>
+                            <p>After submitting your registration form, you will receive a confirmation email within 24-48 hours with details about the next steps, including payment information and orientation schedule.</p>
+                            <p>New swimmers may be required to attend an assessment session to determine the appropriate program placement.</p>
+                        </div>
+
+                        <div class="info-card mb-4">
+                            <div class="info-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <h4>Fees & Payment</h4>
+                            <p>Program fees vary depending on the selected program and duration. Payment can be made via credit card, e-transfer, or check.</p>
+                            <p>A non-refundable registration fee of $50 is required to secure your spot.</p>
+                            <a href="#" class="btn btn-outline-light btn-sm d-block">View Fee Schedule</a>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-question"></i>
+                            </div>
+                            <h4>Questions?</h4>
+                            <p>If you have any questions about the registration process or programs, please contact our registration coordinator:</p>
+                            <p class="mb-2"><i class="fas fa-envelope me-2 text-red"></i>registration@westswimming.com</p>
+                            <p><i class="fas fa-phone me-2 text-red"></i>(519) 564-8972</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <div class="modal fade" id="waiverModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Liability Waiver</h5>
+                    <button type="button" class="custom-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>In consideration of being allowed to participate in the Windsor Essex Swim Team (WEST) programs and related activities, the undersigned acknowledges, appreciates, and agrees that:</p>
+                    <ol>
+                        <li>Swimming involves certain inherent risks, including but not limited to the risk of drowning, injury, illness, permanent disability, and death.</li>
+                        <li>I knowingly and freely assume all such risks, both known and unknown, even if arising from the negligence of WEST or others, and assume full responsibility for my participation.</li>
+                        <li>I willingly agree to comply with the stated and customary terms and conditions for participation. If, however, I observe any unusual significant hazard during my presence or participation, I will remove myself from participation and bring such to the attention of the nearest official immediately.</li>
+                        <li>I, for myself and on behalf of my heirs, assigns, personal representatives and next of kin, hereby release and hold harmless WEST, their officers, officials, agents, and/or employees, other participants, sponsoring agencies, sponsors, advertisers, and if applicable, owners and lessors of premises used to conduct the event, with respect to any and all injury, disability, death, or loss or damage to person or property, whether arising from the negligence of the releasees or otherwise, to the fullest extent permitted by law.</li>
+                    </ol>
+                    <p>I HAVE READ THIS RELEASE OF LIABILITY AND ASSUMPTION OF RISK AGREEMENT, FULLY UNDERSTAND ITS TERMS, UNDERSTAND THAT I HAVE GIVEN UP SUBSTANTIAL RIGHTS BY AGREEING TO IT, AND SIGN IT FREELY AND VOLUNTARILY WITHOUT ANY INDUCEMENT.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="conductModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Code of Conduct</h5>
+                    <button type="button" class="custom-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>All WEST swimmers and families agree to:</p>
+                    <ul>
+                        <li>Demonstrate respect for coaches, officials, volunteers, and fellow swimmers at all times</li>
+                        <li>Promote good sportsmanship and team spirit</li>
+                        <li>Attend practices regularly and arrive on time</li>
+                        <li>Follow all pool rules and safety guidelines</li>
+                        <li>Represent WEST positively at competitions and in the community</li>
+                        <li>Refrain from bullying, harassment, or discriminatory behavior</li>
+                        <li>Respect pool facilities and equipment</li>
+                        <li>Communicate respectfully with coaches regarding concerns</li>
+                        <li>Support team fundraising efforts and volunteer activities</li>
+                        <li>Comply with all Swim Ontario and Swimming Canada codes of conduct</li>
+                    </ul>
+                    <p>Violations of this code may result in disciplinary action, including but not limited to: verbal warning, written warning, temporary suspension from team activities, or dismissal from the team without refund of fees.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="footer-brand">
+                        <i class="fas fa-swimmer"></i>
+                        <span>Windsor Essex Swim Team</span>
+                    </div>
+                    <p class="footer-description">
+                        The most successful aquatic program in Southwestern Ontario, dedicated to developing swimmers of all levels.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://ca.linkedin.com/in/jimmy-lee-3a0a8277" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/west_coachjimmylee/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-title">About</h5>
+                    <ul class="footer-links">
+                        <li><a href="About.html">Philosophy</a></li>
+                        <li><a href="Coaches.html">Coaches</a></li>
+                        <li><a href="team.html">Team Structure</a></li>
+                        <li><a href="Facility.html">Facilities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-title">Programs</h5>
+                    <ul class="footer-links">
+                        <li><a href="Programs.html#performance">Competitive</a></li>
+                        <li><a href="Programs.html#stroke">Learn to Swim</a></li>
+                        <li><a href="Programs.html#additional">Masters</a></li>
+                        <li><a href="Programs.html#private-lessons">Private Lessons</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-title">Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="hall-of-fame.html">Hall of Fame</a></li>
+                        <li><a href="Records.html">Club Records</a></li>
+                        <li><a href="Meets.html">Meets</a></li>
+                        <li><a href="official.html">Officials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Contact</h5>
+                    <ul class="contact-info">
+                        <li class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Windsor, ON
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            windsoressexswimteam@gmail.com
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            (519) 564-8972
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row">
+                <div class="col-md-6">
+                        <p class="mb-md-0">&copy; 2024 Windsor Essex Swim Team. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                        <p class="mb-0">Website by <a href="#" class="text-red">WEST Digital Team</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Form Validation Script -->
+    <script>
+        // Form validation
+        (function() {
+            'use strict';
+            
+            // Fetch all forms we want to apply validation to
+            var forms = document.querySelectorAll('.needs-validation');
+            
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms).forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    } else {
+                        event.preventDefault();
+                        // Show success message
+                        alert('Thank you for your registration! We will contact you shortly.');
+                        // You would normally submit the form to a server here
+                        // form.submit();
+                    }
+                    
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
+    
+    <!-- Merchandise Modal -->
+    <div class="modal fade" id="merchandiseModal" tabindex="-1" aria-labelledby="merchandiseModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="merchandiseModalLabel">WEST Merchandise</h5>
+                    <!-- Custom close button -->
+                    <button type="button" class="custom-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="text-red">WEST Merchandise Store</h3>
+                                
+                                <h4 class="mt-4">WEST Swimming Caps</h4>
+                                <p>🧢 Regular Silicone Swimming Cap - <strong>$20</strong> (HST Included)</p>
+                                <p>🧢 Long Hair Silicone Swimming Cap - <strong>$25</strong> (HST Included)</p>
+                                <p>🧢 Racing Dome Swimming Cap - <strong>$30</strong> (HST Included)</p>
+                                
+                                <p class="mt-4"><strong>Email:</strong> windsoressexswimteam@gmail.com for all WEST orders</p>
+                                
+                                <h4 class="mt-4">Equipment Purchase</h4>
+                                <p>Please visit the <strong>WEST Team Portal</strong> for equipment purchases.</p>
+                                <p><strong>Team Code:</strong> <span class="text-red fw-bold">WEST</span></p>
+                                <p>
+                                    Using this code gives WEST a 5% kickback and you a 2% discount at checkout.  
+                                    Note: currently this only works for online purchases, not in-store.
+                                </p>
+                                <div class="text-center">
+                                    <a href="https://www.lysports.com/team/west/" target="_blank" class="btn btn-primary mt-3">
+                                        Visit Team Portal
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sponsors Modal -->
+    <div class="modal fade" id="sponsorsModal" tabindex="-1" aria-labelledby="sponsorsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="sponsorsModalLabel">Our Valued Sponsors</h5>
+                    <!-- Custom close button -->
+                    <button type="button" class="custom-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <style>
+                        /* Compact styling for sponsor modal */
+                        .sponsor-row {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 5px;
+                        }
+                        
+                        .sponsor-logo {
+                            flex: 0 0 auto;
+                            width: 120px;
+                            margin: 0 3px 10px;
+                            text-align: center;
+                        }
+                        
+                        .sponsor-logo img {
+                            max-height: 60px;
+                            object-fit: contain;
+                        }
+                        
+                        .sponsor-logo p {
+                            font-size: 0.75rem;
+                            margin-top: 5px !important;
+                            margin-bottom: 0;
+                        }
+                        
+                        .modal-body h3 {
+                            font-size: 1.3rem;
+                            margin-bottom: 10px !important;
+                        }
+                        
+                        .modal-body p.mb-3 {
+                            font-size: 0.85rem;
+                            margin-bottom: 8px !important;
+                        }
+                        
+                        /* Reduce overall spacing */
+                        .modal-body .row {
+                            margin-bottom: 10px;
+                        }
+                        
+                        .modal-body {
+                            padding: 0.75rem;
+                        }
+                    </style>
+                    <div class="container-fluid">
+                        <div class="row mb-3">
+                            <div class="col-12 text-center">
+                                <h3 class="text-red mb-3">Silver Sponsors</h3>
+                                <div class="sponsor-row animate-on-scroll fade-in-up">
+                                    <div class="sponsor-logo">
+                                        <img src="Images/Co-operators_Logo_Blue.jpg" alt="Co-operators" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/PwC_fl_60mmh_c.jpg" alt="PwC" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/Sun Hong BBQ & Seafood Restaurant.png" alt="Sun Hong BBQ" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <h3 class="text-red mb-3">Bronze Sponsors</h3>
+                                <div class="sponsor-row animate-on-scroll fade-in-up">
+                                    <div class="sponsor-logo">
+                                        <img src="Images/Local 200 Logo.jpg" alt="Local 200" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/Sko_Rebrand_1.jpg" alt="Sko" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/TekSavvy White Logo (All Coloured BackGrounds EXCEPT Black).jpg" alt="TekSavvy" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/Dr. A. Mulaosmanovic Logo.jpeg" alt="Dr. A. Mulaosmanovic" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <h3 class="text-red mb-3">Our Partners</h3>
+                                <p class="mb-3">WEST collaborates with premier facilities across Windsor-Essex</p>
+                                <div class="sponsor-row animate-on-scroll fade-in-up">
+                                    <div class="sponsor-logo">
+                                        <img src="Images/windsor-aquatic-centre-logo.jpg" alt="Windsor Aquatic Centre" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/university-of-windsor-logo.png" alt="University of Windsor" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/wfcu-credit-union-logo.png" alt="WFCU Centre" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <p class="lead" style="font-size: 0.95rem;">Interested in becoming a sponsor? Contact us at <a href="mailto:windsoressexswimteam@gmail.com" class="text-red">windsoressexswimteam@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Ensure Navbar Glass Effect -->
+    <script>
+        // Apply navbar effect when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            
+            // Apply navbar styling - always transparent
+            function applyNavbarStyle() {
+                // Always apply glass effect
+                navbar.style.background = 'rgba(0, 0, 0, 0.45)';
+                navbar.style.backdropFilter = 'blur(20px)';
+                navbar.style.WebkitBackdropFilter = 'blur(20px)';
+                navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.2)';
+            }
+            
+            // Apply immediately
+            applyNavbarStyle();
+            
+            // Force reapply after a short delay to ensure it takes effect
+            setTimeout(applyNavbarStyle, 500);
+            
+            // Handle page transition
+            const transition = document.querySelector('.page-transition');
+            if (transition) {
+                // Hide transition after page is fully loaded
+                setTimeout(() => {
+                    transition.classList.remove('active');
+                }, 500);
+                
+                // Add transition when leaving page
+                window.addEventListener('beforeunload', () => {
+                    transition.classList.add('active');
+                });
+                
+                // Handle internal links - only if not already handled by main.js
+                if (typeof WESTWebsite === 'undefined' || !WESTWebsite.navigateToPage) {
+                    document.querySelectorAll('a').forEach(link => {
+                        if (link.getAttribute('href') && 
+                            link.getAttribute('href').includes('.html') && 
+                            !link.getAttribute('href').startsWith('#')) {
+                            link.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                const href = this.getAttribute('href');
+                                transition.classList.add('active');
+                                
+                                setTimeout(() => {
+                                    window.location.href = href;
+                                }, 300);
+                            });
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+    
+    <!-- Modal Fix Script - Direct approach -->
+    <script>
+        // Execute on DOM load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simple function to close any modal
+            function closeAnyModal(modalElement) {
+                if (!modalElement) return;
+                
+                // Hide the modal
+                modalElement.classList.remove('show');
+                modalElement.style.display = 'none';
+                
+                // Clean up body classes and styles
+                document.body.classList.remove('modal-open');
+                document.body.style.removeProperty('overflow');
+                document.body.style.removeProperty('padding-right');
+                
+                // Remove backdrops
+                document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+            }
+            
+            // Close modals when clicking close buttons
+            document.querySelectorAll('.custom-modal-close, [data-bs-dismiss="modal"]').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    const modal = this.closest('.modal');
+                    if (modal) closeAnyModal(modal);
+                });
+            });
+            
+            // Close modals when clicking outside
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('modal') && e.target.classList.contains('show')) {
+                    closeAnyModal(e.target);
+                }
+            });
+            
+            // Close modals with ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.modal.show').forEach(closeAnyModal);
+                }
+            });
+            
+            // Cleanup function to run periodically
+            function cleanup() {
+                // If no visible modals, clear backdrops and body classes
+                if (!document.querySelector('.modal.show')) {
+                    document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+                    document.body.classList.remove('modal-open');
+                    document.body.style.removeProperty('overflow');
+                    document.body.style.removeProperty('padding-right');
+                }
+            }
+            
+            // Run cleanup on various events
+            ['click', 'mouseup', 'keydown'].forEach(function(evt) {
+                document.addEventListener(evt, function() {
+                    setTimeout(cleanup, 300);
+                });
+            });
+            
+            // Also run periodically
+            setInterval(cleanup, 2000);
+        });
+    </script>
+</body>
+</html> 

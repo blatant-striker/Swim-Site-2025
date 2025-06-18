@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs | Windsor Essex Swim Team</title>
+    <meta name="description" content="Discover our comprehensive swim programs from beginner to competitive levels at Windsor Essex Swim Team.">
+    <meta name="theme-color" content="#fd0000">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/main.css" rel="stylesheet">
+    
+    <!-- Custom styles for modal fixes -->
+    <style>
+        /* Fix modal positioning and z-index issues */
+        .modal {
+            z-index: 10050 !important;
+        }
+        
+        .modal-backdrop {
+            z-index: 10040 !important;
+            opacity: 0.8 !important;
+        }
+        
+        .modal-dialog {
+            margin: 1.75rem auto;
+            max-width: 95%;
+            width: 1000px;
+            display: flex;
+            align-items: center;
+            min-height: calc(100% - 3.5rem);
+            pointer-events: all !important;
+        }
+        
+        @media (min-width: 992px) {
+            .modal-dialog {
+                max-width: 90%;
+                width: 1100px;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .modal-dialog {
+                max-width: 85%;
+                width: 1200px;
+            }
+        }
+        
+        /* Hide original Bootstrap close button */
+        .modal .btn-close {
+            display: none !important;
+        }
+        
+        /* Style for modal shadow */
+        .modal-content {
+            width: 100%;
+            box-shadow: 0 0 30px rgba(253, 0, 0, 0.3);
+            border: 1px solid rgba(253, 0, 0, 0.2);
+        }
+        
+        /* Add custom close class for easier selection */
+        .custom-modal-close {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 1.25rem;
+            transition: all 0.2s ease;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+        }
+        
+        .custom-modal-close:hover {
+            background-color: rgba(253, 0, 0, 0.7);
+            transform: scale(1.1);
+        }
+
+        /* Custom 5-column grid */
+        .col-lg-20-percent {
+            width: 20%;
+            padding-right: 5px;
+            padding-left: 5px;
+            flex: 0 0 auto;
+        }
+
+        /* Responsive adjustments for the 5-column grid */
+        @media (max-width: 991.98px) {
+            .col-lg-20-percent {
+                width: 33.333%;
+                margin-bottom: 10px;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .col-lg-20-percent {
+                width: 50%;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .col-lg-20-percent {
+                width: 100%;
+            }
+        }
+
+        /* Remove button bottom margin to prevent extra space */
+        .hero-section .btn {
+            margin-bottom: 0;
+        }
+
+        /* Program buttons container */
+        .program-buttons-container {
+            max-width: 1200px;
+            flex-wrap: nowrap;
+        }
+
+        /* Ensure buttons stay in one row on larger screens */
+        @media (min-width: 992px) {
+            .program-buttons-container {
+                flex-wrap: nowrap;
+                width: 100%;
+            }
+        }
+
+        /* New pill-style button navigation */
+        .program-nav {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 12px;
+            flex-wrap: nowrap;
+            width: 100%;
+            max-width: 1250px;
+            margin: 0 auto;
+        }
+
+        .program-nav-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 15px;
+            height: 60px;
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 30px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: -0.3px;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Make all buttons the same width except private lessons */
+        .program-nav-btn:not([href="#private-lessons"]) {
+            flex: 1;
+        }
+
+        /* Give the private lessons button more space */
+        a.program-nav-btn[href="#private-lessons"] {
+            flex: 1.4;
+        }
+        
+        .program-nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+            color: #fd0000;
+            border-color: #fd0000;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991px) {
+            .program-nav {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            
+            .program-nav-btn {
+                padding: 10px 15px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Transition -->
+    <div class="page-transition">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="Images/LOGO.webp" alt="WEST Logo" height="40" class="me-2">
+                <span class="fw-bold">WEST</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Resources.html">NEWS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#competitions">COMPETITIONS</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="Programs.html" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            PROGRAMS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="programsDropdown">
+                            <li><a class="dropdown-item" href="Programs.html#barracudas">Barracudas</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#otters">Otters</a></li>
+                            <li><a class="dropdown-item" href="Programs.html">All Programs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Facility.html">FACILITIES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Records.html">ACHIEVEMENTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Resources.html">RESOURCES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="team.html">TEAM & CLUB</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact.html">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Performance Programs -->
+    <section id="performance" class="section" style="margin-top: 120px;" data-title="Performance Programs">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title animate-on-scroll fade-in-up">🔥 Performance Programs</h2>
+                    <p class="lead animate-on-scroll fade-in-up">Our competitive programs designed for swimmers aiming to compete at the highest levels</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate-on-scroll fade-in-up" id="barracudas">
+                        <img src="Images/NOVA-boys-13-14-NAG-by-Joe-Davila.jpg" alt="Barracudas" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">🐟 Barracudas</h5>
+                            <p class="card-text">Elite competitive training for Provincial/National-level swimmers.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-red me-2"></i>8 in-pool sessions per week</li>
+                                <li><i class="fas fa-check text-red me-2"></i>3 one-hour dryland sessions</li>
+                            </ul>
+                            <div class="mt-3">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfGrajMAUclHqD8Ra7xuCSRw8vQQf-bcNsghTVrD5B3r0qloQ/viewform?usp=header" target="_blank" class="btn btn-primary w-100">Program Info & Registration</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate-on-scroll fade-in-up" style="transition-delay: 0.1s;" id="otters">
+                        <img src="Images/a group of female swimmers.jpg" alt="Otters" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">🦦 Otters</h5>
+                            <p class="card-text">For athletes preparing to transition into Barracudas.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-red me-2"></i>7 in-pool sessions</li>
+                                <li><i class="fas fa-check text-red me-2"></i>Advanced technique development</li>
+                            </ul>
+                            <div class="mt-3">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfc9mZWmc6b6SVda043aLVGWQuAI56CqPdot0dM_jeqXVVHAQ/viewform?usp=header" target="_blank" class="btn btn-primary w-100">Program Info & Registration</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate-on-scroll fade-in-up" style="transition-delay: 0.2s;" id="beavers">
+                        <img src="Images/bunch of boys standing by the pool.jpeg" alt="Beavers" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">🐻 Beavers</h5>
+                            <p class="card-text">Bridge program between Seals and Otters.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-red me-2"></i>5 in-pool sessions</li>
+                                <li><i class="fas fa-check text-red me-2"></i>Technical skill development</li>
+                            </ul>
+                            <div class="mt-3">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeoOxJMEtc72W5pERhq2Ce2n3lT2A5cqohR7USS01Q_g0f6NA/viewform?usp=header" target="_blank" class="btn btn-primary w-100">Program Info & Registration</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stroke Development Programs -->
+    <section id="development" class="section section-dark" data-title="Development Programs">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title animate-on-scroll fade-in-up">🏅 Stroke Development Programs</h2>
+                    <p class="lead animate-on-scroll fade-in-up">Programs focused on building strong fundamental skills and technique</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate-on-scroll fade-in-up" id="platinum">
+                        <img src="Images/kids swiming under water.jpeg" alt="Platinum" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">💎 Platinum</h5>
+                            <p class="card-text">Ages 9–12, focused on stroke mechanics and foundational performance.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-red me-2"></i>8 in-pool sessions</li>
+                                <li><i class="fas fa-check text-red me-2"></i>3 dryland sessions</li>
+                            </ul>
+                            <div class="mt-3">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSepnRpnSyytoxZQvM1HgdOdJhDJEp8VaBxJGM-SCTHDYVkCgw/viewform?usp=header" target="_blank" class="btn btn-primary w-100">Program Info & Registration</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate-on-scroll fade-in-up" style="transition-delay: 0.1s;" id="gold">
+                        <img src="Images/kids swiming under water.jpeg" alt="Gold" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">🥇 Gold</h5>
+                            <p class="card-text">Progression-based skill development and technique refinement.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-red me-2"></i>7 in-pool sessions</li>
+                                <li><i class="fas fa-check text-red me-2"></i>Competitive skill building</li>
+                            </ul>
+                            <div class="mt-3">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdugKzmoyqfOU1CcTRasVciVVdfsiSlhc4tAb_KgxQNwDID-A/viewform?usp=header" target="_blank" class="btn btn-primary w-100">Program Info & Registration</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate-on-scroll fade-in-up" style="transition-delay: 0.2s;" id="silver">
+                        <img src="Images/kids swiming under water.jpeg" alt="Silver" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">🥈 Silver</h5>
+                            <p class="card-text">Introductory program for swimmers under 12 with long-term development in mind.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-red me-2"></i>5 in-pool sessions</li>
+                                <li><i class="fas fa-check text-red me-2"></i>Fundamental skill building</li>
+                            </ul>
+                            <div class="mt-3">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5LJ6C3dKs5meNN5c3btgJnoGJ-tNBgagDbyeD-TX_uLUbBQ/viewform?usp=header" target="_blank" class="btn btn-primary w-100">Program Info & Registration</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4 mt-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate-on-scroll fade-in-up" id="bronze">
+                        <img src="Images/kids swiming under water.jpeg" alt="Bronze" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">🥉 Bronze</h5>
+                            <p class="card-text">Entry-level program for developing fundamental swimming skills.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-red me-2"></i>4 in-pool sessions</li>
+                                <li><i class="fas fa-check text-red me-2"></i>Basic technique development</li>
+                            </ul>
+                            <div class="mt-3">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSed0RpV27gNNuRRcTW_MknLuQNgVFrw6Z418_MgJ4V__osoiQ/viewform?usp=header" target="_blank" class="btn btn-primary w-100">Program Info & Registration</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate-on-scroll fade-in-up" style="transition-delay: 0.1s;" id="seals">
+                        <img src="Images/kids swiming under water.jpeg" alt="Seals" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">🦭 Seals</h5>
+                            <p class="card-text">Introductory program focused on water confidence and basic skills.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-red me-2"></i>3 in-pool sessions</li>
+                                <li><i class="fas fa-check text-red me-2"></i>Water confidence building</li>
+                            </ul>
+                            <div class="mt-3">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSci0iQ21LNr_0Xtmhg7a-li1vv89Uy0T68o5nsii9mL8hcNsQ/viewform?usp=header" target="_blank" class="btn btn-primary w-100">Program Info & Registration</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Programs -->
+    <section id="additional" class="section" data-title="Additional Programs">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title animate-on-scroll fade-in-up">🌟 Additional Programs</h2>
+                    <p class="lead animate-on-scroll fade-in-up">Specialized programs for unique needs and interests</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate-on-scroll fade-in-up" id="masters">
+                        <img src="Images/Masters Nationals.webp" alt="Masters Swimming" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">🏊‍♀️ Masters (19+)</h5>
+                            <p class="card-text">Custom programs for adult swimmers of all levels.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-red me-2"></i>Technique-focused coaching</li>
+                                <li><i class="fas fa-check text-red me-2"></i>Fitness and conditioning</li>
+                            </ul>
+                            <div class="mt-3">
+                                <p class="mb-2 fw-bold">Choose your plan:</p>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSddoPUYGtMSkZkAh8LLRTrBHXnd2pwyG1wg65Ofca9lUuunvg/viewform?usp=header" target="_blank" class="btn btn-outline-primary btn-sm mb-2 w-100">1-Day Registration</a>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9l9_V2AAkjpA44nNi2QeA2QBQ-m7wpwTyzpdmFNi5IkioEw/viewform?usp=header" target="_blank" class="btn btn-outline-primary btn-sm mb-2 w-100">2-Day Registration</a>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSckD28TeNboGrMLiudeMgl2mzQXgrCia652UX1Kye_1fMclSA/viewform?usp=header" target="_blank" class="btn btn-outline-primary btn-sm w-100">3-Day Registration</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate-on-scroll fade-in-up" style="transition-delay: 0.1s;" id="future-stars">
+                        <img src="Images/kids in swimming pool.jpg" alt="Future Stars" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">⭐ Future Stars (Ages 5–7)</h5>
+                            <p class="card-text">Focused on water confidence and early skill building.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-red me-2"></i>Fun, engaging activities</li>
+                                <li><i class="fas fa-check text-red me-2"></i>Basic stroke introduction</li>
+                            </ul>
+                            <div class="mt-3">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScDLWwSi4wJe0zRShAyW1Tw3MTR1TLXgowwnTavlBtZbZ1vfg/viewform?usp=header" target="_blank" class="btn btn-primary w-100">Program Info & Registration</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate-on-scroll fade-in-up" style="transition-delay: 0.2s;" id="teen">
+                        <img src="Images/friendgorup having fun in the pool playing.jpg" alt="Teen" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">👟 Teen</h5>
+                            <p class="card-text">Perfect for newcomers or swimmers exploring the sport without competition pressure.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-red me-2"></i>Fitness and technique focus</li>
+                                <li><i class="fas fa-check text-red me-2"></i>Supportive environment</li>
+                            </ul>
+                            <div class="mt-3">
+                                <a href="#" class="btn btn-primary w-100">Program Info & Registration</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="section section-dark" data-title="Our Facilities">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title animate-on-scroll fade-in-up">📍 Our Facilities</h2>
+                    <p class="lead animate-on-scroll fade-in-up">Explore where our swimmers train and grow</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate-on-scroll fade-in-up">
+                        <img src="Images/aquatic-centre-building.webp" alt="Windsor International Aquatic Centre" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">🏟 Windsor International Aquatic Centre</h5>
+                            <p class="card-text">Our primary training facility features a 10-lane 50m Olympic pool with the latest timing technology.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-red me-2"></i>10-lane competition pool</li>
+                                <li><i class="fas fa-check text-red me-2"></i>Ideal for high-performance training</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate-on-scroll fade-in-up" style="transition-delay: 0.1s;">
+                        <img src="Images/wfcu-centre-building.jpg" alt="WFCU Community Pool" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">🏊 WFCU Community Pool</h5>
+                            <p class="card-text">Our community training facility offers additional pool time for development programs.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-red me-2"></i>6-lane pool</li>
+                                <li><i class="fas fa-check text-red me-2"></i>Great for stroke development and community training</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate-on-scroll fade-in-up" style="transition-delay: 0.2s;">
+                        <img src="Images/university-of-windsor-campus.jpg" alt="University of Windsor" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">🎓 University of Windsor – Toldo Centre</h5>
+                            <p class="card-text">Our advanced training facility at the University of Windsor offers additional resources.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-red me-2"></i>8-lane facility</li>
+                                <li><i class="fas fa-check text-red me-2"></i>Advanced training hub for all levels</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Swimming Assessment Section -->
+    <section id="assessment" class="section" data-title="Swimming Assessment">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h2 class="section-title animate-on-scroll fade-in-up">Not Sure Which Program Is Right For You?</h2>
+                    <p class="lead animate-on-scroll fade-in-up">Complete our swimming assessment form and our coaches will recommend the best program for your skill level.</p>
+                    
+                    <div class="mt-4 animate-on-scroll fade-in-up">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJtrXhnwesmTSfBIau9UEHYJG5qT0SAsJfL08uJrPYZ4759g/viewform?usp=header" target="_blank" class="btn btn-primary">Complete Swimming Assessment</a>
+                    </div>
+                    
+                    <div class="mt-4 animate-on-scroll fade-in-up">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSckGgo4HD2edg0-AAmoH44wZSS5UQZ6TywsrR47DTa2u1tF9Q/viewform?usp=header" target="_blank" class="btn btn-outline-primary">WEST Code of Conduct & Authorization Form</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="footer-brand">
+                        <i class="fas fa-swimmer"></i>
+                        <span>Windsor Essex Swim Team</span>
+                    </div>
+                    <p class="footer-description">
+                        The most successful aquatic program in Southwestern Ontario, dedicated to developing swimmers of all levels.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://ca.linkedin.com/in/jimmy-lee-3a0a8277" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/west_coachjimmylee/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-title">About</h5>
+                    <ul class="footer-links">
+                        <li><a href="About.html">Philosophy</a></li>
+                        <li><a href="Coaches.html">Coaches</a></li>
+                        <li><a href="team.html">Team Structure</a></li>
+                        <li><a href="Facility.html">Facilities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-title">Programs</h5>
+                    <ul class="footer-links">
+                        <li><a href="Programs.html#performance">Competitive</a></li>
+                        <li><a href="Programs.html#stroke">Learn to Swim</a></li>
+                        <li><a href="Programs.html#additional">Masters</a></li>
+                        <li><a href="Programs.html#private-lessons">Private Lessons</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-title">Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="hall-of-fame.html">Hall of Fame</a></li>
+                        <li><a href="Records.html">Club Records</a></li>
+                        <li><a href="Meets.html">Meets</a></li>
+                        <li><a href="official.html">Officials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Contact</h5>
+                    <ul class="contact-info">
+                        <li class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Windsor, ON
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            windsoressexswimteam@gmail.com
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            (519) 564-8972
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row">
+                <div class="col-md-6">
+                        <p class="mb-md-0">&copy; 2024 Windsor Essex Swim Team. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                        <p class="mb-0">Website by <a href="#" class="text-red">WEST Digital Team</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Side Navigation -->
+    <div class="side-nav"></div>
+    
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Merchandise Modal -->
+    <div class="modal fade" id="merchandiseModal" tabindex="-1" aria-labelledby="merchandiseModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="merchandiseModalLabel">WEST Merchandise</h5>
+                    <!-- Custom close button -->
+                    <button type="button" class="custom-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="text-red">WEST Merchandise Store</h3>
+                                
+                                <h4 class="mt-4">WEST Swimming Caps</h4>
+                                <p>🧢 Regular Silicone Swimming Cap - <strong>$20</strong> (HST Included)</p>
+                                <p>🧢 Long Hair Silicone Swimming Cap - <strong>$25</strong> (HST Included)</p>
+                                <p>🧢 Racing Dome Swimming Cap - <strong>$30</strong> (HST Included)</p>
+                                
+                                <p class="mt-4"><strong>Email:</strong> windsoressexswimteam@gmail.com for all WEST orders</p>
+                                
+                                <h4 class="mt-4">Equipment Purchase</h4>
+                                <p>Please visit the <strong>WEST Team Portal</strong> for equipment purchases.</p>
+                                <p><strong>Team Code:</strong> <span class="text-red fw-bold">WEST</span></p>
+                                <p>
+                                    Using this code gives WEST a 5% kickback and you a 2% discount at checkout.  
+                                    Note: currently this only works for online purchases, not in-store.
+                                </p>
+                                <div class="text-center">
+                                    <a href="https://www.lysports.com/team/west/" target="_blank" class="btn btn-primary mt-3">
+                                        Visit Team Portal
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sponsors Modal -->
+    <div class="modal fade" id="sponsorsModal" tabindex="-1" aria-labelledby="sponsorsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="sponsorsModalLabel">Our Valued Sponsors</h5>
+                    <!-- Custom close button -->
+                    <button type="button" class="custom-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <style>
+                        /* Compact styling for sponsor modal */
+                        .sponsor-row {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 5px;
+                        }
+                        
+                        .sponsor-logo {
+                            flex: 0 0 auto;
+                            width: 120px;
+                            margin: 0 3px 10px;
+                            text-align: center;
+                        }
+                        
+                        .sponsor-logo img {
+                            max-height: 60px;
+                            object-fit: contain;
+                        }
+                        
+                        .sponsor-logo p {
+                            font-size: 0.75rem;
+                            margin-top: 5px !important;
+                            margin-bottom: 0;
+                        }
+                        
+                        .modal-body h3 {
+                            font-size: 1.3rem;
+                            margin-bottom: 10px !important;
+                        }
+                        
+                        .modal-body p.mb-3 {
+                            font-size: 0.85rem;
+                            margin-bottom: 8px !important;
+                        }
+                        
+                        /* Reduce overall spacing */
+                        .modal-body .row {
+                            margin-bottom: 10px;
+                        }
+                        
+                        .modal-body {
+                            padding: 0.75rem;
+                        }
+                    </style>
+                    <div class="container-fluid">
+                        <div class="row mb-3">
+                            <div class="col-12 text-center">
+                                <h3 class="text-red mb-3">Silver Sponsors</h3>
+                                <div class="sponsor-row animate-on-scroll fade-in-up">
+                                    <div class="sponsor-logo">
+                                        <img src="Images/Co-operators_Logo_Blue.jpg" alt="Co-operators" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/PwC_fl_60mmh_c.jpg" alt="PwC" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/Sun Hong BBQ & Seafood Restaurant.png" alt="Sun Hong BBQ" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <h3 class="text-red mb-3">Bronze Sponsors</h3>
+                                <div class="sponsor-row animate-on-scroll fade-in-up">
+                                    <div class="sponsor-logo">
+                                        <img src="Images/Local 200 Logo.jpg" alt="Local 200" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/Sko_Rebrand_1.jpg" alt="Sko" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/TekSavvy White Logo (All Coloured BackGrounds EXCEPT Black).jpg" alt="TekSavvy" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/Dr. A. Mulaosmanovic Logo.jpeg" alt="Dr. A. Mulaosmanovic" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <h3 class="text-red mb-3">Our Partners</h3>
+                                <p class="mb-3">WEST collaborates with premier facilities across Windsor-Essex</p>
+                                <div class="sponsor-row animate-on-scroll fade-in-up">
+                                    <div class="sponsor-logo">
+                                        <img src="Images/windsor-aquatic-centre-logo.jpg" alt="Windsor Aquatic Centre" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/university-of-windsor-logo.png" alt="University of Windsor" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/wfcu-credit-union-logo.png" alt="WFCU Centre" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <p class="lead" style="font-size: 0.95rem;">Interested in becoming a sponsor? Contact us at <a href="mailto:windsoressexswimteam@gmail.com" class="text-red">windsoressexswimteam@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Fix Script - Direct approach -->
+    <script>
+        // Execute on DOM load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simple function to close any modal
+            function closeAnyModal(modalElement) {
+                if (!modalElement) return;
+                
+                // Hide the modal
+                modalElement.classList.remove('show');
+                modalElement.style.display = 'none';
+                
+                // Clean up body classes and styles
+                document.body.classList.remove('modal-open');
+                document.body.style.removeProperty('overflow');
+                document.body.style.removeProperty('padding-right');
+                
+                // Remove backdrops
+                document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+            }
+            
+            // Close modals when clicking close buttons
+            document.querySelectorAll('.custom-modal-close, [data-bs-dismiss="modal"]').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    const modal = this.closest('.modal');
+                    if (modal) closeAnyModal(modal);
+                });
+            });
+            
+            // Close modals when clicking outside
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('modal') && e.target.classList.contains('show')) {
+                    closeAnyModal(e.target);
+                }
+            });
+            
+            // Close modals with ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.modal.show').forEach(closeAnyModal);
+                }
+            });
+            
+            // Cleanup function to run periodically
+            function cleanup() {
+                // If no visible modals, clear backdrops and body classes
+                if (!document.querySelector('.modal.show')) {
+                    document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+                    document.body.classList.remove('modal-open');
+                    document.body.style.removeProperty('overflow');
+                    document.body.style.removeProperty('padding-right');
+                }
+            }
+            
+            // Run cleanup on various events
+            ['click', 'mouseup', 'keydown'].forEach(function(evt) {
+                document.addEventListener(evt, function() {
+                    setTimeout(cleanup, 300);
+                });
+            });
+            
+            // Also run periodically
+            setInterval(cleanup, 2000);
+        });
+    </script>
+</body>
+</html> 

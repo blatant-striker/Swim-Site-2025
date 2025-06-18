@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Contact Windsor Essex Swim Team - Reach out to our coaching staff, get directions to our facilities, or send us a message with any questions about our swimming programs.">
+    <meta name="theme-color" content="#fd0000">
+    <title>Contact Us | Windsor Essex Swim Team</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/main.css" rel="stylesheet">
+    
+    <!-- Custom styles for modal fixes -->
+    <style>
+        /* Fix modal positioning and z-index issues */
+        .modal {
+            z-index: 10050 !important;
+        }
+        
+        .modal-backdrop {
+            z-index: 10040 !important;
+            opacity: 0.8 !important;
+        }
+        
+        .modal-dialog {
+            margin: 1.75rem auto;
+            max-width: 95%;
+            width: 1000px;
+            display: flex;
+            align-items: center;
+            min-height: calc(100% - 3.5rem);
+            pointer-events: all !important;
+        }
+        
+        @media (min-width: 992px) {
+            .modal-dialog {
+                max-width: 90%;
+                width: 1100px;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .modal-dialog {
+                max-width: 85%;
+                width: 1200px;
+            }
+        }
+        
+        /* Hide original Bootstrap close button */
+        .modal .btn-close {
+            display: none !important;
+        }
+        
+        /* Style for modal shadow */
+        .modal-content {
+            width: 100%;
+            box-shadow: 0 0 30px rgba(253, 0, 0, 0.3);
+            border: 1px solid rgba(253, 0, 0, 0.2);
+        }
+        
+        /* Add custom close class for easier selection */
+        .custom-modal-close {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 1.25rem;
+            transition: all 0.2s ease;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+        }
+        
+        .custom-modal-close:hover {
+            background-color: rgba(253, 0, 0, 0.7);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="Images/LOGO.webp" alt="WEST Logo" height="40" class="me-2">
+                <span class="fw-bold">WEST</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Resources.html">NEWS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#competitions">COMPETITIONS</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Programs.html" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            PROGRAMS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="programsDropdown">
+                            <li><a class="dropdown-item" href="Programs.html#barracudas">Barracudas</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#otters">Otters</a></li>
+                            <li><a class="dropdown-item" href="Programs.html">All Programs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Facility.html">FACILITIES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Records.html">ACHIEVEMENTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Resources.html">RESOURCES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="team.html">TEAM & CLUB</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="Contact.html">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Info Section -->
+    <section class="section-padding" style="margin-top: 120px;">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="section-subtitle">We're here to answer any questions you may have about our swim programs, facilities, or coaching staff.</p>
+                </div>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4>Our Location</h4>
+                        <p>Windsor Aquatic Training Centre<br>401 Pitt Street West<br>Windsor, Ontario N9A 0B2<br>Canada</p>
+                        <a href="https://maps.google.com" target="_blank" class="btn btn-outline-light btn-sm mt-2">Get Directions</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4>Phone Numbers</h4>
+                        <p><strong>Main Office:</strong> (519) 555-SWIM<br>
+                        <strong>Coach Hotline:</strong> (519) 555-1234<br>
+                        <strong>Registration:</strong> (519) 555-5678</p>
+                        <p class="mt-2"><small>Office Hours: Mon-Fri, 9am-5pm</small></p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email Us</h4>
+                        <p><strong>General Inquiries:</strong><br>info@westswimteam.ca</p>
+                        <p><strong>Program Registration:</strong><br>register@westswimteam.ca</p>
+                        <p><strong>Head Coach:</strong><br>coach@westswimteam.ca</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2957.5807006467444!2d-83.04683222395542!3d42.31571037108939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883b2d72fc54d585%3A0x3dc5cd71bc5a91c5!2sWindsor%20International%20Aquatic%20and%20Training%20Centre!5e0!3m2!1sen!2sca!4v1716693647953!5m2!1sen!2sca" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact-form" class="section-padding bg-dark-secondary">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Send Us A Message</h2>
+                    <p class="section-subtitle">Fill out the form below and our team will get back to you as soon as possible.</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form-container">
+                        <form>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name" class="form-label">Your Name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="John Doe" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="email" placeholder="johndoe@example.com" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phone" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone" placeholder="(123) 456-7890">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="subject" class="form-label">Subject</label>
+                                        <select class="form-select" id="subject" required>
+                                            <option value="" selected disabled>Select a subject</option>
+                                            <option value="program-inquiry">Program Inquiry</option>
+                                            <option value="registration">Registration</option>
+                                            <option value="coaching">Coaching Information</option>
+                                            <option value="facilities">Facilities</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="message" class="form-label">Your Message</label>
+                                        <textarea class="form-control" id="message" rows="6" placeholder="Type your message here..." required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check mb-4">
+                                        <input class="form-check-input" type="checkbox" id="newsletter" checked>
+                                        <label class="form-check-label" for="newsletter">
+                                            Subscribe to our newsletter for updates on programs and events
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Follow Us Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Follow Us</h2>
+                    <p class="section-subtitle">Connect with us on social media to stay updated on the latest news, events, and achievements from Windsor Essex Swim Team.</p>
+                </div>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-6">
+                    <div class="social-media-panel text-center">
+                        <img src="Images/WEST Team - Summer 2023.webp" alt="Windsor Essex Swim Team" class="img-fluid rounded-3 mb-4">
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        </div>
+                        <p class="mt-3">Follow us for the latest updates, behind-the-scenes content, and more!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding bg-dark-secondary">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Find quick answers to commonly asked questions about our swim programs and facilities.</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    How do I register for swim programs?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Registration for our swim programs can be completed online through our registration portal, in person at our main office, or by phone. Please have your swimmer's information ready, including any previous swimming experience. For new swimmers, we recommend a skill assessment to determine the most appropriate program.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    What swimming equipment does my child need?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Required equipment varies by program level. Basic requirements include a proper-fitting swimsuit and goggles. Higher-level programs may require fins, kickboards, pull buoys, and paddles. Team swim caps are provided to all registered swimmers. A detailed equipment list will be provided upon registration.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Do you offer trial classes before full registration?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, we offer a one-time trial class for potential new swimmers. This allows both the swimmer and parents to experience our training environment and coaching style before committing to a full program. Please contact our office to schedule a trial session.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    What is your makeup class policy for missed sessions?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We understand that conflicts occasionally arise. Swimmers who miss a class due to illness or other circumstances may be eligible for a makeup session, subject to availability and proper notification. Please inform us at least 24 hours in advance of any absence when possible.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Do parents stay during swim practice?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Parents are welcome to observe practices from our designated viewing areas. For younger swimmers (ages 12 and under), we recommend parents remain on-site during practices. For older swimmers, parents may drop off and pick up. We host periodic "Parent Observation Days" when parents can get a closer look at training sessions.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="footer-brand">
+                        <i class="fas fa-swimmer"></i>
+                        <span>Windsor Essex Swim Team</span>
+                    </div>
+                    <p class="footer-description">
+                        The most successful aquatic program in Southwestern Ontario, dedicated to developing swimmers of all levels.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://ca.linkedin.com/in/jimmy-lee-3a0a8277" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/west_coachjimmylee/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-title">About</h5>
+                    <ul class="footer-links">
+                        <li><a href="About.html">Philosophy</a></li>
+                        <li><a href="Coaches.html">Coaches</a></li>
+                        <li><a href="team.html">Team Structure</a></li>
+                        <li><a href="Facility.html">Facilities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-title">Programs</h5>
+                    <ul class="footer-links">
+                        <li><a href="Programs.html#performance">Competitive</a></li>
+                        <li><a href="Programs.html#stroke">Learn to Swim</a></li>
+                        <li><a href="Programs.html#additional">Masters</a></li>
+                        <li><a href="Programs.html#private-lessons">Private Lessons</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-title">Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="hall-of-fame.html">Hall of Fame</a></li>
+                        <li><a href="Records.html">Club Records</a></li>
+                        <li><a href="Meets.html">Meets</a></li>
+                        <li><a href="official.html">Officials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Contact</h5>
+                    <ul class="contact-info">
+                        <li class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Windsor, ON
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            windsoressexswimteam@gmail.com
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            (519) 564-8972
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row">
+                <div class="col-md-6">
+                        <p class="mb-md-0">&copy; 2024 Windsor Essex Swim Team. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                        <p class="mb-0">Website by <a href="#" class="text-red">WEST Digital Team</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    
+    <!-- Merchandise Modal -->
+    <div class="modal fade" id="merchandiseModal" tabindex="-1" aria-labelledby="merchandiseModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="merchandiseModalLabel">WEST Merchandise</h5>
+                    <!-- Custom close button -->
+                    <button type="button" class="custom-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="text-red">WEST Merchandise Store</h3>
+                                
+                                <h4 class="mt-4">WEST Swimming Caps</h4>
+                                <p>🧢 Regular Silicone Swimming Cap - <strong>$20</strong> (HST Included)</p>
+                                <p>🧢 Long Hair Silicone Swimming Cap - <strong>$25</strong> (HST Included)</p>
+                                <p>🧢 Racing Dome Swimming Cap - <strong>$30</strong> (HST Included)</p>
+                                
+                                <p class="mt-4"><strong>Email:</strong> windsoressexswimteam@gmail.com for all WEST orders</p>
+                                
+                                <h4 class="mt-4">Equipment Purchase</h4>
+                                <p>Please visit the <strong>WEST Team Portal</strong> for equipment purchases.</p>
+                                <p><strong>Team Code:</strong> <span class="text-red fw-bold">WEST</span></p>
+                                <p>
+                                    Using this code gives WEST a 5% kickback and you a 2% discount at checkout.  
+                                    Note: currently this only works for online purchases, not in-store.
+                                </p>
+                                <div class="text-center">
+                                    <a href="https://www.lysports.com/team/west/" target="_blank" class="btn btn-primary mt-3">
+                                        Visit Team Portal
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sponsors Modal -->
+    <div class="modal fade" id="sponsorsModal" tabindex="-1" aria-labelledby="sponsorsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="sponsorsModalLabel">Our Valued Sponsors</h5>
+                    <!-- Custom close button -->
+                    <button type="button" class="custom-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <style>
+                        /* Compact styling for sponsor modal */
+                        .sponsor-row {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 5px;
+                        }
+                        
+                        .sponsor-logo {
+                            flex: 0 0 auto;
+                            width: 120px;
+                            margin: 0 3px 10px;
+                            text-align: center;
+                        }
+                        
+                        .sponsor-logo img {
+                            max-height: 60px;
+                            object-fit: contain;
+                        }
+                        
+                        .sponsor-logo p {
+                            font-size: 0.75rem;
+                            margin-top: 5px !important;
+                            margin-bottom: 0;
+                        }
+                        
+                        .modal-body h3 {
+                            font-size: 1.3rem;
+                            margin-bottom: 10px !important;
+                        }
+                        
+                        .modal-body p.mb-3 {
+                            font-size: 0.85rem;
+                            margin-bottom: 8px !important;
+                        }
+                        
+                        /* Reduce overall spacing */
+                        .modal-body .row {
+                            margin-bottom: 10px;
+                        }
+                        
+                        .modal-body {
+                            padding: 0.75rem;
+                        }
+                    </style>
+                    <div class="container-fluid">
+                        <div class="row mb-3">
+                            <div class="col-12 text-center">
+                                <h3 class="text-red mb-3">Silver Sponsors</h3>
+                                <div class="sponsor-row animate-on-scroll fade-in-up">
+                                    <div class="sponsor-logo">
+                                        <img src="Images/Co-operators_Logo_Blue.jpg" alt="Co-operators" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/PwC_fl_60mmh_c.jpg" alt="PwC" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/Sun Hong BBQ & Seafood Restaurant.png" alt="Sun Hong BBQ" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <h3 class="text-red mb-3">Bronze Sponsors</h3>
+                                <div class="sponsor-row animate-on-scroll fade-in-up">
+                                    <div class="sponsor-logo">
+                                        <img src="Images/Local 200 Logo.jpg" alt="Local 200" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/Sko_Rebrand_1.jpg" alt="Sko" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/TekSavvy White Logo (All Coloured BackGrounds EXCEPT Black).jpg" alt="TekSavvy" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/Dr. A. Mulaosmanovic Logo.jpeg" alt="Dr. A. Mulaosmanovic" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <h3 class="text-red mb-3">Our Partners</h3>
+                                <p class="mb-3">WEST collaborates with premier facilities across Windsor-Essex</p>
+                                <div class="sponsor-row animate-on-scroll fade-in-up">
+                                    <div class="sponsor-logo">
+                                        <img src="Images/windsor-aquatic-centre-logo.jpg" alt="Windsor Aquatic Centre" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/university-of-windsor-logo.png" alt="University of Windsor" class="img-fluid">
+                                    </div>
+                                    <div class="sponsor-logo">
+                                        <img src="Images/wfcu-credit-union-logo.png" alt="WFCU Centre" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <p class="lead" style="font-size: 0.95rem;">Interested in becoming a sponsor? Contact us at <a href="mailto:windsoressexswimteam@gmail.com" class="text-red">windsoressexswimteam@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Fix Script - Direct approach -->
+    <script>
+        // Execute on DOM load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simple function to close any modal
+            function closeAnyModal(modalElement) {
+                if (!modalElement) return;
+                
+                // Hide the modal
+                modalElement.classList.remove('show');
+                modalElement.style.display = 'none';
+                
+                // Clean up body classes and styles
+                document.body.classList.remove('modal-open');
+                document.body.style.removeProperty('overflow');
+                document.body.style.removeProperty('padding-right');
+                
+                // Remove backdrops
+                document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+            }
+            
+            // Close modals when clicking close buttons
+            document.querySelectorAll('.custom-modal-close, [data-bs-dismiss="modal"]').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    const modal = this.closest('.modal');
+                    if (modal) closeAnyModal(modal);
+                });
+            });
+            
+            // Close modals when clicking outside
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('modal') && e.target.classList.contains('show')) {
+                    closeAnyModal(e.target);
+                }
+            });
+            
+            // Close modals with ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.modal.show').forEach(closeAnyModal);
+                }
+            });
+            
+            // Cleanup function to run periodically
+            function cleanup() {
+                // If no visible modals, clear backdrops and body classes
+                if (!document.querySelector('.modal.show')) {
+                    document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+                    document.body.classList.remove('modal-open');
+                    document.body.style.removeProperty('overflow');
+                    document.body.style.removeProperty('padding-right');
+                }
+            }
+            
+            // Run cleanup on various events
+            ['click', 'mouseup', 'keydown'].forEach(function(evt) {
+                document.addEventListener(evt, function() {
+                    setTimeout(cleanup, 300);
+                });
+            });
+            
+            // Also run periodically
+            setInterval(cleanup, 2000);
+        });
+    </script>
+</body>
+</html>
+

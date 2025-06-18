@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Windsor Essex Swim Team | Club Records</title>
+  <meta name="description" content="View the historical records of Windsor Essex Swim Team's top swimmers throughout the years.">
+  <meta name="theme-color" content="#fd0000">
+
+  <!-- Bootstrap & FontAwesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link href="css/main.css" rel="stylesheet">
+  
+  <!-- Custom styles for modal fixes -->
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #D0EFFF;
+      color: #333;
+    }
+
+    .navbar {
+      background-color: #d90000;
+    }
+
+    .navbar-brand, .nav-link {
+      color: white !important;
+      font-weight: bold;
+    }
+
+    .nav-link:hover {
+      color: #ffd700 !important;
+    }
+
+    .header {
+      background: linear-gradient(90deg, #d90000, #ff4d4d);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .header h1 {
+      font-size: 3rem;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .header p {
+      font-size: 1.2rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .search-container {
+      margin: 20px auto;
+      max-width: 500px;
+      text-align: right;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+
+    .search-box::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .search-box:focus {
+      outline: none;
+      border-color: #fd0000;
+      box-shadow: 0 0 0 0.2rem rgba(253, 0, 0, 0.25);
+    }
+
+    .table-container {
+      background-color: #111;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow-x: auto;
+      padding: 30px;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      border: 1px solid rgba(253, 0, 0, 0.1);
+      color: #ffffff;
+    }
+
+    .section-title, .lead {
+      color: #333;
+    }
+
+    .table {
+      color: #ffffff !important;
+      background-color: #111;
+      border-color: #333;
+    }
+
+    .table th {
+      background: linear-gradient(135deg, #fd0000 0%, #b30000 100%);
+      color: white !important;
+      cursor: pointer;
+      text-transform: uppercase;
+      padding: 15px;
+      font-weight: 700;
+      border-color: #333;
+    }
+
+    .table td {
+      padding: 15px;
+      vertical-align: middle;
+      transition: all 0.3s ease;
+      border-color: rgba(255, 255, 255, 0.1);
+      background-color: #1a1a1a;
+      color: #ffffff !important;
+    }
+    
+    .table tbody tr {
+      background-color: #1a1a1a;
+      color: #ffffff !important;
+    }
+
+    .table tbody tr:hover {
+      background-color: rgba(253, 0, 0, 0.2);
+      transform: scale(1.01);
+      color: #ffffff !important;
+    }
+
+    .extra-details {
+      display: none;
+      background-color: #2a2a2a !important;
+      color: #ffffff !important;
+    }
+
+    .extra-details td {
+      background-color: #2a2a2a;
+      color: #ffffff !important;
+    }
+
+    .sortable::after {
+      content: " ⇅";
+      font-size: 0.8em;
+      color: #fff;
+    }
+
+    .footer-dark {
+      background-color: #222;
+      color: white;
+      padding: 40px 0;
+      margin-top: 50px;
+    }
+
+    .footer-dark a {
+      color: #bbb;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .footer-dark a:hover {
+      color: #ffd700;
+    }
+
+    .footer-social-link {
+      font-size: 1.8rem;
+      margin-right: 10px;
+    }
+
+    .footer-social-link:hover {
+      transform: scale(1.2);
+      color: #ffd700;
+    }
+
+    /* Fix modal positioning and z-index issues */
+    .modal {
+      z-index: 10050 !important;
+    }
+    
+    .modal-backdrop {
+      z-index: 10040 !important;
+      opacity: 0.8 !important;
+    }
+    
+    .modal-dialog {
+      margin: 1.75rem auto;
+      max-width: 95%;
+      width: 1000px;
+      display: flex;
+      align-items: center;
+      min-height: calc(100% - 3.5rem);
+      pointer-events: all !important;
+    }
+    
+    @media (min-width: 992px) {
+      .modal-dialog {
+        max-width: 90%;
+        width: 1100px;
+      }
+    }
+    
+    @media (min-width: 1200px) {
+      .modal-dialog {
+        max-width: 85%;
+        width: 1200px;
+      }
+    }
+    
+    /* Hide original Bootstrap close button */
+    .modal .btn-close {
+      display: none !important;
+    }
+    
+    /* Style for modal shadow */
+    .modal-content {
+      width: 100%;
+      box-shadow: 0 0 30px rgba(253, 0, 0, 0.3);
+      border: 1px solid rgba(253, 0, 0, 0.2);
+    }
+    
+    /* Add custom close class for easier selection */
+    .custom-modal-close {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 1.25rem;
+      transition: all 0.2s ease;
+      position: absolute;
+      right: 15px;
+      top: 10px;
+    }
+    
+    .custom-modal-close:hover {
+      background-color: rgba(253, 0, 0, 0.7);
+      transform: scale(1.1);
+    }
+
+    .clickable {
+      cursor: pointer;
+      color: #ffffff;
+    }
+
+    .clickable:hover {
+      color: #fd0000;
+    }
+
+    /* Fix background color to match page */
+    .section {
+      background-color: #D0EFFF;
+    }
+  </style>
+</head>
+<body>
+  <!-- Page Transition -->
+  <div class="page-transition">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <i class="fas fa-swimmer me-2"></i>
+            <span class="fw-bold">WEST</span>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">NEWS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Registration.html">REGISTRATION</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team.html">OUR TEAM</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Records.html">WEST RECORDS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="hall of fame intro.html">HALL OF FAME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="WEST Meets.html">MEETS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="official.html">OFFICIALS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Facility.html">FACILITIES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Programs.html">PROGRAMS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Resources.html">RESOURCES</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+
+  <!-- Records Section -->
+  <section class="section" style="margin-top: 120px; background-color: #D0EFFF;" data-title="Club Records">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12 text-center">
+          <h2 class="section-title animate-on-scroll fade-in-up">Historical Records</h2>
+          <p class="lead animate-on-scroll fade-in-up">WEST's top swimmers by season throughout the years</p>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <div class="search-container animate-on-scroll fade-in-up">
+        <input type="text" class="search-box" id="searchInput" placeholder="Search records...">
+      </div>
+
+      <!-- Table -->
+      <div class="table-container animate-on-scroll fade-in-up">
+        <table class="table table-bordered text-center" id="recordsTable">
+          <thead>
+            <tr>
+              <th class="sortable" onclick="sortTable(0)">Season</th>
+              <th class="sortable" onclick="sortTable(1)">Swimmers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 2024-2025 Season -->
+            <tr>
+              <td>2024-2025</td>
+              <td class="clickable" onclick="toggleDetails(this)">Alivia Momotiuk</td>
+            </tr>
+            <tr class="extra-details">
+              <td colspan="2">🏆 Top Performer of the Season!</td>
+            </tr>
+
+            <!-- 2023-2024 Season -->
+            <tr>
+              <td>2023-2024</td>
+              <td class="clickable" onclick="toggleDetails(this)">Riley Carswell, Christine Zhang, Alivia Momotiuk, William Hopkins, Patrick Gibbons, Gaspar Lazure, Rami Abu-Zahra, Ava Taylor, Liora Mechanic, Michael Church, Jean Paul Limoges, Caleb Cadden, Owen White-Hayes, Aubrey Ducedre, Abigail Pitre</td>
+            </tr>
+            <tr class="extra-details">
+              <td colspan="2">🔥 Multiple record holders!</td>
+            </tr>
+
+            <!-- 2022-2023 Season -->
+            <tr>
+              <td>2022-2023</td>
+              <td class="clickable" onclick="toggleDetails(this)">Riley Carswell, Gaspar Lazure, Luca Chiandussi, Ava Taylor, Avery Momotiuk, Ryan Ku, Justin Wei</td>
+            </tr>
+            <tr class="extra-details">
+              <td colspan="2">🏅 Outstanding performances!</td>
+            </tr>
+
+            <!-- 2021-2022 Season -->
+            <tr>
+              <td>2021-2022</td>
+              <td class="clickable" onclick="toggleDetails(this)">Riley Carswell, Gaspar Lazure, Luca Chiandussi</td>
+            </tr>
+            <tr class="extra-details">
+              <td colspan="2">🌟 Rising stars of the team!</td>
+            </tr>
+
+            <!-- 2019-2020 Season -->
+            <tr>
+              <td>2019-2020</td>
+              <td class="clickable" onclick="toggleDetails(this)">Bujak Nikolaus, Fraser Jack, Schneider Alexander, Chiandussi Luca, Lackovic Nikola, Taylor Michael, Chu Aaron, Lazure Gaspar, Wei Justin</td>
+            </tr>
+            <tr class="extra-details">
+              <td colspan="2">🏆 Exceptional achievements!</td>
+            </tr>
+
+            <!-- 2018-2019 Season -->
+            <tr>
+              <td>2018-2019</td>
+              <td class="clickable" onclick="toggleDetails(this)">Bujak Moira, Lackovic Nikola, Safta Ryan, Carswell Riley, MacDonald Kai, Sexsmith Victoria, Cheung Martin, Marcuzzi Julia, Soulliere Sophia, Chiandussi Luca, Marginean Emily, Wei Harry, Fraser Jack, Momotiuk Avery, Lackovic Alexandar, Podar Brian</td>
+            </tr>
+            <tr class="extra-details">
+              <td colspan="2">🔥 Notable contributions!</td>
+            </tr>
+
+            <!-- 2017-2018 Season -->
+            <tr>
+              <td>2017-2018</td>
+              <td class="clickable" onclick="toggleDetails(this)">Bujak Moira, Lazure Gaspar, Taylor Ava, Carswell Riley, MacDonald Kai, Taylor Michael, Chiandussi Luca, Marcuzzi Julia, Tiplady Zoe, Gillis Madalyn, Momotiuk Avery, Wang Lucas, Ku Ryan, Panek Alex, Wei Harry, Lackovic Alexandar, Sexsmith Victoria, Wei Justin, Lackovic Alexandra, Sloboda Danny, Wang Lucas, Lackovic Nikola, Soulliere Elizabeth, Yan Kevin</td>
+            </tr>
+            <tr class="extra-details">
+              <td colspan="2">🏅 Great teamwork!</td>
+            </tr>
+
+            <!-- 2016-2017 Season -->
+            <tr>
+              <td>2016-2017</td>
+              <td class="clickable" onclick="toggleDetails(this)">Gillis Madalyn, Lavoie Maddy, Taylor Michael, Ku Ryan, MacDonald Kai, VanBuskirk Kyla, Lackovic Alexandar, Sloboda Danny</td>
+            </tr>
+            <tr class="extra-details">
+              <td colspan="2">🌟 Promising talents!</td>
+            </tr>
+
+            <!-- 2015-2016 Season -->
+            <tr>
+              <td>2015-2016</td>
+              <td class="clickable" onclick="toggleDetails(this)">Binder Andrew, Lackovic Alexandar, Sekaric Isidora, Cheung Martin, Lavoie Cody, Taylor Michael, Dalla Bona Nicolas, Lazure Gaspar, VanBuskirk Kyla, Dumochelle Justin, Masse Kylie, Wang Lucas, Humber Bailey, Norg Aaron, Wei Justin, Kawa Jack, Rode Rachel</td>
+            </tr>
+            <tr class="extra-details">
+              <td colspan="2">🏆 Stellar performances!</td>
+            </tr>
+
+            <!-- 2014-2015 Season -->
+            <tr>
+              <td>2014-2015</td>
+              <td class="clickable" onclick="toggleDetails(this)">Binder Andrew, Lavoie Maddy, Norg Aaron, Dalla Bona Nicolas, Lefler Amber, Rode Aaron, Gutowski Edward, Marginean Emily, Rode Rachel, Lavoie Cody, Masse Kylie, Sekaric Isidora</td>
+            </tr>
+            <tr class="extra-details">
+              <td colspan="2">🔥 Consistent excellence!</td>
+            </tr>
+
+            <!-- 2013-2014 Season -->
+            <tr>
+              <td>2013-2014</td>
+              <td class="clickable" onclick="toggleDetails(this)">Binder Andrew, Kukuruzovic Andrej, Oswald Brendan, Cheung Martin, Lavoie Cody, Oswald Hannah, Dalla Bona</td>
+            </tr>
+            <tr class="extra-details">
+              <td colspan="2">🌟 Outstanding achievements!</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+      <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="footer-brand">
+                        <i class="fas fa-swimmer"></i>
+                        <span>Windsor Essex Swim Team</span>
+                    </div>
+                    <p class="footer-description">
+                        The most successful aquatic program in Southwestern Ontario, dedicated to developing swimmers of all levels.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://ca.linkedin.com/in/jimmy-lee-3a0a8277" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/west_coachjimmylee/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-title">About</h5>
+                    <ul class="footer-links">
+                        <li><a href="About.html">Philosophy</a></li>
+                        <li><a href="Coaches.html">Coaches</a></li>
+                        <li><a href="team.html">Team Structure</a></li>
+                        <li><a href="Facility.html">Facilities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-title">Programs</h5>
+                    <ul class="footer-links">
+                        <li><a href="Programs.html#performance">Competitive</a></li>
+                        <li><a href="Programs.html#stroke">Learn to Swim</a></li>
+                        <li><a href="Programs.html#additional">Masters</a></li>
+                        <li><a href="Programs.html#private-lessons">Private Lessons</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-title">Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="hall-of-fame.html">Hall of Fame</a></li>
+                        <li><a href="Records.html">Club Records</a></li>
+                        <li><a href="Meets.html">Meets</a></li>
+                        <li><a href="official.html">Officials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Contact</h5>
+                    <ul class="contact-info">
+                        <li class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Windsor, ON
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            windsoressexswimteam@gmail.com
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            (519) 564-8972
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row">
+                <div class="col-md-6">
+                        <p class="mb-md-0">&copy; 2024 Windsor Essex Swim Team. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                        <p class="mb-0">Website by <a href="#" class="text-red">WEST Digital Team</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- JS Features -->
+  <script>
+    // Search Filter
+    document.getElementById("searchInput").addEventListener("input", function () {
+      let filter = this.value.toUpperCase();
+      let rows = document.querySelectorAll("#recordsTable tbody tr");
+
+      for (let i = 0; i < rows.length; i += 2) {
+        const row = rows[i];
+        const detail = rows[i + 1];
+        const text = row.cells[1].textContent || row.cells[1].innerText;
+
+        if (text.toUpperCase().indexOf(filter) > -1) {
+          row.style.display = "";
+          detail.style.display = detail.style.display === "table-row" ? "table-row" : "none";
+        } else {
+          row.style.display = "none";
+          detail.style.display = "none";
+        }
+      }
+    });
+
+    // Sort Function
+    function sortTable(colIndex) {
+      const table = document.getElementById("recordsTable");
+      const rows = Array.from(table.querySelectorAll("tbody tr")).filter((_, i) => i % 2 === 0);
+      const details = Array.from(table.querySelectorAll("tbody tr")).filter((_, i) => i % 2 !== 0);
+      const ascending = !table.classList.toggle("asc");
+
+      const combined = rows.map((row, i) => [row, details[i]]);
+      combined.sort((a, b) => {
+        const A = a[0].cells[colIndex].textContent.trim().toLowerCase();
+        const B = b[0].cells[colIndex].textContent.trim().toLowerCase();
+        return ascending ? A.localeCompare(B) : B.localeCompare(A);
+      });
+
+      const tbody = table.querySelector("tbody");
+      combined.forEach(pair => {
+        tbody.appendChild(pair[0]);
+        tbody.appendChild(pair[1]);
+      });
+    }
+
+    // Row Toggle
+    function toggleDetails(cell) {
+      const row = cell.parentElement;
+      const nextRow = row.nextElementSibling;
+      nextRow.style.display = nextRow.style.display === "table-row" ? "none" : "table-row";
+    }
+  </script>
+  
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom JavaScript -->
+  <script src="js/main.js"></script>
+  
+  <!-- Merchandise Modal -->
+  <div class="modal fade" id="merchandiseModal" tabindex="-1" aria-labelledby="merchandiseModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content bg-dark">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="merchandiseModalLabel">WEST Merchandise</h5>
+                  <!-- Custom close button -->
+                  <button type="button" class="custom-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                      <i class="fas fa-times"></i>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-12">
+                              <h3 class="text-red">WEST Merchandise Store</h3>
+                              
+                              <h4 class="mt-4">WEST Swimming Caps</h4>
+                              <p>🧢 Regular Silicone Swimming Cap - <strong>$20</strong> (HST Included)</p>
+                              <p>🧢 Long Hair Silicone Swimming Cap - <strong>$25</strong> (HST Included)</p>
+                              <p>🧢 Racing Dome Swimming Cap - <strong>$30</strong> (HST Included)</p>
+                              
+                              <p class="mt-4"><strong>Email:</strong> windsoressexswimteam@gmail.com for all WEST orders</p>
+                              
+                              <h4 class="mt-4">Equipment Purchase</h4>
+                              <p>Please visit the <strong>WEST Team Portal</strong> for equipment purchases.</p>
+                              <p><strong>Team Code:</strong> <span class="text-red fw-bold">WEST</span></p>
+                              <p>
+                                  Using this code gives WEST a 5% kickback and you a 2% discount at checkout.  
+                                  Note: currently this only works for online purchases, not in-store.
+                              </p>
+                              <div class="text-center">
+                                  <a href="https://www.lysports.com/team/west/" target="_blank" class="btn btn-primary mt-3">
+                                      Visit Team Portal
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Sponsors Modal -->
+  <div class="modal fade" id="sponsorsModal" tabindex="-1" aria-labelledby="sponsorsModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content bg-dark">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="sponsorsModalLabel">Our Valued Sponsors</h5>
+                  <!-- Custom close button -->
+                  <button type="button" class="custom-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                      <i class="fas fa-times"></i>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <style>
+                      /* Compact styling for sponsor modal */
+                      .sponsor-row {
+                          display: flex;
+                          flex-wrap: wrap;
+                          justify-content: center;
+                          align-items: center;
+                          gap: 5px;
+                      }
+                      
+                      .sponsor-logo {
+                          flex: 0 0 auto;
+                          width: 120px;
+                          margin: 0 3px 10px;
+                          text-align: center;
+                      }
+                      
+                      .sponsor-logo img {
+                          max-height: 60px;
+                          object-fit: contain;
+                      }
+                      
+                      .sponsor-logo p {
+                          font-size: 0.75rem;
+                          margin-top: 5px !important;
+                          margin-bottom: 0;
+                      }
+                      
+                      .modal-body h3 {
+                          font-size: 1.3rem;
+                          margin-bottom: 10px !important;
+                      }
+                      
+                      .modal-body p.mb-3 {
+                          font-size: 0.85rem;
+                          margin-bottom: 8px !important;
+                      }
+                      
+                      /* Reduce overall spacing */
+                      .modal-body .row {
+                          margin-bottom: 10px;
+                      }
+                      
+                      .modal-body {
+                          padding: 0.75rem;
+                      }
+                  </style>
+                  <div class="container-fluid">
+                      <div class="row mb-3">
+                          <div class="col-12 text-center">
+                              <h3 class="text-red mb-3">Silver Sponsors</h3>
+                              <div class="sponsor-row animate-on-scroll fade-in-up">
+                                  <div class="sponsor-logo">
+                                      <img src="Images/Co-operators_Logo_Blue.jpg" alt="Co-operators" class="img-fluid">
+                                  </div>
+                                  <div class="sponsor-logo">
+                                      <img src="Images/PwC_fl_60mmh_c.jpg" alt="PwC" class="img-fluid">
+                                  </div>
+                                  <div class="sponsor-logo">
+                                      <img src="Images/Sun Hong BBQ & Seafood Restaurant.png" alt="Sun Hong BBQ" class="img-fluid">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <div class="row">
+                          <div class="col-12 text-center">
+                              <h3 class="text-red mb-3">Bronze Sponsors</h3>
+                              <div class="sponsor-row animate-on-scroll fade-in-up">
+                                  <div class="sponsor-logo">
+                                      <img src="Images/Local 200 Logo.jpg" alt="Local 200" class="img-fluid">
+                                  </div>
+                                  <div class="sponsor-logo">
+                                      <img src="Images/Sko_Rebrand_1.jpg" alt="Sko" class="img-fluid">
+                                  </div>
+                                  <div class="sponsor-logo">
+                                      <img src="Images/TekSavvy White Logo (All Coloured BackGrounds EXCEPT Black).jpg" alt="TekSavvy" class="img-fluid">
+                                  </div>
+                                  <div class="sponsor-logo">
+                                      <img src="Images/Dr. A. Mulaosmanovic Logo.jpeg" alt="Dr. A. Mulaosmanovic" class="img-fluid">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <div class="row mt-3">
+                          <div class="col-12 text-center">
+                              <h3 class="text-red mb-3">Our Partners</h3>
+                              <p class="mb-3">WEST collaborates with premier facilities across Windsor-Essex</p>
+                              <div class="sponsor-row animate-on-scroll fade-in-up">
+                                  <div class="sponsor-logo">
+                                      <img src="Images/windsor-aquatic-centre-logo.jpg" alt="Windsor Aquatic Centre" class="img-fluid">
+                                  </div>
+                                  <div class="sponsor-logo">
+                                      <img src="Images/university-of-windsor-logo.png" alt="University of Windsor" class="img-fluid">
+                                  </div>
+                                  <div class="sponsor-logo">
+                                      <img src="Images/wfcu-credit-union-logo.png" alt="WFCU Centre" class="img-fluid">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <div class="row mt-3">
+                          <div class="col-12 text-center">
+                              <p class="lead" style="font-size: 0.95rem;">Interested in becoming a sponsor? Contact us at <a href="mailto:windsoressexswimteam@gmail.com" class="text-red">windsoressexswimteam@gmail.com</a></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Modal Fix Script - Direct approach -->
+  <script>
+      // Execute on DOM load
+      document.addEventListener('DOMContentLoaded', function() {
+          // Simple function to close any modal
+          function closeAnyModal(modalElement) {
+              if (!modalElement) return;
+              
+              // Hide the modal
+              modalElement.classList.remove('show');
+              modalElement.style.display = 'none';
+              
+              // Clean up body classes and styles
+              document.body.classList.remove('modal-open');
+              document.body.style.removeProperty('overflow');
+              document.body.style.removeProperty('padding-right');
+              
+              // Remove backdrops
+              document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+          }
+          
+          // Close modals when clicking close buttons
+          document.querySelectorAll('.custom-modal-close, [data-bs-dismiss="modal"]').forEach(function(btn) {
+              btn.addEventListener('click', function() {
+                  const modal = this.closest('.modal');
+                  if (modal) closeAnyModal(modal);
+              });
+          });
+          
+          // Close modals when clicking outside
+          document.addEventListener('click', function(e) {
+              if (e.target.classList.contains('modal') && e.target.classList.contains('show')) {
+                  closeAnyModal(e.target);
+              }
+          });
+          
+          // Close modals with ESC key
+          document.addEventListener('keydown', function(e) {
+              if (e.key === 'Escape') {
+                  document.querySelectorAll('.modal.show').forEach(closeAnyModal);
+              }
+          });
+          
+          // Cleanup function to run periodically
+          function cleanup() {
+              // If no visible modals, clear backdrops and body classes
+              if (!document.querySelector('.modal.show')) {
+                  document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+                  document.body.classList.remove('modal-open');
+                  document.body.style.removeProperty('overflow');
+                  document.body.style.removeProperty('padding-right');
+              }
+          }
+          
+          // Run cleanup on various events
+          ['click', 'mouseup', 'keydown'].forEach(function(evt) {
+              document.addEventListener(evt, function() {
+                  setTimeout(cleanup, 300);
+              });
+          });
+          
+          // Also run periodically
+          setInterval(cleanup, 2000);
+      });
+  </script>
+</body>
+</html>
+
