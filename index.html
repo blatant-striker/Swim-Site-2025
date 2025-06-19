@@ -555,10 +555,11 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="Records.html" id="achievementsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="Achievements.html" id="achievementsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             ACHIEVEMENTS
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="achievementsDropdown">
+                            <li><a class="dropdown-item" href="Achievements.html">Achievements</a></li>
                             <li><a class="dropdown-item" href="Club-records.html">Club Records</a></li>
                             <li><a class="dropdown-item" href="Provincial-records.html">Provincial Qualifiers</a></li>
                             <li><a class="dropdown-item" href="hall-of-fame.html">Hall of Fame</a></li>
@@ -661,6 +662,82 @@
             </div>
         </div>
     </section>
+
+    <!-- Add improved news card styles -->
+    <style>
+        /* Enhanced News Card Styles */
+        .news-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            height: 100%;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(253, 0, 0, 0.15);
+            border-color: rgba(253, 0, 0, 0.3);
+        }
+        
+        .news-card-body {
+            padding: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .news-card-title {
+            color: #fd0000;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            line-height: 1.4;
+            min-height: 2.8rem; /* Consistent height for titles */
+        }
+        
+        .news-card-text {
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            flex-grow: 1;
+            min-height: 3rem; /* Minimum height to align buttons */
+        }
+        
+        .news-card .btn {
+            align-self: flex-start;
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-width: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .news-card .btn:hover {
+            background-color: #fd0000;
+            border-color: #fd0000;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 767px) {
+            .news-card-body {
+                padding: 1.5rem;
+            }
+            
+            .news-card-title {
+                font-size: 1.1rem;
+                min-height: auto;
+            }
+            
+            .news-card-text {
+                min-height: auto;
+            }
+        }
+    </style>
 
     <!-- Mission Statement -->
     <section id="mission" class="section" data-title="Mission">
@@ -826,7 +903,7 @@
     </section>
 
     <!-- Achievements Section -->
-    <section id="achievements" class="section" data-title="Achievements">
+    <!-- <section id="achievements" class="section" data-title="Achievements">
         <div class="container">
             <div class="row mb-4 mb-lg-5">
                 <div class="col-12 text-center">
@@ -889,7 +966,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- News Section -->
     <section id="news" class="section" data-title="Recent News">
@@ -1177,15 +1254,16 @@
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-8 col-sm-10 mb-4 mb-lg-0 mx-auto mx-lg-0">
                     <div class="footer-brand">
-                        <i class="fas fa-swimmer"></i>
+                        <img src="Images/LOGO.webp" alt="WEST Logo" class="footer-logo">
                         <span>Windsor Essex Swim Team</span>
                     </div>
                     <p class="footer-description">
                         The most successful aquatic program in Southwestern Ontario, dedicated to developing swimmers of all levels.
                     </p>
                     <div class="social-icons">
-                        <a href="https://ca.linkedin.com/in/jimmy-lee-3a0a8277" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.instagram.com/west_coachjimmylee/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/west_coachjimmylee/" target="_blank" aria-label="Instagram" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
                     </div>
                 </div>
                 
@@ -1240,16 +1318,239 @@
             
             <div class="footer-bottom">
                 <div class="row">
-                <div class="col-md-6 col-12 mb-2 mb-md-0 text-center text-md-start">
+                    <div class="col-md-6 col-12 mb-2 mb-md-0 text-center text-md-start">
                         <p class="mb-md-0">&copy; 2024 Windsor Essex Swim Team. All Rights Reserved.</p>
-                </div>
-                <div class="col-md-6 col-12 text-center text-md-end">
-                        <p class="mb-0">Website by <a href="#" class="text-red">WEST Digital Team</a></p>
+                    </div>
+                    <div class="col-md-6 col-12 text-center text-md-end">
+                        <p class="mb-0">Made with <img src="Images/Heart pixel.png" alt="Heart" class="heart-pixel"> by <a href="https://function-drive.com" target="_blank" class="text-red">Function Drive</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Enhanced Footer Styles -->
+    <style>
+        .footer {
+            background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(15,15,15,1) 100%);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(253, 0, 0, 0.3);
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('Images/wave-pattern.png');
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        
+        .footer-logo {
+            height: 45px;
+            width: auto;
+            margin-right: 12px;
+        }
+        
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.8rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .footer-title {
+            color: #fd0000;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: rgba(253, 0, 0, 0.5);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.7rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 0;
+        }
+        
+        .footer-links a:hover {
+            color: #fd0000;
+            padding-left: 5px;
+        }
+        
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .contact-item {
+            margin-bottom: 0.7rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-item i {
+            color: #fd0000;
+            margin-right: 10px;
+            font-size: 1rem;
+            margin-top: 3px;
+        }
+        
+        .contact-item a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: #fd0000;
+        }
+        
+        .social-icons {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(253, 0, 0, 0.1);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.2rem;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 1px solid rgba(253, 0, 0, 0.3);
+        }
+        
+        .social-icon:hover {
+            background-color: #fd0000;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(253, 0, 0, 0.3);
+        }
+        
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        .heart-pixel {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin: 0 4px;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+        }
+        
+        @media (max-width: 992px) {
+            .footer-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer {
+                padding: 3rem 0 1.5rem;
+            }
+            
+            .footer-bottom {
+                margin-top: 2rem;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .text-lg-start .footer-title::after {
+                left: 0;
+                transform: none;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .footer-logo {
+                height: 35px;
+            }
+            
+            .footer-brand {
+                font-size: 1.3rem;
+            }
+            
+            .footer-description {
+                font-size: 0.9rem;
+            }
+            
+            .footer-links a, .contact-item {
+                font-size: 0.9rem;
+            }
+            
+            .footer-bottom p {
+                font-size: 0.8rem;
+            }
+            
+            .heart-pixel {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    </style>
     
     <!-- Directly add back to top button -->
     <div id="direct-back-to-top" class="scroll-top-btn" style="position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background-color: #fd0000; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; box-shadow: 0 3px 15px rgba(0, 0, 0, 0.4); z-index: 9999; font-size: 20px; border: 2px solid rgba(255, 255, 255, 0.4);">
