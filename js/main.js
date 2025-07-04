@@ -557,11 +557,10 @@ class WESTWebsite {
         const achievementsItem = document.createElement('li');
         achievementsItem.className = 'nav-item dropdown';
         achievementsItem.innerHTML = `
-            <a class="nav-link dropdown-toggle achievements-link" href="Achievements.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle achievements-link" href="Records.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 ACHIEVEMENTS
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="Achievements.html">Achievements</a></li>
                 <li><a class="dropdown-item" href="Club-records.html">Club Records</a></li>
                 <li><a class="dropdown-item" href="Provincial-records.html">Provincial Qualifiers</a></li>
                 <li><a class="dropdown-item" href="hall-of-fame.html">Hall of Fame</a></li>
