@@ -416,6 +416,7 @@ p {
     overflow: hidden;
 }
 
+/* Coach card images */
 .coach-card img {
     width: 100%;
     height: 300px;
@@ -2192,4 +2193,30 @@ img {
     border-color: #fd0000;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(253, 0, 0, 0.3);
+}
+
+/* Coaches page specific styles */
+#coaches .row img {
+    width: 100%;
+    height: 500px !important; 
+    object-fit: cover;
+    object-position: top;
+    aspect-ratio: auto !important;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+#coaches .d-flex img {
+    max-width: 400px !important;
+    height: auto !important;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    margin: 10px;
+    transition: transform 0.3s ease;
+}
+
+#coaches .d-flex img:hover {
+    transform: scale(1.05);
 }

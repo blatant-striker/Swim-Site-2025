@@ -78,6 +78,24 @@
                 font-size: 1.1rem;
             }
             
+            .facility-feature span {
+                color: #e0e0e0;
+            }
+            
+            /* Larger facility images */
+            .facility-image {
+                height: 400px;
+                overflow: hidden;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            }
+            
+            .facility-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            
             /* Fix modal positioning and z-index issues */
             .modal {
                 z-index: 10050 !important;
@@ -292,8 +310,54 @@
                         </div>
                     </div>
                     <div class="col-lg-6 order-lg-1">
-                        <div class="facility-content animate-on-scroll fade-in-left">
-                
+                        <div class="facility-content animate-on-scroll fade-in-left text-dark">
+                            <h2 class="section-title text-dark">WFCU Centre</h2>
+                            <p class="lead text-dark">Modern community facility used for development programs and junior training.</p>
+                            
+                            <div class="facility-details mt-4">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="icon-circle me-3" style="width: 40px; height: 40px; background-color: #fd0000; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                                <i class="fas fa-swimming-pool text-white"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-0 fw-bold text-dark">Pool Size</h6>
+                                                <p class="mb-0 text-dark">25m, 6-lane</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="icon-circle me-3" style="width: 40px; height: 40px; background-color: #fd0000; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                                <i class="fas fa-child text-white"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-0 fw-bold text-dark">Programs</h6>
+                                                <p class="mb-0 text-dark">Learn-to-Swim</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p class="mt-4 text-dark">The WFCU Centre provides excellent facilities for our development swimmers and junior training programs, with convenient location for east Windsor residents.</p>
+                            
+                            <div class="mt-4">
+                                <a href="https://maps.google.com/?q=WFCU+Centre+Windsor" target="_blank" class="btn btn-outline-dark">
+                                    <i class="fas fa-map-marker-alt me-2"></i> Get Directions
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Facilities Card Grid -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Our Training Facilities</h2>
                 <div class="row g-4">
                     <!-- Windsor International Aquatic Center -->
                     <div class="col-md-6 col-lg-4">
@@ -326,38 +390,9 @@
                         </div>
                     </div>
                     
-                    <!-- University of Windsor Pool -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="facility-card animate-on-scroll fade-in-up" style="transition-delay: 0.1s;">
-                            <div class="facility-img-container">
-                                <img src="Images/university-of-windsor-campus.jpg" alt="University of Windsor Pool" class="facility-img">
-                            </div>
-                            <div class="facility-info">
-                                <h3 class="facility-title">University of Windsor Pool</h3>
-                                <p class="facility-details">State-of-the-art university facility used for team training sessions.</p>
-                                <div class="facility-features">
-                                    <div class="facility-feature">
-                                        <i class="fas fa-swimming-pool"></i>
-                                        <span>8-Lane 25m Pool</span>
-                                    </div>
-                                    <div class="facility-feature">
-                                        <i class="fas fa-dumbbell"></i>
-                                        <span>Strength Training Center</span>
-                                    </div>
-                                    <div class="facility-feature">
-                                        <i class="fas fa-stopwatch"></i>
-                                        <span>Video Analysis Equipment</span>
-                                    </div>
-                                    <div class="facility-feature">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>2555 College Ave, Windsor</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     
-                    <!-- Riverside Aquatic Center -->
+                    <!-- WFCU Centre -->
                     <div class="col-md-6 col-lg-4">
                         <div class="facility-card animate-on-scroll fade-in-up" style="transition-delay: 0.2s;">
                             <div class="facility-img-container">
@@ -427,9 +462,9 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6 mb-4 mb-lg-0">
-                        <h2 class="section-title animate-on-scroll fade-in-left">Training Advantages</h2>
-                        <p class="animate-on-scroll fade-in-left">WEST swimmers benefit from training in some of the best aquatic facilities in Ontario, providing the perfect environment for developing champions.</p>
-                        <ul class="achievement-list animate-on-scroll fade-in-left">
+                        <h2 class="section-title animate-on-scroll fade-in-left text-dark">Training Advantages</h2>
+                        <p class="animate-on-scroll fade-in-left text-dark">WEST swimmers benefit from training in some of the best aquatic facilities in Ontario, providing the perfect environment for developing champions.</p>
+                        <ul class="achievement-list animate-on-scroll fade-in-left text-dark">
                             <li><i class="fas fa-check-circle text-red me-2"></i> Multiple pool options across Windsor-Essex County</li>
                             <li><i class="fas fa-check-circle text-red me-2"></i> Olympic-standard equipment and timing systems</li>
                             <li><i class="fas fa-check-circle text-red me-2"></i> Dedicated dryland training spaces</li>
