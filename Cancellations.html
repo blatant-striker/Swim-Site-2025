@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Windsor Essex Swim Team - Pool Cancellations Schedule">
+    <meta name="author" content="Windsor Essex Swim Team">
+    <meta name="theme-color" content="#fd0000">
+    <title>Windsor Essex Swim Team | Pool Cancellations</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="css/main.css" rel="stylesheet">
+
+    <!-- High-Priority Navbar Glass Effect Styles -->
+    <style>
+        .navbar {
+            background: rgba(0, 0, 0, 0.45) !important; /* Semi-transparent background always */
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            transition: all 0.4s ease !important;
+            border-bottom: 1px solid rgba(253, 0, 0, 0.3) !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        /* Reduce spacing between navigation items */
+        .navbar-nav .nav-item {
+            padding-left: 0.25rem;
+            padding-right: 0.25rem;
+        }
+        
+        .navbar-nav .nav-link {
+            padding-left: 0.5rem !important;
+            padding-right: 0.5rem !important;
+        }
+        
+        /* Move navbar to the right */
+        .navbar-nav {
+            margin-left: auto;
+            padding-left: 2rem;
+        }
+        
+        /* Adjust container width for better spacing */
+        .navbar > .container {
+            max-width: 95%;
+        }
+        
+        @supports not (backdrop-filter: blur(20px)) {
+            /* Fallback for browsers that don't support backdrop-filter */
+            .navbar {
+                background: rgba(0, 0, 0, 0.75) !important;
+            }
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #D0EFFF 0%, #A6BFCC 100%);
+            padding: 120px 0 50px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(253, 0, 0, 0.1);
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(253, 0, 0, 0.15) 0%, rgba(208, 239, 255, 0) 30%);
+            z-index: 1;
+        }
+        
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-title {
+            font-weight: 800;
+            color: #000000;
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+        }
+        
+        .breadcrumb {
+            background: transparent;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .breadcrumb-item a {
+            color: #000000;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .breadcrumb-item a:hover {
+            color: var(--primary-red);
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--primary-red);
+        }
+
+        .section {
+            padding: 70px 0;
+            position: relative;
+            background-color: #D0EFFF;
+            overflow: hidden;
+        }
+
+        /* Table styles */
+        .cancellation-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            background: #ffffff;
+            border: 1px solid rgba(253, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cancellation-table:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .cancellation-table th {
+            background-color: rgba(253, 0, 0, 0.8);
+            color: white;
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+
+        .cancellation-table td {
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            color: #333;
+            font-weight: 500;
+        }
+
+        .cancellation-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .cancellation-table tr:hover {
+            background-color: rgba(253, 0, 0, 0.05);
+        }
+
+        .disclaimer {
+            font-style: italic;
+            color: #666;
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .section-header h2 {
+            position: relative;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-red);
+            border-radius: 2px;
+        }
+
+        /* Responsive table */
+        @media (max-width: 767px) {
+            .cancellation-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .cancellation-table th,
+            .cancellation-table td {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .page-header {
+                padding: 100px 0 30px;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                WEST
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Programs.html" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            PROGRAMS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="programsDropdown">
+                            <li><a class="dropdown-item" href="Programs.html#stroke">Learn to Swim</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#performance">Competitive</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#additional">Masters</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#private-lessons">Private Lessons</a></li>
+                            <li><a class="dropdown-item" href="Programs.html">All Programs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Records.html" id="achievementsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            ACHIEVEMENTS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="achievementsDropdown">
+                            <li><a class="dropdown-item" href="Club-records.html">Club Records</a></li>
+                            <li><a class="dropdown-item" href="Provincial-records.html">Provincial Qualifiers</a></li>
+                            <li><a class="dropdown-item" href="hall-of-fame.html">Hall of Fame</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Resources.html" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            RESOURCES
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
+                            <li><a class="dropdown-item" href="Resources.html#documents">Documents</a></li>
+                            <li><a class="dropdown-item" href="official.html">Officials</a></li>
+                            <li><a class="dropdown-item" href="Cancellations.html">Pool Cancellations</a></li>
+                            <li><a class="dropdown-item" href="Resources.html">All Resources</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="team.html" id="teamDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            TEAM & CLUB
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="teamDropdown">
+                            <li><a class="dropdown-item" href="About.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="Coaches.html">Coaches</a></li>
+                            <li><a class="dropdown-item" href="team.html">Team Structure</a></li>
+                            <li><a class="dropdown-item" href="Facility.html">Facilities</a></li>
+                            <li><a class="dropdown-item" href="Registration.html">Registration</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact.html">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="page-title">Pool Cancellations</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="Resources.html">Resources</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Pool Cancellations</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cancellations Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-10 col-md-12">
+                    <div class="section-header text-center">
+                        <h2>Pool Cancellations for 2024-2025 Season</h2>
+                    </div>
+                    
+                    <div class="cancellation-content">
+                        <table class="cancellation-table">
+                            <thead>
+                                <tr>
+                                    <th>Name of Pool</th>
+                                    <th>Dates</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>All Pools</td>
+                                    <td>October 14</td>
+                                    <td>Thanksgiving Day</td>
+                                </tr>
+                                <tr>
+                                    <td>WIATC</td>
+                                    <td>October 31</td>
+                                    <td>Halloween</td>
+                                </tr>
+                                <tr>
+                                    <td>WIATC</td>
+                                    <td>December 6-8</td>
+                                    <td>Border City Invitational</td>
+                                </tr>
+                                <tr>
+                                    <td>WFCU/WIATC</td>
+                                    <td>December 13-14</td>
+                                    <td>Team Showdown Team Travel Competition</td>
+                                </tr>
+                                <tr>
+                                    <td>WIATC</td>
+                                    <td>December 17</td>
+                                    <td>WEST Holiday Party</td>
+                                </tr>
+                                <tr>
+                                    <td>WFCU/WIATC (Development groups Future Stars- Platinum)</td>
+                                    <td>December 23-January 5</td>
+                                    <td>Winter Holiday Break</td>
+                                </tr>
+                                <tr>
+                                    <td>WIATC (Competitive groups Seals- Barracudas)</td>
+                                    <td>December 23- January 1</td>
+                                    <td>Winter Holiday Break</td>
+                                </tr>
+                                <tr>
+                                    <td>All Pools</td>
+                                    <td>February 17</td>
+                                    <td>Family Day</td>
+                                </tr>
+                                <tr>
+                                    <td>WFCU/WIATC (Development groups Future Stars- Platinum)</td>
+                                    <td>March 08- March 16</td>
+                                    <td>March Break</td>
+                                </tr>
+                                <tr>
+                                    <td>WIATC</td>
+                                    <td>April 4-6</td>
+                                    <td>WAC Spring Invitational</td>
+                                </tr>
+                                <tr>
+                                    <td>WIATC</td>
+                                    <td>April 10-12</td>
+                                    <td>World Cup of Diving</td>
+                                </tr>
+                                <tr>
+                                    <td>All Pools</td>
+                                    <td>April 18</td>
+                                    <td>Good Friday</td>
+                                </tr>
+                                <tr>
+                                    <td>All Pools</td>
+                                    <td>April 21</td>
+                                    <td>Easter Monday</td>
+                                </tr>
+                                <tr>
+                                    <td>WIATC</td>
+                                    <td>May 2-4</td>
+                                    <td>Amanda Reason Invitational</td>
+                                </tr>
+                                <tr>
+                                    <td>WIATC</td>
+                                    <td>May 9-11</td>
+                                    <td>Life Guard Canadian Championships</td>
+                                </tr>
+                                <tr>
+                                    <td>All Pools</td>
+                                    <td>May 19</td>
+                                    <td>Victoria Day</td>
+                                </tr>
+                                <tr>
+                                    <td>WIATC</td>
+                                    <td>June 13- June 15</td>
+                                    <td>LC WOSA Championships</td>
+                                </tr>
+                                <tr>
+                                    <td>All Pools</td>
+                                    <td>June 17</td>
+                                    <td>WEST Annual End of the Year Party</td>
+                                </tr>
+                                <tr>
+                                    <td>All Pools</td>
+                                    <td>June 23</td>
+                                    <td>City of Windsor Fireworks</td>
+                                </tr>
+                                <tr>
+                                    <td>All Pools</td>
+                                    <td>July 1</td>
+                                    <td>Canada Day</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="disclaimer text-center">Pool Cancellations may be subject to change during season</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-heading">Windsor Essex Swim Team</h5>
+                    <p>Windsor's premier aquatic program proudly serving our community since 1974.</p>
+                    <div class="footer-social mt-4">
+                        <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-heading">Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Programs.html">Programs</a></li>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="Resources.html">Resources</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-heading">Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="Resources.html#documents">Documents</a></li>
+                        <li><a href="official.html">Officials</a></li>
+                        <li><a href="Cancellations.html">Pool Cancellations</a></li>
+                        <li><a href="Registration.html">Registration</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Contact Us</h5>
+                    <address class="mb-0">
+                        <p><i class="fas fa-map-marker-alt me-2"></i> 401 Pitt Street West, Windsor, ON</p>
+                        <p><i class="fas fa-phone me-2"></i> (519) 253-7219</p>
+                        <p><i class="fas fa-envelope me-2"></i> info@westswimming.ca</p>
+                    </address>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="copyright">&copy; 2025 Windsor Essex Swim Team. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="footer-links-bottom">
+                        <a href="#">Privacy Policy</a> | 
+                        <a href="#">Terms of Use</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    
+    <!-- Add this script to ensure proper navbar behavior -->
+    <script>
+        // Add scrolled class to navbar on page load since this is not the home page
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                navbar.classList.add('scrolled');
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -219,7 +219,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="index.html">
-                    <img src="Images/LOGO.webp" alt="WEST Logo" height="40" class="me-2">
+                    <i class="fas fa-swimmer me-2"></i>
                     <span class="fw-bold">WEST</span>
                 </a>
                 
@@ -233,101 +233,222 @@
                             <a class="nav-link" href="index.html">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Resources.html">NEWS</a>
+                            <a class="nav-link" href="#">NEWS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html#competitions">COMPETITIONS</a>
+                            <a class="nav-link" href="#">REGISTRATION</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="Programs.html" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                PROGRAMS
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="programsDropdown">
-                                <li><a class="dropdown-item" href="Programs.html#barracudas">Barracudas</a></li>
-                                <li><a class="dropdown-item" href="Programs.html#otters">Otters</a></li>
-                                <li><a class="dropdown-item" href="Programs.html">All Programs</a></li>
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="team.html">OUR TEAM</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="Records.html">WEST RECORDS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="hall of fame intro.html">HALL OF FAME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="WEST Meets.html">MEETS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="official.html">OFFICIALS</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Facility.html">FACILITIES</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="Records.html">ACHIEVEMENTS</a>
+                            <a class="nav-link" href="Explore swim programs.html">PROGRAMS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Resources.html">RESOURCES</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="team.html">TEAM & CLUB</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Contact.html">CONTACT</a>
+                            <a class="nav-link" href="Programs.html#private-lessons">PRIVATE LESSONS</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <!-- Team Accomplishments Section -->
-        <section class="section" id="accomplishments" style="margin-top: 120px;">
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section" data-title="Records">
+            <!-- Add animated wave effect -->
+            <div class="wave"></div>
+            
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-6 hero-content text-center text-lg-start">
+                        <h1 class="hero-title">WEST Club Records</h1>
+                        <p class="hero-subtitle mb-4">Celebrating excellence and achievement in and out of the pool</p>
+                    </div>
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <div class="rounded-4 overflow-hidden shadow-lg hero-image-container">
+                            <img src="Images/swimmer-holding-gold-medal.webp" alt="WEST Championship" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Achievements Section -->
+        <section id="achievements" class="section">
             <div class="container">
                 <div class="row justify-content-center mb-5">
                     <div class="col-lg-8 text-center">
-                        <h2 class="section-title">WEST Accomplishments</h2>
-                        <p class="lead">A legacy of excellence in competitive swimming</p>
+                        <h2 class="section-title">Our Achievements</h2>
+                        <hr class="red-line">
                     </div>
                 </div>
-                
+                <div class="row text-center">
+                    <!-- World Records -->
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="number-card">
+                            <div class="number-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h4 class="display-4" data-count="2">0</h4>
+                            <p>World Records</p>
+                        </div>
+                    </div>
+                    <!-- National Records -->
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="number-card">
+                            <div class="number-icon">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <h4 class="display-4" data-count="10">0</h4>
+                            <p>National Records</p>
+                        </div>
+                    </div>
+                    <!-- Provincial Records -->
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="number-card">
+                            <div class="number-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h4 class="display-4" data-count="24">0</h4>
+                            <p>Provincial Records</p>
+                        </div>
+                    </div>
+                    <!-- Provincial Champions -->
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="number-card">
+                            <div class="number-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <h4 class="display-4" data-count="253">0</h4>
+                            <p>Provincial Champions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Club Records Section -->
+        <section id="records" class="section">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="section-title">Age/Group Records</h2>
+                        <hr class="red-line">
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <!-- 10 & Under Records -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card record-card">
+                            <div class="record-img-container">
+                                <img src="Images/10 & Under Records.jpg" alt="10 & Under Records" class="record-img">
+                            </div>
+                            <div class="card-body record-info">
+                                <h5 class="card-title record-title">10 & Under Records</h5>
+                                <p class="record-details">Fastest swimmers under 10 years old.</p>
+                                <a href="10 & Under.html" class="btn btn-primary">View Records</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 11-12 Year Records -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card record-card">
+                            <div class="record-img-container">
+                                <img src="Images/11-12 Year Records.jpeg" alt="11-12 Year Records" class="record-img">
+                            </div>
+                            <div class="card-body record-info">
+                                <h5 class="card-title record-title">11-12 Year Records</h5>
+                                <p class="record-details">Top performances in the 11-12 age group.</p>
+                                <a href="11 - 12 Yrs.html" class="btn btn-primary">View Records</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 13-14 Year Records -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card record-card">
+                            <div class="record-img-container">
+                                <img src="Images/shutterstock_2270783531600x600-1024x384.jpg" alt="13-14 Year Records" class="record-img">
+                            </div>
+                            <div class="card-body record-info">
+                                <h5 class="card-title record-title">13-14 Year Records</h5>
+                                <p class="record-details">Outstanding results in the 13-14 age category.</p>
+                                <a href="13 - 14 Yrs.html" class="btn btn-primary">View Records</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row">
-                    <div class="col-md-6 col-12 mb-4">
-                        <ul class="achievement-list animate-on-scroll fade-in-left">
-                            <li><i class="fas fa-medal text-red me-2"></i> Developed World Record Holder Kylie Masse and Amanda Reason</li>
-                            <li><i class="fas fa-medal text-red me-2"></i> WEST Swimmers have Won Medals at the Olympic Games</li>
-                            <li><i class="fas fa-medal text-red me-2"></i> WEST Alumna Kylie Masse becomes first Canadian swimmer (2024) to win an individual medal at three Olympics</li>
-                            <li><i class="fas fa-medal text-red me-2"></i> WEST Swimmers have Attained 10 Canadian National Records and 24 Ontario Records</li>
-                            <li><i class="fas fa-medal text-red me-2"></i> WEST has produced 253 Ontario Provincial Champions Since 2002</li>
-                        </ul>
+                    <!-- 15 Years and Over -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card record-card">
+                            <div class="record-img-container">
+                                <img src="Images/15 Years and Over.jpg" alt="15 Years and Over" class="record-img">
+                            </div>
+                            <div class="card-body record-info">
+                                <h5 class="card-title record-title">15 Years and Over</h5>
+                                <p class="record-details">Our champions in 15 and above age group.</p>
+                                <a href="15 Yrs & Over.html" class="btn btn-primary">View Records</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-6 col-12">
-                        <ul class="achievement-list animate-on-scroll fade-in-right">
-                            <li><i class="fas fa-medal text-red me-2"></i> Eastern Canadian National Champions</li>
-                            <li><i class="fas fa-medal text-red me-2"></i> Masters Provincial, National and World Champions</li>
-                            <li><i class="fas fa-medal text-red me-2"></i> WEST has produced World Cup Finalists</li>
-                            <li><i class="fas fa-medal text-red me-2"></i> Over 27 WEST Swimmers have received Full Athletic Scholarships</li>
-                            <li><i class="fas fa-medal text-red me-2"></i> Division 1 Swim Ontario Team Champions</li>
-                            <li><i class="fas fa-medal text-red me-2"></i> Winter Provincials 2023 Most Improved Male Team</li>
-                            <li><i class="fas fa-medal text-red me-2"></i> 2023 Team Showdown Champions</li>
-                        </ul>
+
+                    <!-- Boys Relays -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card record-card">
+                            <div class="record-img-container">
+                                <img src="Images/NOVA-boys-13-14-NAG-by-Joe-Davila.jpg" alt="Boys Relays" class="record-img">
+                            </div>
+                            <div class="record-info">
+                                <h5 class="record-title">Boys Relays</h5>
+                                <p class="record-details">View the best of our boys.</p>
+                                <a href="Boys Relay.html" class="btn btn-primary">View Records</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Girls Relays -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card record-card">
+                            <div class="record-img-container">
+                                <img src="Images/Girls Relays.jpg" alt="Girls Relays" class="record-img">
+                            </div>
+                            <div class="record-info">
+                                <h5 class="record-title">Girls Relays</h5>
+                                <p class="record-details">View the best of our girls.</p>
+                                <a href="Girls Relay.html" class="btn btn-primary">View Records</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="row g-4 mt-4">
-                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                        <div class="card h-100 animate-on-scroll fade-in-up">
-                            <img src="Images/TeamshowdownChampionshipBannerv2.jpg" class="card-img-top" alt="Team Showdown Champions">
-                            <div class="card-body">
-                                <h5 class="card-title text-red">2023 Brantford Team Showdown Champions</h5>
-                                <p class="card-text">Our team dominated the 2023 Brantford Team Showdown, showcasing the excellence of our training programs.</p>
+
+                <div class="row">
+                    <!-- Mixed Relays -->
+                    <div class="col-md-4 mb-4 mx-auto">
+                        <div class="card record-card">
+                            <div class="record-img-container">
+                                <img src="Images/compettive swiming.webp" alt="Mixed Relays" class="record-img">
                             </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                        <div class="card h-100 animate-on-scroll fade-in-up" style="transition-delay: 0.1s;">
-                            <img src="Images/Kylie Masse Paris Bronze Medal.webp" class="card-img-top" alt="Kylie Masse">
-                            <div class="card-body">
-                                <h5 class="card-title text-red">Olympic Excellence</h5>
-                                <p class="card-text">Home to Olympic medalist Kylie Masse, who continues to inspire our swimmers to reach for greatness.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-4 col-md-12 col-sm-12">
-                        <div class="card h-100 animate-on-scroll fade-in-up" style="transition-delay: 0.2s;">
-                            <img src="Images/Juan Pardo Masters Nationals 2024.webp" class="card-img-top" alt="Masters Nationals">
-                            <div class="card-body">
-                                <h5 class="card-title text-red">Masters World Champions</h5>
-                                <p class="card-text">Our Masters program has produced World Champions and continues to excel at the highest levels of competition.</p>
+                            <div class="record-info">
+                                <h5 class="record-title">Mixed Relays</h5>
+                                <p class="record-details">Records for the best of our Mixed Relays.</p>
+                                <a href="mixed relay.html" class="btn btn-primary">View Records</a>
                             </div>
                         </div>
                     </div>
@@ -335,248 +456,71 @@
             </div>
         </section>
 
-        <!-- Records Section -->
-        <section class="section section-dark" id="records">
+        <!-- National Record Highlights Section -->
+        <section id="national-records" class="section section-dark">
             <div class="container">
                 <div class="row justify-content-center mb-5">
                     <div class="col-lg-8 text-center">
-                        <h2 class="section-title">WEST Club Records</h2>
-                        <p class="lead">Celebrating the fastest swims in club history</p>
+                        <h2 class="section-title">National Record Highlights</h2>
+                        <hr class="red-line">
+                        <p class="lead">WEST swimmers have made their mark not only locally but nationally, setting multiple Canadian records that showcase our program's excellence.</p>
                     </div>
                 </div>
                 
-                <div class="row mb-4">
-                    <div class="col-12">
-                        <ul class="nav nav-pills nav-justified mb-4" id="recordsTabs" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="age-10-under-tab" data-bs-toggle="pill" data-bs-target="#age-10-under" type="button" role="tab" aria-controls="age-10-under" aria-selected="true">10 & Under</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="age-11-12-tab" data-bs-toggle="pill" data-bs-target="#age-11-12" type="button" role="tab" aria-controls="age-11-12" aria-selected="false">11-12 Years</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="age-13-14-tab" data-bs-toggle="pill" data-bs-target="#age-13-14" type="button" role="tab" aria-controls="age-13-14" aria-selected="false">13-14 Years</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="age-15-over-tab" data-bs-toggle="pill" data-bs-target="#age-15-over" type="button" role="tab" aria-controls="age-15-over" aria-selected="false">15 & Over</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="relays-tab" data-bs-toggle="pill" data-bs-target="#relays" type="button" role="tab" aria-controls="relays" aria-selected="false">Relays</button>
-                            </li>
-                        </ul>
+                <div class="row mb-5">
+                    <div class="col-lg-4 mb-4">
+                        <div class="rounded-3 overflow-hidden shadow-lg">
+                            <img src="Images/Kylie Masse.webp" alt="Kylie Masse" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="rounded-3 overflow-hidden shadow-lg">
+                            <img src="Images/MedalMoments_Kylie-Masse_V1-SMEDAL-MOMENTS-WIDE.webp" alt="Kylie Masse Medal Moment" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="rounded-3 overflow-hidden shadow-lg">
+                            <img src="Images/Kylie Masse Paris Bronze Medal.webp" alt="Kylie Masse Paris Bronze Medal" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="record-highlight">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <strong>Kylie Masse</strong> - World Record, 100m Backstroke (58.10s)
+                            </div>
+                        </div>
                         
-                        <div class="tab-content" id="recordsTabContent">
-                            <div class="tab-pane fade show active" id="age-10-under" role="tabpanel" aria-labelledby="age-10-under-tab">
-                                <div class="card bg-dark text-white">
-                                    <div class="card-header">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <h5 class="mb-0">Boys 10 & Under Records</h5>
-                                            </div>
-                                            <div class="col-md-6 text-md-end">
-                                                <div class="btn-group btn-group-sm">
-                                                    <button type="button" class="btn btn-outline-light active">Short Course</button>
-                                                    <button type="button" class="btn btn-outline-light">Long Course</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table class="table table-dark table-striped table-hover mb-0">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Event</th>
-                                                        <th>Name</th>
-                                                        <th>Time</th>
-                                                        <th>Date</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>50 Free</td>
-                                                        <td>Michael Smith</td>
-                                                        <td>28.45</td>
-                                                        <td>12/10/2023</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>100 Free</td>
-                                                        <td>David Johnson</td>
-                                                        <td>1:02.34</td>
-                                                        <td>03/15/2022</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>200 Free</td>
-                                                        <td>Jason Williams</td>
-                                                        <td>2:15.67</td>
-                                                        <td>05/22/2023</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>50 Back</td>
-                                                        <td>Ryan Brown</td>
-                                                        <td>32.56</td>
-                                                        <td>11/08/2022</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>100 Back</td>
-                                                        <td>Michael Smith</td>
-                                                        <td>1:10.23</td>
-                                                        <td>02/14/2023</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="card bg-dark text-white mt-4">
-                                    <div class="card-header">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <h5 class="mb-0">Girls 10 & Under Records</h5>
-                                            </div>
-                                            <div class="col-md-6 text-md-end">
-                                                <div class="btn-group btn-group-sm">
-                                                    <button type="button" class="btn btn-outline-light active">Short Course</button>
-                                                    <button type="button" class="btn btn-outline-light">Long Course</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table class="table table-dark table-striped table-hover mb-0">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Event</th>
-                                                        <th>Name</th>
-                                                        <th>Time</th>
-                                                        <th>Date</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>50 Free</td>
-                                                        <td>Emma Wilson</td>
-                                                        <td>29.12</td>
-                                                        <td>01/20/2023</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>100 Free</td>
-                                                        <td>Sophia Martinez</td>
-                                                        <td>1:03.45</td>
-                                                        <td>04/05/2022</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>200 Free</td>
-                                                        <td>Olivia Taylor</td>
-                                                        <td>2:18.78</td>
-                                                        <td>06/12/2023</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>50 Back</td>
-                                                        <td>Emma Wilson</td>
-                                                        <td>33.21</td>
-                                                        <td>09/30/2022</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>100 Back</td>
-                                                        <td>Sophia Martinez</td>
-                                                        <td>1:12.56</td>
-                                                        <td>03/18/2023</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="tab-pane fade" id="age-11-12" role="tabpanel" aria-labelledby="age-11-12-tab">
-                                <div class="card bg-dark text-white">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">11-12 Years Records</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="text-center">Click <a href="11 - 12 Yrs.html" class="text-red">here</a> to view the 11-12 Years records.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="tab-pane fade" id="age-13-14" role="tabpanel" aria-labelledby="age-13-14-tab">
-                                <div class="card bg-dark text-white">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">13-14 Years Records</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="text-center">Click <a href="13 - 14 Yrs.html" class="text-red">here</a> to view the 13-14 Years records.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="tab-pane fade" id="age-15-over" role="tabpanel" aria-labelledby="age-15-over-tab">
-                                <div class="card bg-dark text-white">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">15 & Over Records</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="text-center">Click <a href="15 Yrs & Over.html" class="text-red">here</a> to view the 15 & Over records.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="tab-pane fade" id="relays" role="tabpanel" aria-labelledby="relays-tab">
-                                <div class="card bg-dark text-white">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">Relay Records</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-4 mb-3">
-                                                <a href="Boys Relay.html" class="btn btn-outline-light w-100">Boys Relay Records</a>
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                                <a href="Girls Relay.html" class="btn btn-outline-light w-100">Girls Relay Records</a>
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                                <a href="mixed relay.html" class="btn btn-outline-light w-100">Mixed Relay Records</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="record-highlight">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <strong>Amanda Reason</strong> - National Record, 50m Breaststroke (30.23s)
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="row mt-4">
-                    <div class="col-12 text-center">
-                        <a href="Provincial-records.html" class="btn btn-outline-light me-3">Provincial Records</a>
-                        <a href="Club-records.html" class="btn btn-outline-light">Club Records</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Hall of Fame Section -->
-        <section class="section" id="hall-of-fame">
-            <div class="container">
-                <div class="row justify-content-center mb-5">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="section-title">WEST Hall of Fame</h2>
-                        <p class="lead">Honoring our most distinguished swimmers and coaches</p>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-12 text-center mb-4">
-                        <p>The WEST Hall of Fame recognizes individuals who have made significant contributions to our club's success and legacy. Inductees have demonstrated exceptional achievement, leadership, and commitment to excellence.</p>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <a href="hall-of-fame.html" class="btn btn-primary">Visit Hall of Fame</a>
+                        
+                        <div class="record-highlight">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <strong>Kylie Masse</strong> - National Record, 200m Backstroke (2:05.97)
+                            </div>
+                        </div>
+                        
+                        <div class="record-highlight">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <strong>Kylie Masse</strong> - National Record, 50m Backstroke (27.64s)
+                            </div>
+                        </div>
+                        
+                        <div class="record-highlight">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <strong>Junior Girls</strong> - National Age Group Record, 4x100m Medley Relay
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

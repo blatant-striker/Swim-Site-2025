@@ -512,12 +512,6 @@ class WESTWebsite {
         homeItem.innerHTML = `<a class="nav-link" href="index.html">HOME</a>`;
         navbarNav.appendChild(homeItem);
         
-        // 2. Add News link
-        const newsItem = document.createElement('li');
-        newsItem.className = 'nav-item';
-        newsItem.innerHTML = `<a class="nav-link" href="Resources.html">NEWS</a>`;
-        navbarNav.appendChild(newsItem);
-        
         // 3. Add Competitions dropdown
         const competitionsItem = document.createElement('li');
         competitionsItem.className = 'nav-item dropdown';
@@ -563,6 +557,7 @@ class WESTWebsite {
             <ul class="dropdown-menu dropdown-menu-dark">
                 <li><a class="dropdown-item" href="Club-records.html">Club Records</a></li>
                 <li><a class="dropdown-item" href="Provincial-records.html">Provincial Qualifiers</a></li>
+                <li><a class="dropdown-item" href="Records.html">Records</a></li>
                 <li><a class="dropdown-item" href="hall-of-fame.html">Hall of Fame</a></li>
             </ul>
         `;
@@ -576,9 +571,10 @@ class WESTWebsite {
                 RESOURCES
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="Resources.html#latest-news">Latest News</a></li>
                 <li><a class="dropdown-item" href="Resources.html#documents">Documents</a></li>
                 <li><a class="dropdown-item" href="official.html">Officials</a></li>
+                <li><a class="dropdown-item" href="Cancellations.html">Pool Cancellations</a></li>
+                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#merchandiseModal">Merchandise</a></li>
                 <li><a class="dropdown-item" href="Resources.html">All Resources</a></li>
             </ul>
         `;
