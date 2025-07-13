@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#fd0000">
+  <title>Windsor Essex Swim Team | Provincial Qualifiers</title>
+  <meta name="description" content="View the Windsor Essex Swim Team's provincial qualifiers and championship swimmers.">
+
+  <!-- Bootstrap & FontAwesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <!-- Custom CSS -->
+<link href="css/main.css" rel="stylesheet">
+
+<!-- Bootstrap JS (early load) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Mobile navbar fix -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ensure Bootstrap is loaded
+        if (typeof bootstrap !== 'undefined') {
+            // Initialize dropdowns manually
+            document.querySelectorAll('.dropdown-toggle').forEach(function(dropdownToggle) {
+                dropdownToggle.addEventListener('click', function(e) {
+                    if (window.innerWidth < 1050) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const dropdownMenu = this.nextElementSibling;
+                        if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
+                            dropdownMenu.classList.toggle('show');
+                            
+                            // Close other dropdowns
+                            document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
+                                if (menu !== dropdownMenu) {
+                                    menu.classList.remove('show');
+                                }
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Handle navbar toggler
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            
+            if (navbarToggler && navbarCollapse) {
+                navbarToggler.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navbarCollapse.classList.toggle('show');
+                    navbarCollapse.style.height = navbarCollapse.classList.contains('show') ? '100vh' : '0';
+                });
+            }
+        }
+    });
+</script>
+  
+  <!-- Custom styles for modal fixes -->
+  <style>
+    .navbar {
+            background: rgba(0, 0, 0, 0.45) !important; /* Semi-transparent background always */
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            transition: all 0.4s ease !important;
+            border-bottom: 1px solid rgba(253, 0, 0, 0.3) !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        /* Reduce spacing between navigation items */
+        .navbar-nav .nav-item {
+            padding-left: 0.25rem;
+            padding-right: 0.25rem;
+        }
+        
+        .navbar-nav .nav-link {
+            padding-left: 0.5rem !important;
+            padding-right: 0.5rem !important;
+        }
+        
+        /* Move navbar to the right */
+        .navbar-nav {
+            margin-left: auto;
+            padding-left: 2rem;
+        }
+        
+        /* Adjust container width for better spacing */
+        .navbar > .container {
+            max-width: 95%;
+        }
+    /* Fix modal positioning and z-index issues */
+    .modal {
+      z-index: 10050 !important;
+    }
+    
+    .modal-backdrop {
+      z-index: 10040 !important;
+      opacity: 0.8 !important;
+    }
+    
+    .modal-dialog {
+      margin: 1.75rem auto;
+      max-width: 95%;
+      width: 1000px;
+      display: flex;
+      align-items: center;
+      min-height: calc(100% - 3.5rem);
+      pointer-events: all !important;
+    }
+    
+    @media (min-width: 992px) {
+      .modal-dialog {
+        max-width: 90%;
+        width: 1100px;
+      }
+    }
+    
+    @media (min-width: 1200px) {
+      .modal-dialog {
+        max-width: 85%;
+        width: 1200px;
+      }
+    }
+    
+    /* Hide original Bootstrap close button */
+    .modal .btn-close {
+      display: none !important;
+    }
+    
+    /* Style for modal shadow */
+    .modal-content {
+      width: 100%;
+      box-shadow: 0 0 30px rgba(253, 0, 0, 0.3);
+      border: 1px solid rgba(253, 0, 0, 0.2);
+    }
+    
+    /* Add custom close class for easier selection */
+    .custom-modal-close {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 1.25rem;
+      transition: all 0.2s ease;
+      position: absolute;
+      right: 15px;
+      top: 10px;
+    }
+    
+    .custom-modal-close:hover {
+      background-color: rgba(253, 0, 0, 0.7);
+      transform: scale(1.1);
+    }
+
+    /* Records table styling */
+    .search-container {
+      margin: 20px auto;
+      max-width: 500px;
+      text-align: right;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+
+    .search-box::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .search-box:focus {
+      outline: none;
+      border-color: #fd0000;
+      box-shadow: 0 0 0 0.2rem rgba(253, 0, 0, 0.25);
+    }
+
+    .table-container {
+      background-color: #111;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow-x: auto;
+      padding: 30px;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      border: 1px solid rgba(253, 0, 0, 0.1);
+      color: #ffffff;
+    }
+
+    .section-title, .lead {
+      color: #333;
+    }
+
+    .table {
+      color: #ffffff !important;
+      background-color: #111;
+      border-color: #333;
+    }
+
+    .table th {
+      background: linear-gradient(135deg, #fd0000 0%, #b30000 100%);
+      color: white !important;
+      cursor: pointer;
+      text-transform: uppercase;
+      padding: 15px;
+      font-weight: 700;
+      border-color: #333;
+    }
+
+    .table td {
+      padding: 15px;
+      vertical-align: middle;
+      transition: all 0.3s ease;
+      border-color: rgba(255, 255, 255, 0.1);
+      background-color: #1a1a1a;
+      color: #ffffff !important;
+    }
+    
+    .table tbody tr {
+      background-color: #1a1a1a;
+      color: #ffffff !important;
+    }
+
+    .table tbody tr:hover {
+      background-color: rgba(253, 0, 0, 0.2);
+      transform: scale(1.01);
+      color: #ffffff !important;
+    }
+
+    .extra-details {
+      display: none;
+      background-color: #2a2a2a !important;
+      color: #ffffff !important;
+    }
+
+    .extra-details td {
+      background-color: #2a2a2a;
+      color: #ffffff !important;
+    }
+
+    .clickable {
+      cursor: pointer;
+      color: #ffffff;
+    }
+
+    .clickable:hover {
+      color: #fd0000;
+    }
+    
+    /* Add background color to match page and fix margin issue */
+    body {
+      background-color: #D0EFFF;
+      color: #333;
+    }
+    
+    .section {
+      background-color: #D0EFFF;
+    }
+  </style>
+<!-- Bootstrap JS (early load) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Mobile navbar fix -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ensure Bootstrap is loaded
+        if (typeof bootstrap !== 'undefined') {
+            // Initialize dropdowns manually
+            document.querySelectorAll('.dropdown-toggle').forEach(function(dropdownToggle) {
+                dropdownToggle.addEventListener('click', function(e) {
+                    if (window.innerWidth < 1050) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const dropdownMenu = this.nextElementSibling;
+                        if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
+                            dropdownMenu.classList.toggle('show');
+                            
+                            // Close other dropdowns
+                            document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
+                                if (menu !== dropdownMenu) {
+                                    menu.classList.remove('show');
+                                }
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Handle navbar toggler
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            
+            if (navbarToggler && navbarCollapse) {
+                navbarToggler.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navbarCollapse.classList.toggle('show');
+                    navbarCollapse.style.height = navbarCollapse.classList.contains('show') ? '100vh' : '0';
+                });
+            }
+        }
+    });
+</script>
+</head>
+<body>
+  <!-- Page Transition -->
+  <div class="page-transition">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html" style="margin-right: 3rem;">
+                <img src="Images/LOGO.webp" alt="WEST Logo" height="60" class="me-2">
+                <div class="d-flex flex-column">
+                    <span class="fw-bold" style="font-size: 1.1rem; line-height: 1.1;">Windsor Essex</span>
+                    <span class="fw-bold" style="font-size: 1.1rem; line-height: 1.1;">Swim Team</span>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Meets.html" id="competitionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            COMPETITIONS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="competitionsDropdown">
+                            <li><a class="dropdown-item" href="Meets.html">All Meets</a></li>
+                            <li><a class="dropdown-item" href="Meets.html#heat-sheets">Heat Sheets</a></li>
+                            <li><a class="dropdown-item" href="Meets.html#psych-sheets">Psych Sheets</a></li>
+                            <li><a class="dropdown-item" href="Meets.html#registration">Meet Registration</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Programs.html" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            PROGRAMS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="programsDropdown">
+                            <li><a class="dropdown-item" href="Programs.html#barracudas">Barracudas</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#otters">Otters</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#stroke">Learn to Swim</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#performance">Competitive</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#additional">Masters</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#private-lessons">Private Lessons</a></li>
+                            <li><a class="dropdown-item" href="Programs.html">All Programs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Records.html" id="achievementsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            ACHIEVEMENTS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="achievementsDropdown">
+                            <li><a class="dropdown-item" href="Club-records.html">Club Records</a></li>
+                            <li><a class="dropdown-item" href="Provincial-records.html">Provincial Qualifiers</a></li>
+                            <li><a class="dropdown-item" href="hall-of-fame.html">Hall of Fame</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Resources.html" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            RESOURCES
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
+                            <li><a class="dropdown-item" href="Resources.html#documents">Documents</a></li>
+                            <li><a class="dropdown-item" href="official.html">Officials</a></li>
+                            <li><a class="dropdown-item" href="Cancellations.html">Pool Cancellations</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#merchandiseModal">Merchandise</a></li>
+                            <li><a class="dropdown-item" href="Resources.html">All Resources</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="team.html" id="teamDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            TEAM & CLUB
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="teamDropdown">
+                            <li><a class="dropdown-item" href="About.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="Coaches.html">Coaches</a></li>
+                            <li><a class="dropdown-item" href="team.html">Team Structure</a></li>
+                            <li><a class="dropdown-item" href="Facility.html">Facilities</a></li>
+                            <li><a class="dropdown-item" href="Registration.html">Registration</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact.html">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+  <!-- Records Section -->
+  <section class="section" style="margin-top: 120px; background-color: #D0EFFF;" data-title="Provincial Qualifiers">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12 text-center">
+          <h2 class="section-title animate-on-scroll fade-in-up">Provincial Qualifiers</h2>
+          <p class="lead animate-on-scroll fade-in-up">Ontario Festivals, Youth Juniors (OYJ), Open Water and Ontario Swimming Championships (OSC)</p>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <div class="search-container animate-on-scroll fade-in-up">
+  <input type="text" class="search-box" id="searchInput" placeholder="Search qualifiers...">
+</div>
+
+<!-- Table -->
+<div class="table-container animate-on-scroll fade-in-up">
+  <table class="table table-bordered text-center" id="qualifiersTable">
+    <thead>
+      <tr>
+        <th class="sortable" onclick="sortTable(0)">Season</th>
+        <th class="sortable" onclick="sortTable(1)">Qualifiers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Initial visible rows -->
+      <tr><td>2023-2024</td><td class="clickable" onclick="toggleDetails(this)">Gaspar Lazure (BC), Riley Carswell, Harry Wei, Lucas Safta, Michael Church, Alivia Momotiuk, Kevin Yan, Juan Pardo, Daniel Yuan, Avery Momotiuk, Ava Taylor, William Hopkins, Avah Cappadocia, Christine Zhang, Dennis Sarkadi, Lorena Sarkadi, Aleksandar Catic, Aris Stanca, Patrick Gibbons, Tristan Morin, Liora Mechanic</td></tr>
+      <tr><td>2022-2023</td><td class="clickable" onclick="toggleDetails(this)">Gaspar Lazure, Avery Momotik, Riley Carswell, Lucas Safta, Justin Wei, Harry Wei, Michael Taylor, Kevin Yan, Ryan Ku, Sophia Soulliere, Ava Taylor, Michael Church, Tristan Morin, Christine Zhang, Alivia Momotiuk</td></tr>
+      <tr><td>2021-2022</td><td class="clickable" onclick="toggleDetails(this)">Alex Panek, Lucas Safta, Alivia Momotiuk, Jack Fraser, Gaspar Lazure, Sophia Soulliere, Ryan Safta, Avery Momotiuk, Michael Taylor, Harry Wei, Riley Carswell, Michael Church, Charmi Koppolu, Ryan Ku, Kevin Yan, Justin Wei, Abigail Polewski</td></tr>
+      <tr><td>2019-2020</td><td class="clickable" onclick="toggleDetails(this)">Bujak Nikolaus, Momotiuk Avery, Carswell Riley, Podar Brian, Chiandussi Luca, Safta Ryan, Koppolu Charmi, Soulliere Sophia, Lackovic Alexandar, Stojakovic Nicole, Lackovic Nikola, VanBuskirk Kyla, Lazure Gaspar, Wei Harry</td></tr>
+      <tr><td>2018-2019</td><td class="clickable" onclick="toggleDetails(this)">Bujak Moira, Momotiuk Avery, Bujak Nikolaus, Marginean Emily, Carswell Riley, Podar Brian, Cheung Martin, Sexsmith Victoria, Chiandussi Luca, Simic Danica, Gillis Madalyn, Soulliere Sophia, Fraser Jack, Stojakovic Nicole, Humber Bailey, Taylor Michael, Koppolu Charmi, VanBuskirk Kyla, Lackovic Alexandar, Wang Lucas, Lackovic Nikola, Wei Harry, Lazure Gaspar, Yan Kevin, Lucas Safta</td></tr>
+      <tr><td>2017-2018</td><td class="clickable" onclick="toggleDetails(this)">Bujak Moira, Momotiuk Avery, Carswell Riley, O'Calllaghan Marcie, Cheung Martin, Piatkowski Evan, Chiandussi Luca, Rode Rachel, Gillis Madalyn, Sexsmith Victoria, Humber Bailey, Sloboda Danny, Koppolu Charmi, Sloboda Marjorie, Ku Ryan, Soulliere Sophia, Lackovic Alexandar, Taylor Michael, Lackovic Nikola, VanBuskirk Kyla, Lei Leo, Wang Lucas, MacDonald Kai, Wei Harry, Marcuzzi Julia, Zhang Samuel, Masse Kylie</td></tr>
+      <tr><td>2016-2017</td><td class="clickable" onclick="toggleDetails(this)">Bujak Moira, Masse Kylie, Cheung Martin, O'Calllaghan Marcie, Chiandussi Luca, Pascariu Mara, Chitte Sneha, Pattinson Lily, Duvall Abigail, Piatkowski Evan, Gheorghita Antonia, Reaume Ava, Gillis Madalyn, Rode Rachel, Harcarufka Jayne, Sekaric Isidora, Humber Bailey, Sexsmith Victoria, Kawa Jack, Shepherd Allisyn, Ku Ryan, Sloboda Danny, Kukhta Devlin, Sloboda Marjorie, Lackovic Alexandar, Taylor Michael, Lavoie Maddy, Trudeau Jacquelin, Lazure Gaspar, VanBuskirk Kyla, MacDonald Aislyn, Wang Lucas, MacDonald Kai, Yu Eric, Marcuzzi Julia, Zhang Samuel</td></tr>
+      <tr><td>2015-2016</td><td class="clickable" onclick="toggleDetails(this)">Binder Andrew, Lefler Amber, Bujak Moira, Marcuzzi Julia, Chernyak Yury, Masse Kylie, Cheung Martin, Norg Aaron, Chiandussi Luca, O'Calllaghan Marcie, Dales Kennedy, Ouyang Leon, Dalla Bona Nicolas, Parker Katya, Dumouchelle Justin, Reaume Ava, Gheorghita Antonia, Rode Rachel, Gillis Madalyn, Sekaric Isidora, Harcarufka Jayne, Sexsmith Victoria, Humber Bailey, Sloboda Danny, Kaczmarczyk Anne-Marie, Sloboda Marjorie, Kawa Jack, Tiplady Zoe, Konior Karolina, Taylor Michael, Ku Ryan, Tilvaldieva Leili, Kukhta Devlin, Trudeau Jacquelin, Kukhta Teagan, VanBuskirk Kyla, Lackovic Alexandar, Wang Lucas, Lavoie Cody, Yu Eric, Lavoie Maddy, Zhang Samuel</td></tr>
+      <tr><td>2014-2015</td><td class="clickable" onclick="toggleDetails(this)">Binder Andrew, Marcuzzi Julia, Chernyak Yury, Masse Kylie, Cheung Martin, Marginean Emily, Dales Kennedy, Medvidovic Tina, Dalla Bona Nicolas, Norg Aaron, Douglas James, Ouyang Leon, Gheorhita Antonia, Parker Katya, Gutowski Eddie, Pascariu Petra, Humber Bailey, Patten Rachel, Jobin Alexandrea, Pattinson Lily, Jovanovic Mili, Rode Aaron, Kukhta Devlin, Rode Rachel, Kukhta Teagan, Sekaric Isidora, Kawa Jack, Sexsmith Victoria, Konior Karolina, Sloboda Marjorie, Ku Ryan, Tilvaldieva Leili, Lackovic Alexandar, Tiplady Zoe, Lavoie Cody, Trudeau Jacquelin, Lavoie Maddy, VanBuskirk Kyla, Lefler Amber, Wang Lucas, Liu Alex, Yu Eric, Liu Renee, Zhang Samuel</td></tr>
+      <tr><td>2013-2014</td><td class="clickable" onclick="toggleDetails(this)">Binder Andrew, Masse Kylie, Burnett Mackenzie, McDonald Madeleine, Capocci Olivia, Mercier Zoe, Dalla Boana Nicols, Norg Aaron, Fazekas Ethan, Oswald Brendan, Fazekas Sadie, Oswald Hannah, Gatrall Madelyn, Ouyang Leon, Gheorhita Antonia, Parker Katya, Humber Bailey, Reaume Ava, Jovanovic Mili, Rios Galeana Rogel, Kaczmarczyk Anne-Marie, Rode Rachel, Kukhta Devlin, Sexsmith Victoria, Kukhta Teagan, Shedeed Eyad, Kukuruzovic Andrej, Sloboda Marjorie, Lavoie Cody, Stewart Reid, Lavoie Maddy, Tilvaldyeva Leili, Lefler Amber, Trudeau Jacquelin, Liu Alex, VanBuskirk Kyla, Li Lena, Wen Maxwell, Liu Renee, Yu Eric, Marginean Emily, Zhang Samuel</td></tr>
+      <tr><td>2012-2013</td><td class="clickable" onclick="toggleDetails(this)">Bezarevic David, Li Lena, Binder Andrew, Liu Alex, Brisebois Allanah, Liu Renee, Burnett Mackenzie, Marginean Emily, Cheung Iris, Masse Kylie, Dalla Bona Nicolas, Mercier Zoe, Eberhard Caroline, McDonald Madeleine, Fazekas Ethan, Norg Aaron, Fazekas Sadie, Orzylowski Jacek, Gatrall Madelyn, Oswald Brendan, Gheorhita Antonia, Oswald Hannah, Humber Bailey, Ouyang Leon, Jovanovic Mili, Rios Galeana Rogel, Kaczmarczyk Anne-Marie, Rode Rachel, Kukhta Devlin, Rochon Cole, Kukhta Teagan, Sekaric Isidora, Kukuruzovic Andrej, Sloboda Marjorie, Lane Torrie, Stewart Reid, Lavoie Cody, Tilvaldyeva Leili, Lavoie Maddy, Wen Maxwell, Lefler Amber</td></tr>
+      <tr><td>2011-2012</td><td class="clickable" onclick="toggleDetails(this)">Bacioiu Alex, Liu Alex, Binder Andrew, Liu Renee, Cvoro Ivana, Longlade Andrea, Dalla Bona Nicolas, Marginean Emily, Dickens Nicole, Masse Kylie, Fazekas Ethan, McDonald Madeleine, Fazekas Sadie, Norg Aaron, Foreman Madison, Orzylowski Jacek, Gatrall Madelyn, Oswald Brendan, Kaczmarczyk Anne-Marie, Oswald Hannah, Kukuruzovic Andrej, Ouyang Leon, Lane Torrie, Rios Galeana Rogel, Lavoie Cody, Rode Aaron, Lavoie Maddy, Rode Rachell, Lefler Amber, Rochon Cole, Lee Jimmy, Sharma Nagesh, Li Lena, Wen Maxwell</td></tr>
+      
+      <!-- Additional rows (initially hidden) -->
+      <tr class="additional-row" style="display:none"><td>2010-2011</td><td class="clickable" onclick="toggleDetails(this)">Bacioiu Alex, Binder Andrew, Brisebois Allanah, Cooper Dylan, DeFaria Joe, Fazekas Ethan, Fazekas Sadie, Kaczmarczyk Anne-Marie, Kukuruzovic Andrej, Lane Torrie, Lavoie Cody, Lavoie Maddy, Lefler Amber, Li Lena, Liu Alex, Liu Renee, Longlade Andrea, Marginean Emily, Masse Kylie, McDonald Madeleine, Orzylowski Jacek, Oswald Hannah, Ouyang Leon, Ouyang Victor, Rios Galeana Rogel, Rode Aaron, Rode Nathan, Rode Rachel, Sidor Michael</td></tr>
+      <tr class="additional-row" style="display:none"><td>2009-2010</td><td class="clickable" onclick="toggleDetails(this)">Bardukov Olexiy, Binder Andrew, Brisebois Allanah, DeFaria Joe, Fazekas Sadie, Fazekas Ethan, Jones Jay, Harrigan Callie, Kaczmarczyk Anne-Marie, Kukuruzovic Andrej, Lavoie Maddy, Lavoie Cody, Lee Jimmy, Lefler Amber, Liu Alex, Longlade Andrea, Masse Kylie, McDonald Madeleine, Orzylowski Jacek, Ouyang Leon, Rochon Kristin, Rode Aaron, Rode Rachel, Semenov Vasya</td></tr>
+      <tr class="additional-row" style="display:none"><td>2008-2009</td><td class="clickable" onclick="toggleDetails(this)">Bardukov Olexiy, Brisebois Allanah, Capocci Olivia, Desroches Brigitte, DeFaria Joe, DeWolfe Zack, Fazekas Sadie, Goron Travis, Harrigan Callie, Kaczmarczyk Anne-Marie, Lane Torrie, Lavoie Cody, Lee Jimmy, Lefler Amber, Longlade Andrea, Masse Kylie, McRae Cameron, Ouyang Leon, Ouyang Victor, Reason Amanda, Rode Aaron, Rode Rachel, Semenov Vasya, Sidor Michael, Simard Emily, Tonkin Katie, Viselli Santino, Yamashita Taro</td></tr>
+      <tr class="additional-row" style="display:none"><td>2007-2008</td><td class="clickable" onclick="toggleDetails(this)">Ahmed Youssef, Bardukov Olexiy, Brecka Derrick, Buchok Nicholas, Capocci Olivia, Desroches Brigitte, DeFaria Joe, DeWolfe Zack, Fazekas Sadie, Harrigan Callie, Jacques Jeramie, Kaczmarczyk Anne-Marie, Laschuk Matthew, Lavoie Cody, Lee Jimmy, Lefler Amber, Lei Julia, Longlade Andrea, Martin Emily, Masse Kylie, McRae Cameron, McRae Patrick, Orzylowski Jacek, Reason Amanda, Sceli Michaela, Semenov Vasya, Simard Emily, Tonkin Katie, Viselli Santino</td></tr>
+      <tr class="additional-row" style="display:none"><td>2006-2007</td><td class="clickable" onclick="toggleDetails(this)">Brown Glendon, Buchok Nicholas, Capocci Olivia, Desroches Brigitte, DeWolfe Zack, Kaczmarczyk Anne-Marie, Kitson Cord, Lavoie Cody, Laschuk Matthew, Lee Jimmy, Longlade Andrea, Masse Kylie, McWha Mike, Reason Amanda, Sceli Michaela, Sidor Nicole, Simard Emily, Schuurman Melissa, Tonkin Katie, Viselli Santino</td></tr>
+      <tr class="additional-row" style="display:none"><td>2005-2006</td><td class="clickable" onclick="toggleDetails(this)">Brown Glendon, Buchok Nicholas, DeWolfe Zack, Jacques Jeramie, Anne-Marie Kaczmarczyk, Laschuk Matthew, Lee Jimmy, Loshusan Brandon, Meixner Breana, Reason Amanda, Renaud Courtney, Rode Aaron, Sceli Michaela, Schuurman Melissa, Schuurman Elizabeth, Simard Emily, Tonkin Katie, Viselli Santino</td></tr>
+      <tr class="additional-row" style="display:none"><td>2004-2005</td><td class="clickable" onclick="toggleDetails(this)">Brecka Derrick, Brown Glendon, Buchok Nicholas, Cepelak Kamil, Cheung Andrew, DeWolfe Zack, Gajewski Michelle, Griffin Vanessa, Laschuk Matthew, Lee Jimmy, Loshusan Brandon, Meixner Breana, Shallow Heidi, Schuurman Melissa, Schuurman Elizabeth, Sedlacek Chris, Simard Emily, Tan Victoria, Viselli Santino</td></tr>
+      <tr class="additional-row" style="display:none"><td>2003-2004</td><td class="clickable" onclick="toggleDetails(this)">Brecka Alee, Brecka Derrick, Buchok Nick, Cepelak Kamil, Cheung Andrew, Ferris Emily, Gajewski Michelle, Laschuk Matthew, Lee Jimmy, Loshusan Brandon, Meyer Christiaan, Morris Gillian, Peterson Sarah, Sampson Kelly, Sceli Michaela, Semenov Vasya, Semenova Vera, Tan Victoria</td></tr>
+      <tr class="additional-row" style="display:none"><td>2002-2003</td><td class="clickable" onclick="toggleDetails(this)">Brecka Alee, Buchok Nick, Cheung Andrew, Gajewski Michelle, Gerard Kyle, Laschuk Matthew, Loshusan Brandon, Meyer Christiaan, Morris Gillian, Ferris Emily, Peterson Sarah, Renaud Courtney, Sceli Michaela, Semenova Vera, Tonkin Kati</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="text-center my-4" id="toggleButtonContainer">
+  <button class="btn btn-primary" id="toggleButton" onclick="toggleAdditionalRows()">See More</button>
+</div>
+
+<script>
+  // Search Filter
+  document.getElementById("searchInput").addEventListener("input", function () {
+    let filter = this.value.toUpperCase();
+    let rows = document.querySelectorAll("#qualifiersTable tbody tr");
+    let hasVisibleRows = false;
+
+    rows.forEach(row => {
+      // If it's an additional row and we're not searching, respect its toggle state
+      if (row.classList.contains("additional-row") && filter === "") {
+        // Don't change visibility here
+      } else {
+        const text = row.textContent || row.innerText;
+        const shouldShow = text.toUpperCase().indexOf(filter) > -1;
+        
+        if (shouldShow) {
+          row.style.display = "";
+          hasVisibleRows = true;
+        } else {
+          row.style.display = "none";
+        }
+      }
+    });
+
+    // Show/hide toggle button based on search results
+    document.getElementById("toggleButtonContainer").style.display = 
+      (filter === "") ? "block" : "none";
+  });
+
+  // Sort Function
+  function sortTable(colIndex) {
+    const table = document.getElementById("qualifiersTable");
+    const rows = Array.from(table.querySelectorAll("tbody tr"));
+    const ascending = !table.classList.toggle("asc");
+
+    rows.sort((a, b) => {
+      const A = a.cells[colIndex].textContent.trim().toLowerCase();
+      const B = b.cells[colIndex].textContent.trim().toLowerCase();
+      return ascending ? A.localeCompare(B) : B.localeCompare(A);
+    });
+
+    const tbody = table.querySelector("tbody");
+    rows.forEach(row => tbody.appendChild(row));
+  }
+
+  // Row Toggle for details
+  function toggleDetails(cell) {
+    const row = cell.parentElement;
+    const nextRow = row.nextElementSibling;
+    if (nextRow && nextRow.classList.contains("extra-details")) {
+      nextRow.style.display = nextRow.style.display === "table-row" ? "none" : "table-row";
+    }
+  }
+  
+  // Toggle additional rows
+  function toggleAdditionalRows() {
+    const additionalRows = document.querySelectorAll(".additional-row");
+    const toggleButton = document.getElementById("toggleButton");
+    const isExpanded = additionalRows[0].style.display !== "none";
+    
+    additionalRows.forEach(row => {
+      row.style.display = isExpanded ? "none" : "";
+    });
+    
+    toggleButton.textContent = isExpanded ? "See More" : "See Less";
+  }
+</script>
+
+    </div>
+  </section>
+
+      <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-8 col-sm-10 mb-4 mb-lg-0 mx-auto mx-lg-0">
+                    <div class="footer-brand">
+                        <img src="Images/LOGO.webp" alt="WEST Logo" class="footer-logo">
+                        <span>Windsor Essex Swim Team</span>
+                    </div>
+                    <p class="footer-description">
+                        The most successful aquatic program in Southwestern Ontario, dedicated to developing swimmers of all levels.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/west_coachjimmylee/" target="_blank" aria-label="Instagram" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 col-6 mb-4 mb-md-4 text-lg-start text-center">
+                    <h5 class="footer-title">About</h5>
+                    <ul class="footer-links">
+                        <li><a href="About.html">Philosophy</a></li>
+                        <li><a href="Coaches.html">Coaches</a></li>
+                        <li><a href="team.html">Team Structure</a></li>
+                        <li><a href="Facility.html">Facilities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 col-6 mb-4 mb-md-4 text-lg-start text-center">
+                    <h5 class="footer-title">Programs</h5>
+                    <ul class="footer-links">
+                        <li><a href="Programs.html#performance">Competitive</a></li>
+                        <li><a href="Programs.html#stroke">Learn to Swim</a></li>
+                        <li><a href="Programs.html#additional">Masters</a></li>
+                        <li><a href="Programs.html#private-lessons">Private Lessons</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 col-6 mb-4 mb-md-4 text-lg-start text-center">
+                    <h5 class="footer-title">Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="hall-of-fame.html">Hall of Fame</a></li>
+                        <li><a href="Records.html">Club Records</a></li>
+                        <li><a href="Meets.html">Meets</a></li>
+                        <li><a href="official.html">Officials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 col-6 mb-4 mb-md-4 text-lg-start text-center">
+                    <h5 class="footer-title">Contact</h5>
+                    <ul class="contact-info">
+                        <li class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Windsor, ON
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:windsoressexswimteam@gmail.com">windsoressexswimteam@gmail.com</a>
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            (519) 564-8972
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6 col-12 mb-2 mb-md-0 text-center text-md-start">
+                        <p class="mb-md-0">&copy; 2025 Windsor Essex Swim Team. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6 col-12 text-center text-md-end">
+                        <p class="mb-0">Made with <img src="Images/Heart pixel.webp" alt="Heart" class="heart-pixel"> by <a href="https://function-drive.com" target="_blank" class="text-red">Function Drive</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enhanced Footer Styles -->
+    <style>
+        .footer {
+            background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(15,15,15,1) 100%);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(253, 0, 0, 0.3);
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('Images/wave-pattern.png');
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        
+        .footer-logo {
+            height: 45px;
+            width: auto;
+            margin-right: 12px;
+        }
+        
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.8rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .footer-title {
+            color: #fd0000;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: rgba(253, 0, 0, 0.5);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.7rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 0;
+        }
+        
+        .footer-links a:hover {
+            color: #fd0000;
+            padding-left: 5px;
+        }
+        
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .contact-item {
+            margin-bottom: 0.7rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-item i {
+            color: #fd0000;
+            margin-right: 10px;
+            font-size: 1rem;
+            margin-top: 3px;
+        }
+        
+        .contact-item a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: #fd0000;
+        }
+        
+        .social-icons {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(253, 0, 0, 0.1);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.2rem;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 1px solid rgba(253, 0, 0, 0.3);
+        }
+        
+        .social-icon:hover {
+            background-color: #fd0000;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(253, 0, 0, 0.3);
+        }
+        
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        .heart-pixel {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin: 0 4px;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+        }
+        
+        @media (max-width: 992px) {
+            .footer-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer {
+                padding: 3rem 0 1.5rem;
+            }
+            
+            .footer-bottom {
+                margin-top: 2rem;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .text-lg-start .footer-title::after {
+                left: 0;
+                transform: none;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .footer-logo {
+                height: 35px;
+            }
+            
+            .footer-brand {
+                font-size: 1.3rem;
+            }
+            
+            .footer-description {
+                font-size: 0.9rem;
+            }
+            
+            .footer-links a, .contact-item {
+                font-size: 0.9rem;
+            }
+            
+            .footer-bottom p {
+                font-size: 0.8rem;
+            }
+            
+            .heart-pixel {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    </style>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- JS Features -->
+  <script>
+    // Search Filter
+    document.getElementById("searchInput").addEventListener("input", function () {
+      let filter = this.value.toUpperCase();
+      let rows = document.querySelectorAll("#qualifiersTable tbody tr");
+
+      for (let i = 0; i < rows.length; i++) {
+        const row = rows[i];
+        const text = row.textContent || row.innerText;
+
+        if (text.toUpperCase().indexOf(filter) > -1) {
+          row.style.display = "";
+        } else {
+          row.style.display = "none";
+        }
+      }
+    });
+
+    // Sort Function
+    function sortTable(colIndex) {
+      const table = document.getElementById("qualifiersTable");
+      const rows = Array.from(table.querySelectorAll("tbody tr"));
+      const ascending = !table.classList.toggle("asc");
+
+      rows.sort((a, b) => {
+        const A = a.cells[colIndex].textContent.trim().toLowerCase();
+        const B = b.cells[colIndex].textContent.trim().toLowerCase();
+        return ascending ? A.localeCompare(B) : B.localeCompare(A);
+      });
+
+      const tbody = table.querySelector("tbody");
+      rows.forEach(row => tbody.appendChild(row));
+    }
+
+    // Row Toggle
+    function toggleDetails(cell) {
+      const row = cell.parentElement;
+      const nextRow = row.nextElementSibling;
+      if (nextRow && nextRow.classList.contains("extra-details")) {
+        nextRow.style.display = nextRow.style.display === "table-row" ? "none" : "table-row";
+      }
+    }
+    
+    // Toggle See More/Less
+    function toggleSeeMore() {
+      const section = document.getElementById('seeMoreSection');
+      const topButton = document.getElementById('seeMoreButtonTop');
+      const bottomButton = document.getElementById('seeMoreButtonBottom');
+      const isExpanded = section.style.display !== 'none';
+      
+      // Toggle section visibility
+      section.style.display = isExpanded ? 'none' : 'block';
+      
+      // Toggle button visibility and text
+      topButton.style.display = isExpanded ? 'block' : 'none';
+      topButton.querySelector('button').textContent = 'See More';
+      
+      // Bottom button only shows when expanded
+      if (bottomButton) {
+        bottomButton.style.display = isExpanded ? 'none' : 'block';
+        bottomButton.querySelector('button').textContent = 'See Less';
+      }
+    }
+  </script>
+  
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom JavaScript -->
+  <script src="js/main.js"></script>
+    
+    <!-- Navbar Mobile Fix Script -->
+    <script src="js/navbar-fix.js"></script>
+  
+  <!-- Merchandise Modal -->
+  <div class="modal fade" id="merchandiseModal" tabindex="-1" aria-labelledby="merchandiseModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content bg-dark">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="merchandiseModalLabel">WEST Merchandise</h5>
+                  <!-- Custom close button -->
+                  <button type="button" class="custom-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                      <i class="fas fa-times"></i>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-12">
+                              <h3 class="text-red">WEST Merchandise Store</h3>
+                              
+                              <h4 class="mt-4">WEST Swimming Caps</h4>
+                              <p>🧢 Regular Silicone Swimming Cap - <strong>$20</strong> (HST Included)</p>
+                              <p>🧢 Long Hair Silicone Swimming Cap - <strong>$25</strong> (HST Included)</p>
+                              <p>🧢 Racing Dome Swimming Cap - <strong>$30</strong> (HST Included)</p>
+                              
+                              <p class="mt-4"><strong>Email:</strong> windsoressexswimteam@gmail.com for all WEST orders</p>
+                              
+                              <h4 class="mt-4">Equipment Purchase</h4>
+                              <p>Please visit the <strong>WEST Team Portal</strong> for equipment purchases.</p>
+                              <p><strong>Team Code:</strong> <span class="text-red fw-bold">WEST</span></p>
+                              <p>
+                                  Using this code gives WEST a 5% kickback and you a 2% discount at checkout.  
+                                  Note: currently this only works for online purchases, not in-store.
+                              </p>
+                              <div class="text-center">
+                                  <a href="https://www.lysports.com/team/west/" target="_blank" class="btn btn-primary mt-3">
+                                      Visit Team Portal
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Sponsors Modal -->
+  <div class="modal fade" id="sponsorsModal" tabindex="-1" aria-labelledby="sponsorsModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content bg-dark">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="sponsorsModalLabel">Our Valued Sponsors</h5>
+                  <!-- Custom close button -->
+                  <button type="button" class="custom-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                      <i class="fas fa-times"></i>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <style>
+                      /* Compact styling for sponsor modal */
+                      .sponsor-row {
+                          display: flex;
+                          flex-wrap: wrap;
+                          justify-content: center;
+                          align-items: center;
+                          gap: 5px;
+                      }
+                      
+                      .sponsor-logo {
+                          flex: 0 0 auto;
+                          width: 120px;
+                          margin: 0 3px 10px;
+                          text-align: center;
+                      }
+                      
+                      .sponsor-logo img {
+                          max-height: 60px;
+                          object-fit: contain;
+                      }
+                      
+                      .sponsor-logo p {
+                          font-size: 0.75rem;
+                          margin-top: 5px !important;
+                          margin-bottom: 0;
+                      }
+                      
+                      .modal-body h3 {
+                          font-size: 1.3rem;
+                          margin-bottom: 10px !important;
+                      }
+                      
+                      .modal-body p.mb-3 {
+                          font-size: 0.85rem;
+                          margin-bottom: 8px !important;
+                      }
+                      
+                      /* Reduce overall spacing */
+                      .modal-body .row {
+                          margin-bottom: 10px;
+                      }
+                      
+                      .modal-body {
+                          padding: 0.75rem;
+                      }
+                  </style>
+                  <div class="container-fluid">
+                      <div class="row mb-3">
+                          <div class="col-12 text-center">
+                              <h3 class="text-red mb-3">Silver Sponsors</h3>
+                              <div class="sponsor-row animate-on-scroll fade-in-up">
+                                  <div class="sponsor-logo">
+                                      <img src="Images/Co-operators_Logo_Blue.jpg" alt="Co-operators" class="img-fluid">
+                                  </div>
+                                  <div class="sponsor-logo">
+                                      <img src="Images/PwC_fl_60mmh_c.jpg" alt="PwC" class="img-fluid">
+                                  </div>
+                                  <div class="sponsor-logo">
+                                      <img src="Images/Sun Hong BBQ & Seafood Restaurant.png" alt="Sun Hong BBQ" class="img-fluid">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <div class="row">
+                          <div class="col-12 text-center">
+                              <h3 class="text-red mb-3">Bronze Sponsors</h3>
+                              <div class="sponsor-row animate-on-scroll fade-in-up">
+                                  <div class="sponsor-logo">
+                                      <img src="Images/Local 200 Logo.jpg" alt="Local 200" class="img-fluid">
+                                  </div>
+                                  <div class="sponsor-logo">
+                                      <img src="Images/Sko_Rebrand_1.jpg" alt="Sko" class="img-fluid">
+                                  </div>
+                                  <div class="sponsor-logo">
+                                      <img src="Images/TekSavvy White Logo (All Coloured BackGrounds EXCEPT Black).jpg" alt="TekSavvy" class="img-fluid">
+                                  </div>
+                                  <div class="sponsor-logo">
+                                      <img src="Images/Dr. A. Mulaosmanovic Logo.jpeg" alt="Dr. A. Mulaosmanovic" class="img-fluid">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <div class="row mt-3">
+                          <div class="col-12 text-center">
+                              <h3 class="text-red mb-3">Our Partners</h3>
+                              <p class="mb-3">WEST collaborates with premier facilities across Windsor-Essex</p>
+                              <div class="sponsor-row animate-on-scroll fade-in-up">
+                                  <div class="sponsor-logo">
+                                      <img src="Images/windsor-aquatic-centre-logo.jpg" alt="Windsor Aquatic Centre" class="img-fluid">
+                                  </div>
+                                  <div class="sponsor-logo">
+                                      <img src="Images/university-of-windsor-logo.png" alt="University of Windsor" class="img-fluid">
+                                  </div>
+                                  <div class="sponsor-logo">
+                                      <img src="Images/wfcu-credit-union-logo.png" alt="WFCU Centre" class="img-fluid">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <div class="row mt-3">
+                          <div class="col-12 text-center">
+                              <p class="lead" style="font-size: 0.95rem;">Interested in becoming a sponsor? Contact us at <a href="mailto:windsoressexswimteam@gmail.com" class="text-red">windsoressexswimteam@gmail.com</a></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Modal Fix Script - Direct approach -->
+  <script>
+      // Execute on DOM load
+      document.addEventListener('DOMContentLoaded', function() {
+          // Simple function to close any modal
+          function closeAnyModal(modalElement) {
+              if (!modalElement) return;
+              
+              // Hide the modal
+              modalElement.classList.remove('show');
+              modalElement.style.display = 'none';
+              
+              // Clean up body classes and styles
+              document.body.classList.remove('modal-open');
+              document.body.style.removeProperty('overflow');
+              document.body.style.removeProperty('padding-right');
+              
+              // Remove backdrops
+              document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+          }
+          
+          // Close modals when clicking close buttons
+          document.querySelectorAll('.custom-modal-close, [data-bs-dismiss="modal"]').forEach(function(btn) {
+              btn.addEventListener('click', function() {
+                  const modal = this.closest('.modal');
+                  if (modal) closeAnyModal(modal);
+              });
+          });
+          
+          // Close modals when clicking outside
+          document.addEventListener('click', function(e) {
+              if (e.target.classList.contains('modal') && e.target.classList.contains('show')) {
+                  closeAnyModal(e.target);
+              }
+          });
+          
+          // Close modals with ESC key
+          document.addEventListener('keydown', function(e) {
+              if (e.key === 'Escape') {
+                  document.querySelectorAll('.modal.show').forEach(closeAnyModal);
+              }
+          });
+          
+          // Cleanup function to run periodically
+          function cleanup() {
+              // If no visible modals, clear backdrops and body classes
+              if (!document.querySelector('.modal.show')) {
+                  document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+                  document.body.classList.remove('modal-open');
+                  document.body.style.removeProperty('overflow');
+                  document.body.style.removeProperty('padding-right');
+              }
+          }
+          
+          // Run cleanup on various events
+          ['click', 'mouseup', 'keydown'].forEach(function(evt) {
+              document.addEventListener(evt, function() {
+                  setTimeout(cleanup, 300);
+              });
+          });
+          
+          // Also run periodically
+          setInterval(cleanup, 2000);
+      });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Windsor Essex Swim Team facilities information. Learn about our state-of-the-art swimming venues and training locations.">
+        <meta name="theme-color" content="#fd0000">
+        <title>WEST | Facilities</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+        <!-- Custom CSS -->
+        <!-- Custom CSS -->
+<link href="css/main.css" rel="stylesheet">
+
+<!-- Bootstrap JS (early load) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Mobile navbar fix -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ensure Bootstrap is loaded
+        if (typeof bootstrap !== 'undefined') {
+            // Initialize dropdowns manually
+            document.querySelectorAll('.dropdown-toggle').forEach(function(dropdownToggle) {
+                dropdownToggle.addEventListener('click', function(e) {
+                    if (window.innerWidth < 1050) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const dropdownMenu = this.nextElementSibling;
+                        if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
+                            dropdownMenu.classList.toggle('show');
+                            
+                            // Close other dropdowns
+                            document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
+                                if (menu !== dropdownMenu) {
+                                    menu.classList.remove('show');
+                                }
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Handle navbar toggler
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            
+            if (navbarToggler && navbarCollapse) {
+                navbarToggler.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navbarCollapse.classList.toggle('show');
+                    navbarCollapse.style.height = navbarCollapse.classList.contains('show') ? '100vh' : '0';
+                });
+            }
+        }
+    });
+</script>
+        <!-- Custom styles for modal fixes -->
+        <style>
+            .navbar {
+            background: rgba(0, 0, 0, 0.45) !important; /* Semi-transparent background always */
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            transition: all 0.4s ease !important;
+            border-bottom: 1px solid rgba(253, 0, 0, 0.3) !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        /* Reduce spacing between navigation items */
+        .navbar-nav .nav-item {
+            padding-left: 0.25rem;
+            padding-right: 0.25rem;
+        }
+        
+        .navbar-nav .nav-link {
+            padding-left: 0.5rem !important;
+            padding-right: 0.5rem !important;
+        }
+        
+        /* Move navbar to the right */
+        .navbar-nav {
+            margin-left: auto;
+            padding-left: 2rem;
+        }
+        
+        /* Adjust container width for better spacing */
+        .navbar > .container {
+            max-width: 95%;
+        }
+        
+        @supports not (backdrop-filter: blur(20px)) {
+            /* Fallback for browsers that don't support backdrop-filter */
+            .navbar {
+                background: rgba(0, 0, 0, 0.75) !important;
+            }
+        }
+            /* Facility-specific styles */
+            .facility-card {
+                border: none;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                height: 100%;
+                background-color: #111;
+            }
+            
+            .facility-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 40px rgba(253, 0, 0, 0.3);
+            }
+            
+            .facility-img-container {
+                height: 250px;
+                overflow: hidden;
+                border-bottom: 3px solid #fd0000;
+            }
+            
+            .facility-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+            
+            .facility-card:hover .facility-img {
+                transform: scale(1.1);
+            }
+            
+            .facility-info {
+                padding: 20px;
+            }
+            
+            .facility-title {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #fd0000;
+                margin-bottom: 10px;
+            }
+            
+            .facility-details {
+                font-size: 0.95rem;
+                color: #e0e0e0;
+                margin-bottom: 15px;
+            }
+            
+            .facility-feature {
+                display: flex;
+                align-items: center;
+                margin-bottom: 8px;
+            }
+            
+            .facility-feature i {
+                color: #fd0000;
+                margin-right: 10px;
+                font-size: 1.1rem;
+            }
+            
+            .facility-feature span {
+                color: #e0e0e0;
+            }
+            
+            /* Larger facility images */
+            .facility-image {
+                height: 400px;
+                overflow: hidden;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            }
+            
+            .facility-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            
+            /* Fix modal positioning and z-index issues */
+            .modal {
+                z-index: 10050 !important;
+            }
+            
+            .modal-backdrop {
+                z-index: 10040 !important;
+                opacity: 0.8 !important;
+            }
+            
+            .modal-dialog {
+                margin: 1.75rem auto;
+                max-width: 95%;
+                width: 1000px;
+                display: flex;
+                align-items: center;
+                min-height: calc(100% - 3.5rem);
+                pointer-events: all !important;
+            }
+            
+            @media (min-width: 992px) {
+                .modal-dialog {
+                    max-width: 90%;
+                    width: 1100px;
+                }
+            }
+            
+            @media (min-width: 1200px) {
+                .modal-dialog {
+                    max-width: 85%;
+                    width: 1200px;
+                }
+            }
+            
+            /* Hide original Bootstrap close button */
+            .modal .btn-close {
+                display: none !important;
+            }
+            
+            /* Style for modal shadow */
+            .modal-content {
+                width: 100%;
+                box-shadow: 0 0 30px rgba(253, 0, 0, 0.3);
+                border: 1px solid rgba(253, 0, 0, 0.2);
+            }
+            
+            /* Add custom close class for easier selection */
+            .custom-modal-close {
+                width: 40px;
+                height: 40px;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                background-color: rgba(0, 0, 0, 0.3);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                color: #fff;
+                font-size: 1.25rem;
+                transition: all 0.2s ease;
+                position: absolute;
+                right: 15px;
+                top: 10px;
+            }
+            
+            .custom-modal-close:hover {
+                background-color: rgba(253, 0, 0, 0.7);
+                transform: scale(1.1);
+            }
+        </style>
+    <!-- Bootstrap JS (early load) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Mobile navbar fix -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ensure Bootstrap is loaded
+        if (typeof bootstrap !== 'undefined') {
+            // Initialize dropdowns manually
+            document.querySelectorAll('.dropdown-toggle').forEach(function(dropdownToggle) {
+                dropdownToggle.addEventListener('click', function(e) {
+                    if (window.innerWidth < 1050) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const dropdownMenu = this.nextElementSibling;
+                        if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
+                            dropdownMenu.classList.toggle('show');
+                            
+                            // Close other dropdowns
+                            document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
+                                if (menu !== dropdownMenu) {
+                                    menu.classList.remove('show');
+                                }
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Handle navbar toggler
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            
+            if (navbarToggler && navbarCollapse) {
+                navbarToggler.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navbarCollapse.classList.toggle('show');
+                    navbarCollapse.style.height = navbarCollapse.classList.contains('show') ? '100vh' : '0';
+                });
+            }
+        }
+    });
+</script>
+</head>
+    <body>
+        <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html" style="margin-right: 3rem;">
+                <img src="Images/LOGO.webp" alt="WEST Logo" height="60" class="me-2">
+                <div class="d-flex flex-column">
+                    <span class="fw-bold" style="font-size: 1.1rem; line-height: 1.1;">Windsor Essex</span>
+                    <span class="fw-bold" style="font-size: 1.1rem; line-height: 1.1;">Swim Team</span>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Meets.html" id="competitionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            COMPETITIONS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="competitionsDropdown">
+                            <li><a class="dropdown-item" href="Meets.html">All Meets</a></li>
+                            <li><a class="dropdown-item" href="Meets.html#heat-sheets">Heat Sheets</a></li>
+                            <li><a class="dropdown-item" href="Meets.html#psych-sheets">Psych Sheets</a></li>
+                            <li><a class="dropdown-item" href="Meets.html#registration">Meet Registration</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Programs.html" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            PROGRAMS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="programsDropdown">
+                            <li><a class="dropdown-item" href="Programs.html#barracudas">Barracudas</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#otters">Otters</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#stroke">Learn to Swim</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#performance">Competitive</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#additional">Masters</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#private-lessons">Private Lessons</a></li>
+                            <li><a class="dropdown-item" href="Programs.html">All Programs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Records.html" id="achievementsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            ACHIEVEMENTS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="achievementsDropdown">
+                            <li><a class="dropdown-item" href="Club-records.html">Club Records</a></li>
+                            <li><a class="dropdown-item" href="Provincial-records.html">Provincial Qualifiers</a></li>
+                            <li><a class="dropdown-item" href="hall-of-fame.html">Hall of Fame</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Resources.html" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            RESOURCES
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
+                            <li><a class="dropdown-item" href="Resources.html#documents">Documents</a></li>
+                            <li><a class="dropdown-item" href="official.html">Officials</a></li>
+                            <li><a class="dropdown-item" href="Cancellations.html">Pool Cancellations</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#merchandiseModal">Merchandise</a></li>
+                            <li><a class="dropdown-item" href="Resources.html">All Resources</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="team.html" id="teamDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            TEAM & CLUB
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="teamDropdown">
+                            <li><a class="dropdown-item" href="About.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="Coaches.html">Coaches</a></li>
+                            <li><a class="dropdown-item" href="team.html">Team Structure</a></li>
+                            <li><a class="dropdown-item" href="Facility.html">Facilities</a></li>
+                            <li><a class="dropdown-item" href="Registration.html">Registration</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact.html">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+        <!-- Windsor International Aquatic Centre -->
+        <section class="section" style="margin-top: 120px;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div class="facility-image animate-on-scroll fade-in-left">
+                            <img src="Images/aquatic-centre-building.webp" alt="Windsor International Aquatic Centre" class="img-fluid rounded shadow-lg">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="facility-content animate-on-scroll fade-in-right">
+                            <h2 class="section-title">Windsor International Aquatic Centre</h2>
+                            <p class="lead">Our primary training facility features a 10-lane 50m Olympic pool with the latest timing technology.</p>
+                            
+                            <div class="facility-details mt-4">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="icon-circle me-3" style="width: 40px; height: 40px; background-color: #fd0000; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                                <i class="fas fa-ruler-combined text-white"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-0 fw-bold">Pool Size</h6>
+                                                <p class="mb-0">Olympic-sized 50m</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="icon-circle me-3" style="width: 40px; height: 40px; background-color: #fd0000; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                                <i class="fas fa-swimming-pool text-white"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-0 fw-bold">Lanes</h6>
+                                                <p class="mb-0">10 competition lanes</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="icon-circle me-3" style="width: 40px; height: 40px; background-color: #fd0000; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                                <i class="fas fa-stopwatch text-white"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-0 fw-bold">Timing System</h6>
+                                                <p class="mb-0">Electronic timing system</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="icon-circle me-3" style="width: 40px; height: 40px; background-color: #fd0000; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                                <i class="fas fa-users text-white"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-0 fw-bold">Spectator Seating</h6>
+                                                <p class="mb-0">Seating for 900</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p class="mt-4">The Windsor International Aquatic Centre is our premier training facility, hosting most of our competitive programs and major swim meets. This world-class facility provides the ideal environment for swimmers of all levels to train and compete.</p>
+                            
+                            <div class="mt-4">
+                                <a href="https://maps.google.com/?q=Windsor+International+Aquatic+Centre" target="_blank" class="btn btn-outline-primary">
+                                    <i class="fas fa-map-marker-alt me-2"></i> Get Directions
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WFCU Centre -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                        <div class="facility-image animate-on-scroll fade-in-right">
+                            <img src="Images/wfcu-centre-building.webp" alt="WFCU Centre" class="img-fluid rounded shadow-lg">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="facility-content animate-on-scroll fade-in-left text-dark">
+                            <h2 class="section-title text-dark">WFCU Centre</h2>
+                            <p class="lead text-dark">Modern community facility used for development programs and junior training.</p>
+                            
+                            <div class="facility-details mt-4">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="icon-circle me-3" style="width: 40px; height: 40px; background-color: #fd0000; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                                <i class="fas fa-swimming-pool text-white"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-0 fw-bold text-dark">Pool Size</h6>
+                                                <p class="mb-0 text-dark">25m, 6-lane</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="icon-circle me-3" style="width: 40px; height: 40px; background-color: #fd0000; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                                <i class="fas fa-child text-white"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-0 fw-bold text-dark">Programs</h6>
+                                                <p class="mb-0 text-dark">Learn-to-Swim</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p class="mt-4 text-dark">The WFCU Centre provides excellent facilities for our development swimmers and junior training programs, with convenient location for east Windsor residents.</p>
+                            
+                            <div class="mt-4">
+                                <a href="https://maps.google.com/?q=WFCU+Centre+Windsor" target="_blank" class="btn btn-outline-dark">
+                                    <i class="fas fa-map-marker-alt me-2"></i> Get Directions
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Facilities Card Grid -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Our Training Facilities</h2>
+                <div class="row g-4">
+                    <!-- Windsor International Aquatic Center -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="facility-card animate-on-scroll fade-in-up">
+                            <div class="facility-img-container">
+                                <img src="Images/aquatic-centre-building.webp" alt="Windsor International Aquatic Center" class="facility-img">
+                            </div>
+                            <div class="facility-info">
+                                <h3 class="facility-title">Windsor International Aquatic Center</h3>
+                                <p class="facility-details">Primary training facility with Olympic standard pools and equipment.</p>
+                                <div class="facility-features">
+                                    <div class="facility-feature">
+                                        <i class="fas fa-swimming-pool"></i>
+                                        <span>10-Lane 50m Competition Pool</span>
+                                    </div>
+                                    <div class="facility-feature">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>Electronic Timing System</span>
+                                    </div>
+                                    <div class="facility-feature">
+                                        <i class="fas fa-dumbbell"></i>
+                                        <span>Dryland Training Area</span>
+                                    </div>
+                                    <div class="facility-feature">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>401 Pitt Street West, Windsor</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    
+                    <!-- WFCU Centre -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="facility-card animate-on-scroll fade-in-up" style="transition-delay: 0.2s;">
+                            <div class="facility-img-container">
+                                <img src="Images/wfcu-centre-building.webp" alt="WFCU Centre" class="facility-img">
+                            </div>
+                            <div class="facility-info">
+                                <h3 class="facility-title">WFCU Centre</h3>
+                                <p class="facility-details">Modern community facility used for development programs and junior training.</p>
+                                <div class="facility-features">
+                                    <div class="facility-feature">
+                                        <i class="fas fa-swimming-pool"></i>
+                                        <span>6-Lane 25m Pool</span>
+                                    </div>
+                                    <div class="facility-feature">
+                                        <i class="fas fa-child"></i>
+                                        <span>Learn-to-Swim Programs</span>
+                                    </div>
+                                    <div class="facility-feature">
+                                        <i class="fas fa-water"></i>
+                                        <span>Shallow Teaching Area</span>
+                                    </div>
+                                    <div class="facility-feature">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>6695 Riverside Dr E, Windsor</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Central Pool -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="facility-card animate-on-scroll fade-in-up" style="transition-delay: 0.3s;">
+                            <div class="facility-img-container">
+                                <img src="Images/Pool 2.webp" alt="Central Windsor Pool" class="facility-img">
+                            </div>
+                            <div class="facility-info">
+                                <h3 class="facility-title">Central Community Pool</h3>
+                                <p class="facility-details">Specialized training facility focused on technique development.</p>
+                                <div class="facility-features">
+                                    <div class="facility-feature">
+                                        <i class="fas fa-swimming-pool"></i>
+                                        <span>6-Lane Training Pool</span>
+                                    </div>
+                                    <div class="facility-feature">
+                                        <i class="fas fa-users"></i>
+                                        <span>Small Group Instruction</span>
+                                    </div>
+                                    <div class="facility-feature">
+                                        <i class="fas fa-video"></i>
+                                        <span>Underwater Viewing Windows</span>
+                                    </div>
+                                    <div class="facility-feature">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>3540 Sandwich St, Windsor</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Facility Benefits -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <h2 class="section-title animate-on-scroll fade-in-left text-dark">Training Advantages</h2>
+                        <p class="animate-on-scroll fade-in-left text-dark">WEST swimmers benefit from training in some of the best aquatic facilities in Ontario, providing the perfect environment for developing champions.</p>
+                        <ul class="achievement-list animate-on-scroll fade-in-left text-dark">
+                            <li><i class="fas fa-check-circle text-red me-2"></i> Multiple pool options across Windsor-Essex County</li>
+                            <li><i class="fas fa-check-circle text-red me-2"></i> Olympic-standard equipment and timing systems</li>
+                            <li><i class="fas fa-check-circle text-red me-2"></i> Dedicated dryland training spaces</li>
+                            <li><i class="fas fa-check-circle text-red me-2"></i> Video analysis capability for technique improvement</li>
+                            <li><i class="fas fa-check-circle text-red me-2"></i> Access to specialized training tools and equipment</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="rounded-3 overflow-hidden shadow-lg animate-on-scroll fade-in-right">
+                            <img src="Images/olympic-swimming-pool-background.webp" alt="WEST Training Advantages" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+            <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-8 col-sm-10 mb-4 mb-lg-0 mx-auto mx-lg-0">
+                    <div class="footer-brand">
+                        <img src="Images/LOGO.webp" alt="WEST Logo" class="footer-logo">
+                        <span>Windsor Essex Swim Team</span>
+                    </div>
+                    <p class="footer-description">
+                        The most successful aquatic program in Southwestern Ontario, dedicated to developing swimmers of all levels.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/west_coachjimmylee/" target="_blank" aria-label="Instagram" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 col-6 mb-4 mb-md-4 text-lg-start text-center">
+                    <h5 class="footer-title">About</h5>
+                    <ul class="footer-links">
+                        <li><a href="About.html">Philosophy</a></li>
+                        <li><a href="Coaches.html">Coaches</a></li>
+                        <li><a href="team.html">Team Structure</a></li>
+                        <li><a href="Facility.html">Facilities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 col-6 mb-4 mb-md-4 text-lg-start text-center">
+                    <h5 class="footer-title">Programs</h5>
+                    <ul class="footer-links">
+                        <li><a href="Programs.html#performance">Competitive</a></li>
+                        <li><a href="Programs.html#stroke">Learn to Swim</a></li>
+                        <li><a href="Programs.html#additional">Masters</a></li>
+                        <li><a href="Programs.html#private-lessons">Private Lessons</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 col-6 mb-4 mb-md-4 text-lg-start text-center">
+                    <h5 class="footer-title">Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="hall-of-fame.html">Hall of Fame</a></li>
+                        <li><a href="Records.html">Club Records</a></li>
+                        <li><a href="Meets.html">Meets</a></li>
+                        <li><a href="official.html">Officials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 col-6 mb-4 mb-md-4 text-lg-start text-center">
+                    <h5 class="footer-title">Contact</h5>
+                    <ul class="contact-info">
+                        <li class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Windsor, ON
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:windsoressexswimteam@gmail.com">windsoressexswimteam@gmail.com</a>
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            (519) 564-8972
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6 col-12 mb-2 mb-md-0 text-center text-md-start">
+                        <p class="mb-md-0">&copy; 2025 Windsor Essex Swim Team. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6 col-12 text-center text-md-end">
+                        <p class="mb-0">Made with <img src="Images/Heart pixel.webp" alt="Heart" class="heart-pixel"> by <a href="https://function-drive.com" target="_blank" class="text-red">Function Drive</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enhanced Footer Styles -->
+    <style>
+        .footer {
+            background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(15,15,15,1) 100%);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(253, 0, 0, 0.3);
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('Images/wave-pattern.png');
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        
+        .footer-logo {
+            height: 45px;
+            width: auto;
+            margin-right: 12px;
+        }
+        
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.8rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .footer-title {
+            color: #fd0000;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: rgba(253, 0, 0, 0.5);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.7rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 0;
+        }
+        
+        .footer-links a:hover {
+            color: #fd0000;
+            padding-left: 5px;
+        }
+        
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .contact-item {
+            margin-bottom: 0.7rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-item i {
+            color: #fd0000;
+            margin-right: 10px;
+            font-size: 1rem;
+            margin-top: 3px;
+        }
+        
+        .contact-item a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: #fd0000;
+        }
+        
+        .social-icons {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(253, 0, 0, 0.1);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.2rem;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 1px solid rgba(253, 0, 0, 0.3);
+        }
+        
+        .social-icon:hover {
+            background-color: #fd0000;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(253, 0, 0, 0.3);
+        }
+        
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        .heart-pixel {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin: 0 4px;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+        }
+        
+        @media (max-width: 992px) {
+            .footer-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer {
+                padding: 3rem 0 1.5rem;
+            }
+            
+            .footer-bottom {
+                margin-top: 2rem;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .text-lg-start .footer-title::after {
+                left: 0;
+                transform: none;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .footer-logo {
+                height: 35px;
+            }
+            
+            .footer-brand {
+                font-size: 1.3rem;
+            }
+            
+            .footer-description {
+                font-size: 0.9rem;
+            }
+            
+            .footer-links a, .contact-item {
+                font-size: 0.9rem;
+            }
+            
+            .footer-bottom p {
+                font-size: 0.8rem;
+            }
+            
+            .heart-pixel {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    </style>
+
+        <!-- Side Navigation -->
+        <div class="side-nav"></div>
+        
+        <!-- Back to Top Button -->
+        <a href="#" class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+        
+        <!-- Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <!-- Custom JavaScript -->
+        <script src="js/main.js"></script>
+    
+    <!-- Navbar Mobile Fix Script -->
+    <script src="js/navbar-fix.js"></script>
+        
+        <!-- Merchandise Modal -->
+        <div class="modal fade" id="merchandiseModal" tabindex="-1" aria-labelledby="merchandiseModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content bg-dark">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="merchandiseModalLabel">WEST Merchandise</h5>
+                        <!-- Custom close button -->
+                        <button type="button" class="custom-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h3 class="text-red">WEST Merchandise Store</h3>
+                                    
+                                    <h4 class="mt-4">WEST Swimming Caps</h4>
+                                    <p>🧢 Regular Silicone Swimming Cap - <strong>$20</strong> (HST Included)</p>
+                                    <p>🧢 Long Hair Silicone Swimming Cap - <strong>$25</strong> (HST Included)</p>
+                                    <p>🧢 Racing Dome Swimming Cap - <strong>$30</strong> (HST Included)</p>
+                                    
+                                    <p class="mt-4"><strong>Email:</strong> windsoressexswimteam@gmail.com for all WEST orders</p>
+                                    
+                                    <h4 class="mt-4">Equipment Purchase</h4>
+                                    <p>Please visit the <strong>WEST Team Portal</strong> for equipment purchases.</p>
+                                    <p><strong>Team Code:</strong> <span class="text-red fw-bold">WEST</span></p>
+                                    <p>
+                                        Using this code gives WEST a 5% kickback and you a 2% discount at checkout.  
+                                        Note: currently this only works for online purchases, not in-store.
+                                    </p>
+                                    <div class="text-center">
+                                        <a href="https://www.lysports.com/team/west/" target="_blank" class="btn btn-primary mt-3">
+                                            Visit Team Portal
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sponsors Modal -->
+        <div class="modal fade" id="sponsorsModal" tabindex="-1" aria-labelledby="sponsorsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content bg-dark">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="sponsorsModalLabel">Our Valued Sponsors</h5>
+                        <!-- Custom close button -->
+                        <button type="button" class="custom-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <style>
+                            /* Compact styling for sponsor modal */
+                            .sponsor-row {
+                                display: flex;
+                                flex-wrap: wrap;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 5px;
+                            }
+                            
+                            .sponsor-logo {
+                                flex: 0 0 auto;
+                                width: 120px;
+                                margin: 0 3px 10px;
+                                text-align: center;
+                            }
+                            
+                            .sponsor-logo img {
+                                max-height: 60px;
+                                object-fit: contain;
+                            }
+                            
+                            .sponsor-logo p {
+                                font-size: 0.75rem;
+                                margin-top: 5px !important;
+                                margin-bottom: 0;
+                            }
+                            
+                            .modal-body h3 {
+                                font-size: 1.3rem;
+                                margin-bottom: 10px !important;
+                            }
+                            
+                            .modal-body p.mb-3 {
+                                font-size: 0.85rem;
+                                margin-bottom: 8px !important;
+                            }
+                            
+                            /* Reduce overall spacing */
+                            .modal-body .row {
+                                margin-bottom: 10px;
+                            }
+                            
+                            .modal-body {
+                                padding: 0.75rem;
+                            }
+                        </style>
+                        <div class="container-fluid">
+                            <div class="row mb-3">
+                                <div class="col-12 text-center">
+                                    <h3 class="text-red mb-3">Silver Sponsors</h3>
+                                    <div class="sponsor-row animate-on-scroll fade-in-up">
+                                        <div class="sponsor-logo">
+                                            <img src="Images/Co-operators_Logo_Blue.webp" alt="Co-operators" class="img-fluid">
+                                        </div>
+                                        <div class="sponsor-logo">
+                                            <img src="Images/PwC_fl_60mmh_c.webp" alt="PwC" class="img-fluid">
+                                        </div>
+                                        <div class="sponsor-logo">
+                                            <img src="Images/Sun Hong BBQ & Seafood Restaurant.png" alt="Sun Hong BBQ" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h3 class="text-red mb-3">Bronze Sponsors</h3>
+                                    <div class="sponsor-row animate-on-scroll fade-in-up">
+                                        <div class="sponsor-logo">
+                                            <img src="Images/Local 200 Logo.webp" alt="Local 200" class="img-fluid">
+                                        </div>
+                                        <div class="sponsor-logo">
+                                            <img src="Images/Sko_Rebrand_1.webp" alt="Sko" class="img-fluid">
+                                        </div>
+                                        <div class="sponsor-logo">
+                                            <img src="Images/TekSavvy White Logo (All Coloured BackGrounds EXCEPT Black).webp" alt="TekSavvy" class="img-fluid">
+                                        </div>
+                                        <div class="sponsor-logo">
+                                            <img src="Images/Dr. A. Mulaosmanovic Logo.jpeg" alt="Dr. A. Mulaosmanovic" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-3">
+                                <div class="col-12 text-center">
+                                    <h3 class="text-red mb-3">Our Partners</h3>
+                                    <p class="mb-3">WEST collaborates with premier facilities across Windsor-Essex</p>
+                                    <div class="sponsor-row animate-on-scroll fade-in-up">
+                                        <div class="sponsor-logo">
+                                            <img src="Images/windsor-aquatic-centre-logo.webp" alt="Windsor Aquatic Centre" class="img-fluid">
+                                        </div>
+                                        <div class="sponsor-logo">
+                                            <img src="Images/university-of-windsor-logo.png" alt="University of Windsor" class="img-fluid">
+                                        </div>
+                                        <div class="sponsor-logo">
+                                            <img src="Images/wfcu-credit-union-logo.png" alt="WFCU Centre" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-3">
+                                <div class="col-12 text-center">
+                                    <p class="lead" style="font-size: 0.95rem;">Interested in becoming a sponsor? Contact us at <a href="mailto:windsoressexswimteam@gmail.com" class="text-red">windsoressexswimteam@gmail.com</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal Fix Script - Direct approach -->
+        <script>
+            // Execute on DOM load
+            document.addEventListener('DOMContentLoaded', function() {
+                // Simple function to close any modal
+                function closeAnyModal(modalElement) {
+                    if (!modalElement) return;
+                    
+                    // Hide the modal
+                    modalElement.classList.remove('show');
+                    modalElement.style.display = 'none';
+                    
+                    // Clean up body classes and styles
+                    document.body.classList.remove('modal-open');
+                    document.body.style.removeProperty('overflow');
+                    document.body.style.removeProperty('padding-right');
+                    
+                    // Remove backdrops
+                    document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+                }
+                
+                // Close modals when clicking close buttons
+                document.querySelectorAll('.custom-modal-close, [data-bs-dismiss="modal"]').forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        const modal = this.closest('.modal');
+                        if (modal) closeAnyModal(modal);
+                    });
+                });
+                
+                // Close modals when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('modal') && e.target.classList.contains('show')) {
+                        closeAnyModal(e.target);
+                    }
+                });
+                
+                // Close modals with ESC key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        document.querySelectorAll('.modal.show').forEach(closeAnyModal);
+                    }
+                });
+                
+                // Cleanup function to run periodically
+                function cleanup() {
+                    // If no visible modals, clear backdrops and body classes
+                    if (!document.querySelector('.modal.show')) {
+                        document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+                        document.body.classList.remove('modal-open');
+                        document.body.style.removeProperty('overflow');
+                        document.body.style.removeProperty('padding-right');
+                    }
+                }
+                
+                // Run cleanup on various events
+                ['click', 'mouseup', 'keydown'].forEach(function(evt) {
+                    document.addEventListener(evt, function() {
+                        setTimeout(cleanup, 300);
+                    });
+                });
+                
+                // Also run periodically
+                setInterval(cleanup, 2000);
+            });
+        </script>
+    </body>
+</html>
+

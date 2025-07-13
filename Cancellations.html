@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Windsor Essex Swim Team - Pool Cancellations Schedule">
+    <meta name="author" content="Windsor Essex Swim Team">
+    <meta name="theme-color" content="#fd0000">
+    <title>Windsor Essex Swim Team | Pool Cancellations</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <!-- Custom CSS -->
+<link href="css/main.css" rel="stylesheet">
+
+<!-- Bootstrap JS (early load) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Mobile navbar fix -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ensure Bootstrap is loaded
+        if (typeof bootstrap !== 'undefined') {
+            // Initialize dropdowns manually
+            document.querySelectorAll('.dropdown-toggle').forEach(function(dropdownToggle) {
+                dropdownToggle.addEventListener('click', function(e) {
+                    if (window.innerWidth < 1050) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const dropdownMenu = this.nextElementSibling;
+                        if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
+                            dropdownMenu.classList.toggle('show');
+                            
+                            // Close other dropdowns
+                            document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
+                                if (menu !== dropdownMenu) {
+                                    menu.classList.remove('show');
+                                }
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Handle navbar toggler
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            
+            if (navbarToggler && navbarCollapse) {
+                navbarToggler.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navbarCollapse.classList.toggle('show');
+                    navbarCollapse.style.height = navbarCollapse.classList.contains('show') ? '100vh' : '0';
+                });
+            }
+        }
+    });
+</script>
+
+    <!-- High-Priority Navbar Glass Effect Styles -->
+    <style>
+        .navbar {
+            background: rgba(0, 0, 0, 0.45) !important; /* Semi-transparent background always */
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            transition: all 0.4s ease !important;
+            border-bottom: 1px solid rgba(253, 0, 0, 0.3) !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        /* Reduce spacing between navigation items */
+        .navbar-nav .nav-item {
+            padding-left: 0.25rem;
+            padding-right: 0.25rem;
+        }
+        
+        .navbar-nav .nav-link {
+            padding-left: 0.5rem !important;
+            padding-right: 0.5rem !important;
+        }
+        
+        /* Move navbar to the right */
+        .navbar-nav {
+            margin-left: auto;
+            padding-left: 2rem;
+        }
+        
+        /* Adjust container width for better spacing */
+        .navbar > .container {
+            max-width: 95%;
+        }
+        
+        /* Adjust container width for better spacing */
+        .navbar > .container {
+            max-width: 95%;
+        }
+        
+        @supports not (backdrop-filter: blur(20px)) {
+            /* Fallback for browsers that don't support backdrop-filter */
+            .navbar {
+                background: rgba(0, 0, 0, 0.75) !important;
+            }
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #D0EFFF 0%, #A6BFCC 100%);
+            padding: 120px 0 50px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(253, 0, 0, 0.1);
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(253, 0, 0, 0.15) 0%, rgba(208, 239, 255, 0) 30%);
+            z-index: 1;
+        }
+        
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-title {
+            font-weight: 800;
+            color: #000000;
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+        }
+        
+        .breadcrumb {
+            background: transparent;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .breadcrumb-item a {
+            color: #000000;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .breadcrumb-item a:hover {
+            color: var(--primary-red);
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--primary-red);
+        }
+
+        .section {
+            padding: 70px 0;
+            position: relative;
+            background-color: #D0EFFF;
+            overflow: hidden;
+        }
+
+        /* Table styles */
+        .cancellation-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            background: #ffffff;
+            border: 1px solid rgba(253, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cancellation-table:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .cancellation-table th {
+            background-color: rgba(253, 0, 0, 0.8);
+            color: white;
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+
+        .cancellation-table td {
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            color: #333;
+            font-weight: 500;
+        }
+
+        .cancellation-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .cancellation-table tr:hover {
+            background-color: rgba(253, 0, 0, 0.05);
+        }
+
+        .disclaimer {
+            font-style: italic;
+            color: #666;
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .section-header h2 {
+            position: relative;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-red);
+            border-radius: 2px;
+        }
+
+        /* Responsive table */
+        @media (max-width: 767px) {
+            .cancellation-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .cancellation-table th,
+            .cancellation-table td {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .page-header {
+                padding: 100px 0 30px;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+<!-- Bootstrap JS (early load) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Mobile navbar fix -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ensure Bootstrap is loaded
+        if (typeof bootstrap !== 'undefined') {
+            // Initialize dropdowns manually
+            document.querySelectorAll('.dropdown-toggle').forEach(function(dropdownToggle) {
+                dropdownToggle.addEventListener('click', function(e) {
+                    if (window.innerWidth < 1050) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const dropdownMenu = this.nextElementSibling;
+                        if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
+                            dropdownMenu.classList.toggle('show');
+                            
+                            // Close other dropdowns
+                            document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
+                                if (menu !== dropdownMenu) {
+                                    menu.classList.remove('show');
+                                }
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Handle navbar toggler
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            
+            if (navbarToggler && navbarCollapse) {
+                navbarToggler.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navbarCollapse.classList.toggle('show');
+                    navbarCollapse.style.height = navbarCollapse.classList.contains('show') ? '100vh' : '0';
+                });
+            }
+        }
+    });
+</script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html" style="margin-right: 3rem;">
+                <img src="Images/LOGO.webp" alt="WEST Logo" height="60" class="me-2">
+                <div class="d-flex flex-column">
+                    <span class="fw-bold" style="font-size: 1.1rem; line-height: 1.1;">Windsor Essex</span>
+                    <span class="fw-bold" style="font-size: 1.1rem; line-height: 1.1;">Swim Team</span>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Meets.html" id="competitionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            COMPETITIONS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="competitionsDropdown">
+                            <li><a class="dropdown-item" href="Meets.html">All Meets</a></li>
+                            <li><a class="dropdown-item" href="Meets.html#heat-sheets">Heat Sheets</a></li>
+                            <li><a class="dropdown-item" href="Meets.html#psych-sheets">Psych Sheets</a></li>
+                            <li><a class="dropdown-item" href="Meets.html#registration">Meet Registration</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Programs.html" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            PROGRAMS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="programsDropdown">
+                            <li><a class="dropdown-item" href="Programs.html#barracudas">Barracudas</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#otters">Otters</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#stroke">Learn to Swim</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#performance">Competitive</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#additional">Masters</a></li>
+                            <li><a class="dropdown-item" href="Programs.html#private-lessons">Private Lessons</a></li>
+                            <li><a class="dropdown-item" href="Programs.html">All Programs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Records.html" id="achievementsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            ACHIEVEMENTS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="achievementsDropdown">
+                            <li><a class="dropdown-item" href="Club-records.html">Club Records</a></li>
+                            <li><a class="dropdown-item" href="Provincial-records.html">Provincial Qualifiers</a></li>
+                            <li><a class="dropdown-item" href="hall-of-fame.html">Hall of Fame</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Resources.html" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            RESOURCES
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
+                            <li><a class="dropdown-item" href="Resources.html#documents">Documents</a></li>
+                            <li><a class="dropdown-item" href="official.html">Officials</a></li>
+                            <li><a class="dropdown-item" href="Cancellations.html">Pool Cancellations</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#merchandiseModal">Merchandise</a></li>
+                            <li><a class="dropdown-item" href="Resources.html">All Resources</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="team.html" id="teamDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            TEAM & CLUB
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="teamDropdown">
+                            <li><a class="dropdown-item" href="About.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="Coaches.html">Coaches</a></li>
+                            <li><a class="dropdown-item" href="team.html">Team Structure</a></li>
+                            <li><a class="dropdown-item" href="Facility.html">Facilities</a></li>
+                            <li><a class="dropdown-item" href="Registration.html">Registration</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact.html">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="page-title">Pool Cancellations</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="Resources.html">Resources</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Pool Cancellations</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cancellations Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-10 col-md-12">
+                    <div class="section-header text-center">
+                        <h2>Pool Cancellations for 2024-2025 Season</h2>
+                    </div>
+                    
+                    <div class="cancellation-content">
+                        <table class="cancellation-table">
+                            <thead>
+                                <tr>
+                                    <th>Name of Pool</th>
+                                    <th>Dates</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>All Pools</td>
+                                    <td>October 14</td>
+                                    <td>Thanksgiving Day</td>
+                                </tr>
+                                <tr>
+                                    <td>WIATC</td>
+                                    <td>October 31</td>
+                                    <td>Halloween</td>
+                                </tr>
+                                <tr>
+                                    <td>WIATC</td>
+                                    <td>December 6-8</td>
+                                    <td>Border City Invitational</td>
+                                </tr>
+                                <tr>
+                                    <td>WFCU/WIATC</td>
+                                    <td>December 13-14</td>
+                                    <td>Team Showdown Team Travel Competition</td>
+                                </tr>
+                                <tr>
+                                    <td>WIATC</td>
+                                    <td>December 17</td>
+                                    <td>WEST Holiday Party</td>
+                                </tr>
+                                <tr>
+                                    <td>WFCU/WIATC (Development groups Future Stars- Platinum)</td>
+                                    <td>December 23-January 5</td>
+                                    <td>Winter Holiday Break</td>
+                                </tr>
+                                <tr>
+                                    <td>WIATC (Competitive groups Seals- Barracudas)</td>
+                                    <td>December 23- January 1</td>
+                                    <td>Winter Holiday Break</td>
+                                </tr>
+                                <tr>
+                                    <td>All Pools</td>
+                                    <td>February 17</td>
+                                    <td>Family Day</td>
+                                </tr>
+                                <tr>
+                                    <td>WFCU/WIATC (Development groups Future Stars- Platinum)</td>
+                                    <td>March 08- March 16</td>
+                                    <td>March Break</td>
+                                </tr>
+                                <tr>
+                                    <td>WIATC</td>
+                                    <td>April 4-6</td>
+                                    <td>WAC Spring Invitational</td>
+                                </tr>
+                                <tr>
+                                    <td>WIATC</td>
+                                    <td>April 10-12</td>
+                                    <td>World Cup of Diving</td>
+                                </tr>
+                                <tr>
+                                    <td>All Pools</td>
+                                    <td>April 18</td>
+                                    <td>Good Friday</td>
+                                </tr>
+                                <tr>
+                                    <td>All Pools</td>
+                                    <td>April 21</td>
+                                    <td>Easter Monday</td>
+                                </tr>
+                                <tr>
+                                    <td>WIATC</td>
+                                    <td>May 2-4</td>
+                                    <td>Amanda Reason Invitational</td>
+                                </tr>
+                                <tr>
+                                    <td>WIATC</td>
+                                    <td>May 9-11</td>
+                                    <td>Life Guard Canadian Championships</td>
+                                </tr>
+                                <tr>
+                                    <td>All Pools</td>
+                                    <td>May 19</td>
+                                    <td>Victoria Day</td>
+                                </tr>
+                                <tr>
+                                    <td>WIATC</td>
+                                    <td>June 13- June 15</td>
+                                    <td>LC WOSA Championships</td>
+                                </tr>
+                                <tr>
+                                    <td>All Pools</td>
+                                    <td>June 17</td>
+                                    <td>WEST Annual End of the Year Party</td>
+                                </tr>
+                                <tr>
+                                    <td>All Pools</td>
+                                    <td>June 23</td>
+                                    <td>City of Windsor Fireworks</td>
+                                </tr>
+                                <tr>
+                                    <td>All Pools</td>
+                                    <td>July 1</td>
+                                    <td>Canada Day</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="disclaimer text-center">Pool Cancellations may be subject to change during season</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-8 col-sm-10 mb-4 mb-lg-0 mx-auto mx-lg-0">
+                    <div class="footer-brand">
+                        <img src="Images/LOGO.webp" alt="WEST Logo" class="footer-logo">
+                        <span>Windsor Essex Swim Team</span>
+                    </div>
+                    <p class="footer-description">
+                        The most successful aquatic program in Southwestern Ontario, dedicated to developing swimmers of all levels.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/west_coachjimmylee/" target="_blank" aria-label="Instagram" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 col-6 mb-4 mb-md-4 text-lg-start text-center">
+                    <h5 class="footer-title">About</h5>
+                    <ul class="footer-links">
+                        <li><a href="About.html">Philosophy</a></li>
+                        <li><a href="Coaches.html">Coaches</a></li>
+                        <li><a href="team.html">Team Structure</a></li>
+                        <li><a href="Facility.html">Facilities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 col-6 mb-4 mb-md-4 text-lg-start text-center">
+                    <h5 class="footer-title">Programs</h5>
+                    <ul class="footer-links">
+                        <li><a href="Programs.html#performance">Competitive</a></li>
+                        <li><a href="Programs.html#stroke">Learn to Swim</a></li>
+                        <li><a href="Programs.html#additional">Masters</a></li>
+                        <li><a href="Programs.html#private-lessons">Private Lessons</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 col-6 mb-4 mb-md-4 text-lg-start text-center">
+                    <h5 class="footer-title">Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="hall-of-fame.html">Hall of Fame</a></li>
+                        <li><a href="Records.html">Club Records</a></li>
+                        <li><a href="Meets.html">Meets</a></li>
+                        <li><a href="official.html">Officials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 col-6 mb-4 mb-md-4 text-lg-start text-center">
+                    <h5 class="footer-title">Contact</h5>
+                    <ul class="contact-info">
+                        <li class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Windsor, ON
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:windsoressexswimteam@gmail.com">windsoressexswimteam@gmail.com</a>
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            (519) 564-8972
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6 col-12 mb-2 mb-md-0 text-center text-md-start">
+                        <p class="mb-md-0">&copy; 2025 Windsor Essex Swim Team. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6 col-12 text-center text-md-end">
+                        <p class="mb-0">Made with <img src="Images/Heart pixel.webp" alt="Heart" class="heart-pixel"> by <a href="https://function-drive.com" target="_blank" class="text-red">Function Drive</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enhanced Footer Styles -->
+    <style>
+        .footer {
+            background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(15,15,15,1) 100%);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(253, 0, 0, 0.3);
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('Images/wave-pattern.png');
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        
+        .footer-logo {
+            height: 45px;
+            width: auto;
+            margin-right: 12px;
+        }
+        
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.8rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .footer-title {
+            color: #fd0000;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: rgba(253, 0, 0, 0.5);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.7rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 0;
+        }
+        
+        .footer-links a:hover {
+            color: #fd0000;
+            padding-left: 5px;
+        }
+        
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .contact-item {
+            margin-bottom: 0.7rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-item i {
+            color: #fd0000;
+            margin-right: 10px;
+            font-size: 1rem;
+            margin-top: 3px;
+        }
+        
+        .contact-item a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: #fd0000;
+        }
+        
+        .social-icons {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(253, 0, 0, 0.1);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.2rem;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 1px solid rgba(253, 0, 0, 0.3);
+        }
+        
+        .social-icon:hover {
+            background-color: #fd0000;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(253, 0, 0, 0.3);
+        }
+        
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        .heart-pixel {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin: 0 4px;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+        }
+        
+        @media (max-width: 992px) {
+            .footer-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer {
+                padding: 3rem 0 1.5rem;
+            }
+            
+            .footer-bottom {
+                margin-top: 2rem;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .text-lg-start .footer-title::after {
+                left: 0;
+                transform: none;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .footer-logo {
+                height: 35px;
+            }
+            
+            .footer-brand {
+                font-size: 1.3rem;
+            }
+            
+            .footer-description {
+                font-size: 0.9rem;
+            }
+            
+            .footer-links a, .contact-item {
+                font-size: 0.9rem;
+            }
+            
+            .footer-bottom p {
+                font-size: 0.8rem;
+            }
+            
+            .heart-pixel {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    </style>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    
+    <!-- Navbar Mobile Fix Script -->
+    <script src="js/navbar-fix.js"></script>
+    
+    <!-- Add this script to ensure proper navbar behavior -->
+    <script>
+        // Add scrolled class to navbar on page load since this is not the home page
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                navbar.classList.add('scrolled');
+            }
+        });
+    </script>
+</body>
+</html> 
