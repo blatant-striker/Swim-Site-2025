@@ -1,9 +1,36 @@
 // Windsor Essex Swim Team - Main JavaScript
 
+// Google Tag Manager Integration
+(function() {
+    // Load Google Tag Manager script
+    const gtmScript = document.createElement('script');
+    gtmScript.async = true;
+    gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-17239822947";
+    document.head.appendChild(gtmScript);
+    
+    // Initialize dataLayer and gtag function
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17239822947');
+    
+    // Make gtag available globally
+    window.gtag = gtag;
+    
+    console.log("Google Tag Manager initialized with ID: AW-17239822947");
+})(); 
+
 // Import responsive CSS helper
 (function() {
     const script = document.createElement('script');
     script.src = 'js/add-responsive-css.js';
+    document.head.appendChild(script);
+})();
+
+// Import Google Tag Manager
+(function() {
+    const script = document.createElement('script');
+    script.src = 'js/google-tag.js';
     document.head.appendChild(script);
 })();
 
@@ -516,7 +543,7 @@ class WESTWebsite {
         const competitionsItem = document.createElement('li');
         competitionsItem.className = 'nav-item dropdown';
         competitionsItem.innerHTML = `
-            <a class="nav-link dropdown-toggle competitions-link" href="Meets.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle competitions-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 COMPETITIONS
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
@@ -532,7 +559,7 @@ class WESTWebsite {
         const programsItem = document.createElement('li');
         programsItem.className = 'nav-item dropdown';
         programsItem.innerHTML = `
-            <a class="nav-link dropdown-toggle programs-link" href="Programs.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle programs-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 PROGRAMS
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
@@ -551,7 +578,7 @@ class WESTWebsite {
         const achievementsItem = document.createElement('li');
         achievementsItem.className = 'nav-item dropdown';
         achievementsItem.innerHTML = `
-            <a class="nav-link dropdown-toggle achievements-link" href="Records.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle achievements-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 ACHIEVEMENTS
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
@@ -567,7 +594,7 @@ class WESTWebsite {
         const resourcesItem = document.createElement('li');
         resourcesItem.className = 'nav-item dropdown';
         resourcesItem.innerHTML = `
-            <a class="nav-link dropdown-toggle resources-link" href="Resources.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle resources-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 RESOURCES
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
@@ -584,7 +611,7 @@ class WESTWebsite {
         const teamItem = document.createElement('li');
         teamItem.className = 'nav-item dropdown';
         teamItem.innerHTML = `
-            <a class="nav-link dropdown-toggle team-link" href="team.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle team-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 TEAM & CLUB
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">

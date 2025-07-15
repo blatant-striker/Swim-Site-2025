@@ -98,7 +98,7 @@ p {
 }
 
 .navbar-brand img {
-    height: 40px;
+    height: 60px;
     width: auto;
     transition: transform 0.3s ease;
 }
@@ -1416,7 +1416,7 @@ img {
 }
 
 .navbar-brand img {
-    height: 40px;
+    height: 60px;
     width: auto;
     transition: transform 0.3s ease;
 }
@@ -1455,6 +1455,10 @@ img {
         cursor: pointer;
         z-index: 1001;
         position: relative;
+    }
+    
+    .navbar-brand img {
+        height: 40px;
     }
     
     .navbar-collapse {

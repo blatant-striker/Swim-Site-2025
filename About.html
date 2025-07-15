@@ -15,59 +15,10 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
-    <!-- Custom CSS -->
-<link href="css/main.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 
-<!-- Bootstrap JS (early load) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Mobile navbar fix -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Ensure Bootstrap is loaded
-        if (typeof bootstrap !== 'undefined') {
-            // Initialize dropdowns manually
-            document.querySelectorAll('.dropdown-toggle').forEach(function(dropdownToggle) {
-                dropdownToggle.addEventListener('click', function(e) {
-                    if (window.innerWidth < 1050) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        
-                        const dropdownMenu = this.nextElementSibling;
-                        if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
-                            dropdownMenu.classList.toggle('show');
-                            
-                            // Close other dropdowns
-                            document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
-                                if (menu !== dropdownMenu) {
-                                    menu.classList.remove('show');
-                                }
-                            });
-                        }
-                    }
-                });
-            });
-            
-            // Handle navbar toggler
-            const navbarToggler = document.querySelector('.navbar-toggler');
-            const navbarCollapse = document.querySelector('.navbar-collapse');
-            
-            if (navbarToggler && navbarCollapse) {
-                navbarToggler.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    navbarCollapse.classList.toggle('show');
-                    navbarCollapse.style.height = navbarCollapse.classList.contains('show') ? '100vh' : '0';
-                });
-            }
-        }
-    });
-</script>
-    <!-- Responsive CSS -->
-    
-    
-    <!-- Custom styles for modal fixes -->
+    <!-- High-Priority Navbar Glass Effect Styles -->
     <style>
-        /* Navbar */
         .navbar {
             background: rgba(0, 0, 0, 0.45) !important; /* Semi-transparent background always */
             backdrop-filter: blur(20px) !important;
@@ -137,6 +88,136 @@
             .navbar > .container {
                 max-width: 98%;
             }
+            
+            /* Mobile Dropdown Specific Styles */
+            .navbar-toggler {
+                display: block;
+                cursor: pointer;
+                z-index: 1001;
+                position: relative;
+            }
+            
+            .navbar-collapse {
+                position: fixed !important;
+                top: 0 !important;
+                right: 0 !important;
+                width: 250px !important;
+                height: 0 !important;
+                background-color: rgba(0, 0, 0, 0.95) !important;
+                overflow-y: auto !important;
+                transition: all 0.3s ease !important;
+                z-index: 1000 !important;
+                padding: 80px 0 0 !important;
+                backdrop-filter: blur(10px) !important;
+                -webkit-backdrop-filter: blur(10px) !important;
+            }
+            
+            .navbar-collapse.show {
+                height: 100vh !important;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.3) !important;
+            }
+            
+            .navbar-nav {
+                padding-left: 0 !important;
+                margin-left: 0 !important;
+            }
+            
+            .nav-item {
+                width: 100% !important;
+            }
+            
+            .nav-link {
+                padding: 12px 20px !important;
+                border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+            }
+            
+            .nav-link:hover {
+                background-color: rgba(253, 0, 0, 0.1);
+            }
+            
+            /* Dropdown styling */
+            .dropdown-menu {
+                position: static !important;
+                float: none !important;
+                width: 100% !important;
+                background-color: rgba(0, 0, 0, 0.5) !important;
+                border: none !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                display: none !important; /* Change to none instead of block */
+                visibility: hidden !important;
+                opacity: 0 !important;
+                transform: none !important;
+                max-height: 0 !important;
+                overflow: hidden !important;
+                transition: max-height 0.3s ease, opacity 0.3s ease !important;
+                border-left: none !important; /* Remove any border */
+                border-right: none !important; /* Remove any border */
+                outline: none !important; /* Remove any outline */
+            }
+            
+            .dropdown-menu.show {
+                max-height: 500px !important;
+                border: none !important; /* Ensure no border when shown */
+                outline: none !important; /* Ensure no outline when shown */
+                display: block !important; /* Show when .show class is applied */
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
+            .dropdown-item {
+                padding: 10px 35px !important;
+                color: rgba(255,255,255,0.8) !important;
+                border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+            }
+            
+            .dropdown-item:hover,
+            .dropdown-item:focus {
+                background-color: rgba(253, 0, 0, 0.2) !important;
+                color: #ffffff !important;
+            }
+            
+            .navbar-toggler {
+                position: absolute !important;
+                top: 15px !important;
+                right: 15px !important;
+                z-index: 1001 !important;
+                border: none !important;
+                background: transparent !important;
+                padding: 10px !important;
+            }
+            
+            .navbar-toggler:focus {
+                box-shadow: none !important;
+                outline: none !important;
+            }
+            
+            .dropdown-toggle::after {
+                position: absolute !important;
+                right: 20px !important;
+                top: 50% !important;
+                transform: translateY(-50%) !important;
+            }
+            
+            /* Fix for dropdown arrow positioning */
+            .nav-link.dropdown-toggle {
+                position: relative;
+                padding-right: 40px !important; /* Make room for the arrow */
+                text-align: left !important;
+            }
+            
+            /* Additional mobile navbar styling */
+            @media (max-width: 1150px) {
+                .navbar-nav {
+                    text-align: left !important;
+                }
+                
+                .nav-link, .dropdown-item {
+                    text-align: left !important;
+                }
+            }
         }
         
         @media (max-width: 767px) {
@@ -147,12 +228,25 @@
             /* Keep navbar items aligned properly on mobile */
             .navbar-nav {
                 padding-left: 0;
-                text-align: right;
+                text-align: left;
             }
             
             .navbar > .container {
                 max-width: 100%;
                 padding-right: 1rem;
+            }
+        }
+        
+        /* Additional mobile navbar text alignment */
+        @media (max-width: 1150px) {
+            .navbar-nav .nav-link,
+            .dropdown-item {
+                text-align: left !important;
+                padding-left: 20px !important;
+            }
+            
+            .dropdown-menu .dropdown-item {
+                padding-left: 35px !important;
             }
         }
         
@@ -184,6 +278,176 @@
             margin: 0.3rem 0 !important;
         }
         
+        /* Page Transition Styles */
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #D0EFFF;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .page-transition.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .page-transition .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(253, 0, 0, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary-red);
+            animation: spin 1s infinite linear;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+    
+    <!-- Additional dropdown styling for mobile -->
+    <style>
+        /* Additional dropdown styling for mobile */
+        @media (max-width: 1150px) {
+            /* Completely hide dropdowns when collapsed */
+            .dropdown-menu:not(.show) {
+                display: none !important;
+                height: 0 !important;
+                width: 0 !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                border: 0 !important;
+                overflow: hidden !important;
+                clip: rect(0, 0, 0, 0) !important;
+                position: absolute !important;
+            }
+            
+            /* Style for dropdown menu dark theme */
+            .dropdown-menu-dark {
+                background-color: rgba(0, 0, 0, 0.8) !important;
+            }
+            
+            /* Make dropdown items more visible */
+            .dropdown-menu.show .dropdown-item {
+                color: white !important;
+                padding: 10px 35px !important;
+            }
+        }
+    </style>
+    
+    <!-- Bootstrap JS (early load) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Mobile navbar fix -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ensure Bootstrap is loaded
+            if (typeof bootstrap !== 'undefined') {
+                // Initialize dropdowns manually
+                document.querySelectorAll('.dropdown-toggle').forEach(function(dropdownToggle) {
+                    dropdownToggle.addEventListener('click', function(e) {
+                        if (window.innerWidth < 1050) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            
+                            const dropdownMenu = this.nextElementSibling;
+                            if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
+                                // Close all other dropdowns first
+                                document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
+                                    if (menu !== dropdownMenu) {
+                                        menu.classList.remove('show');
+                                    }
+                                });
+                                
+                                // Toggle this dropdown
+                                dropdownMenu.classList.toggle('show');
+                                
+                                // Force repaint to ensure transitions work properly
+                                dropdownMenu.offsetHeight;
+                            }
+                        }
+                    });
+                });
+                
+                // Add dark theme to dropdowns for mobile
+                if (window.innerWidth < 1050) {
+                    document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+                        menu.classList.add('dropdown-menu-dark');
+                    });
+                }
+                
+                // Handle navbar toggler
+                const navbarToggler = document.querySelector('.navbar-toggler');
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                
+                if (navbarToggler && navbarCollapse) {
+                    navbarToggler.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        navbarCollapse.classList.toggle('show');
+                        navbarCollapse.style.height = navbarCollapse.classList.contains('show') ? '100vh' : '0';
+                        
+                        // Close all dropdowns when toggling the menu
+                        document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
+                            menu.classList.remove('show');
+                        });
+                    });
+                }
+                
+                // Fix for dropdown menus on mobile
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth >= 1050) {
+                        document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+                            menu.classList.remove('show');
+                            menu.classList.remove('dropdown-menu-dark');
+                        });
+                        
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if (navbarCollapse) {
+                            navbarCollapse.classList.remove('show');
+                            navbarCollapse.style.height = '0';
+                        }
+                    } else {
+                        // Add dark theme to dropdowns for mobile
+                        document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+                            menu.classList.add('dropdown-menu-dark');
+                        });
+                    }
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (window.innerWidth < 1050) {
+                        const navbarCollapse = document.querySelector('.navbar-collapse.show');
+                        const navbarToggler = document.querySelector('.navbar-toggler');
+                        
+                        if (navbarCollapse && navbarToggler && 
+                            !navbarCollapse.contains(e.target) && 
+                            !navbarToggler.contains(e.target)) {
+                            navbarCollapse.classList.remove('show');
+                            navbarCollapse.style.height = '0';
+                            
+                            // Also close all dropdown menus
+                            document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
+                                menu.classList.remove('show');
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Custom styles for modal fixes -->
+    <style>
         /* Fix modal positioning and z-index issues */
         .modal {
             z-index: 10050 !important;
@@ -254,53 +518,23 @@
             transform: scale(1.1);
         }
     </style>
-<!-- Bootstrap JS (early load) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Mobile navbar fix -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17239822947"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Ensure Bootstrap is loaded
-        if (typeof bootstrap !== 'undefined') {
-            // Initialize dropdowns manually
-            document.querySelectorAll('.dropdown-toggle').forEach(function(dropdownToggle) {
-                dropdownToggle.addEventListener('click', function(e) {
-                    if (window.innerWidth < 1050) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        
-                        const dropdownMenu = this.nextElementSibling;
-                        if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
-                            dropdownMenu.classList.toggle('show');
-                            
-                            // Close other dropdowns
-                            document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
-                                if (menu !== dropdownMenu) {
-                                    menu.classList.remove('show');
-                                }
-                            });
-                        }
-                    }
-                });
-            });
-            
-            // Handle navbar toggler
-            const navbarToggler = document.querySelector('.navbar-toggler');
-            const navbarCollapse = document.querySelector('.navbar-collapse');
-            
-            if (navbarToggler && navbarCollapse) {
-                navbarToggler.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    navbarCollapse.classList.toggle('show');
-                    navbarCollapse.style.height = navbarCollapse.classList.contains('show') ? '100vh' : '0';
-                });
-            }
-        }
-    });
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17239822947');
 </script>
 </head>
 
 <body>
+    <!-- Page Transition -->
+    <div class="page-transition">
+        <div class="loader"></div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
@@ -325,7 +559,7 @@
                         <a class="nav-link" href="Resources.html">NEWS</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="Meets.html" id="competitionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" id="competitionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             COMPETITIONS
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="competitionsDropdown">
@@ -583,26 +817,25 @@
     </section>
 
     <!-- Function Drive Promotion Section -->
-    <section class="function-drive-section section-padding">
+    <section class="function-drive-section section-padding-sm">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="col-lg-9 col-md-10 mx-auto">
                     <div class="function-drive-content">
-                        <h2 class="mb-4">This website was developed by</h2>
-                        <div class="fd-logo-container mb-4">
-                            <img src="Images/Function_Drive_Logo.webp" alt="Function Drive Logo" class="img-fluid fd-logo">
-                        </div>
-                        <h3 class="fd-tagline mb-4">FUNCTIONDRIVE</h3>
-                        <p class="fd-description mb-4">Building Websites • Automations • AI Tools for Local Businesses</p>
-                        <p class="fd-testimonial mb-4">"We thank the Windsor Essex Swim Team for the opportunity."</p>
-                        <a href="https://function-drive.com/" target="_blank" class="btn btn-primary btn-lg">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="function-drive-image">
-                        <div class="fd-image-wrapper">
-                            <div class="fd-glow-effect"></div>
-                            <img src="Images/Function_Drive_Logo.webp" alt="Function Drive" class="img-fluid">
+                        <div class="row align-items-center">
+                            <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+                                <div class="fd-image-container">
+                                    <div class="fd-glow-effect"></div>
+                                    <img src="Images/Function_Drive_Logo.webp" alt="Function Drive Logo" class="img-fluid fd-logo">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <p class="website-by mb-1">Website made by</p>
+                                <h3 class="fd-tagline mb-2">FUNCTIONDRIVE</h3>
+                                <p class="fd-description mb-2">Building Websites • Automations • AI Tools for Local Businesses</p>
+                                <p class="fd-testimonial mb-3">"We thank the Windsor Essex Swim Team for the opportunity."</p>
+                                <a href="https://function-drive.com/" target="_blank" class="btn btn-primary">Learn More</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -618,6 +851,7 @@
             overflow: hidden;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 0;
         }
         
         .function-drive-section::before {
@@ -636,77 +870,32 @@
             position: relative;
             z-index: 1;
             color: #ffffff;
-            padding: 2rem;
+            padding: 1rem;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(253, 0, 0, 0.1);
         }
         
-        .function-drive-content h2 {
-            font-weight: 700;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, #ffffff, #fd0000);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .website-by {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
         }
         
-        .fd-logo-container {
-            max-width: 150px;
+        .fd-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 120px;
+            margin: 0 auto;
         }
         
         .fd-logo {
-            filter: drop-shadow(0 0 10px rgba(253, 0, 0, 0.5));
-            transition: all 0.5s ease;
-        }
-        
-        .fd-tagline {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 2.2rem;
-            color: #ffffff;
-            letter-spacing: 1px;
-        }
-        
-        .fd-description {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: 300;
-            letter-spacing: 0.5px;
-        }
-        
-        .fd-testimonial {
-            font-style: italic;
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.7);
-            border-left: 3px solid #fd0000;
-            padding-left: 1rem;
-        }
-        
-        .function-drive-image {
             position: relative;
-            z-index: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-        
-        .fd-image-wrapper {
-            position: relative;
-            width: 80%;
-            padding-bottom: 80%;
-            max-width: 400px;
-            max-height: 400px;
-        }
-        
-        .fd-image-wrapper img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            height: 80%;
-            object-fit: contain;
             z-index: 2;
-            animation: pulse 3s infinite ease-in-out;
+            filter: drop-shadow(0 0 10px rgba(253, 0, 0, 0.5));
+            animation: pulse 4s infinite ease-in-out;
         }
         
         .fd-glow-effect {
@@ -719,13 +908,13 @@
             background: radial-gradient(circle, rgba(253, 0, 0, 0.3) 0%, rgba(253, 0, 0, 0) 70%);
             border-radius: 50%;
             z-index: 1;
-            animation: glow 3s infinite ease-in-out;
+            animation: glow 4s infinite ease-in-out;
         }
         
         @keyframes pulse {
-            0% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.05); }
-            100% { transform: translate(-50%, -50%) scale(1); }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
         
         @keyframes glow {
@@ -734,10 +923,35 @@
             100% { opacity: 0.5; width: 90%; height: 90%; }
         }
         
+        .fd-tagline {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: #ffffff;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, #ffffff, #fd0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .fd-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+        }
+        
+        .fd-testimonial {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            border-left: 3px solid #fd0000;
+            padding-left: 1rem;
+        }
+        
         .function-drive-section .btn-primary {
             background: linear-gradient(45deg, #fd0000, #ff4d4d);
             border: none;
-            padding: 0.75rem 2rem;
+            padding: 0.6rem 1.8rem;
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -751,26 +965,30 @@
             background: linear-gradient(45deg, #e60000, #ff3333);
         }
         
-        @media (max-width: 991px) {
-            .function-drive-content {
+        @media (max-width: 767px) {
+            .website-by, .fd-tagline {
                 text-align: center;
-                padding: 1rem;
             }
             
-            .fd-logo-container {
-                margin: 0 auto;
+            .fd-tagline {
+                font-size: 1.6rem;
+            }
+            
+            .fd-description, .fd-testimonial {
+                text-align: center;
             }
             
             .fd-testimonial {
                 border-left: none;
                 padding-left: 0;
                 border-top: 2px solid #fd0000;
-                padding-top: 1rem;
+                padding-top: 0.5rem;
                 margin: 0 auto;
-                max-width: 80%;
+                max-width: 90%;
             }
             
-            .fd-image-wrapper {
+            .function-drive-section .btn-primary {
+                display: block;
                 margin: 0 auto;
             }
         }
@@ -1396,6 +1614,34 @@
             }
         });
     </script>
+    <style>
+        /* Additional dropdown styling for mobile */
+        @media (max-width: 1150px) {
+            /* Completely hide dropdowns when collapsed */
+            .dropdown-menu:not(.show) {
+                display: none !important;
+                height: 0 !important;
+                width: 0 !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                border: 0 !important;
+                overflow: hidden !important;
+                clip: rect(0, 0, 0, 0) !important;
+                position: absolute !important;
+            }
+            
+            /* Style for dropdown menu dark theme */
+            .dropdown-menu-dark {
+                background-color: rgba(0, 0, 0, 0.8) !important;
+            }
+            
+            /* Make dropdown items more visible */
+            .dropdown-menu.show .dropdown-item {
+                color: white !important;
+                padding: 10px 35px !important;
+            }
+        }
+    </style>
 </body>
 </html>
 
