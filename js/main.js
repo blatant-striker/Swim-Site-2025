@@ -539,6 +539,23 @@ class WESTWebsite {
         homeItem.innerHTML = `<a class="nav-link" href="index.html">HOME</a>`;
         navbarNav.appendChild(homeItem);
         
+        // 2. Add Team & Club dropdown
+        const teamItem = document.createElement('li');
+        teamItem.className = 'nav-item dropdown';
+        teamItem.innerHTML = `
+            <a class="nav-link dropdown-toggle team-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                TEAM & CLUB
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="About.html">About Us</a></li>
+                <li><a class="dropdown-item" href="Coaches.html">Coaches</a></li>
+                <li><a class="dropdown-item" href="team.html">Team Structure</a></li>
+                <li><a class="dropdown-item" href="Facility.html">Facilities</a></li>
+                <li><a class="dropdown-item" href="Registration.html">Registration</a></li>
+            </ul>
+        `;
+        navbarNav.appendChild(teamItem);
+        
         // 3. Add Competitions dropdown
         const competitionsItem = document.createElement('li');
         competitionsItem.className = 'nav-item dropdown';
@@ -607,24 +624,7 @@ class WESTWebsite {
         `;
         navbarNav.appendChild(resourcesItem);
         
-        // 7. Add Team & Club dropdown
-        const teamItem = document.createElement('li');
-        teamItem.className = 'nav-item dropdown';
-        teamItem.innerHTML = `
-            <a class="nav-link dropdown-toggle team-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                TEAM & CLUB
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="About.html">About Us</a></li>
-                <li><a class="dropdown-item" href="Coaches.html">Coaches</a></li>
-                <li><a class="dropdown-item" href="team.html">Team Structure</a></li>
-                <li><a class="dropdown-item" href="Facility.html">Facilities</a></li>
-                <li><a class="dropdown-item" href="Registration.html">Registration</a></li>
-            </ul>
-        `;
-        navbarNav.appendChild(teamItem);
-        
-        // 8. Add Contact link
+        // 7. Add Contact link
         const contactItem = document.createElement('li');
         contactItem.className = 'nav-item';
         contactItem.innerHTML = `<a class="nav-link" href="Contact.html">CONTACT</a>`;
